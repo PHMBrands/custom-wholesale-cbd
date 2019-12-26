@@ -13,7 +13,7 @@ class SingleChoice extends Component {
   componentDidMount = () => {
     console.log('test mount')
     switch(this.props.currentDisplay) {
-      case 'quantity':
+      case 0:
         console.log('switch test')
         this.setState({ selectionName: 'quantity', selectionValue: 100 })
         return 
@@ -34,7 +34,7 @@ class SingleChoice extends Component {
 
   displayChoice = (status) => {
     switch(status) {
-      case 'quantity':
+      case 0:
         return <article>
             <h4>Please Select a quantity below:</h4>
             <form>
@@ -48,14 +48,14 @@ class SingleChoice extends Component {
               <button onClick={ this.handleClick }>SUBMIT</button>
             </form>
           </article>
-      case 'container':
+      case 1:
         return <article>
             <form>
               <input type="radio" id="15ml" name="drone" />
               <label for="15ml">15mL</label>
               <input type="radio" id="30ml" name="drone" />
               <label for="30ml">30mL</label>
-              <button>SUBMIT</button>
+              <button onClick>SUBMIT</button>
             </form>
           </article>
       case 'flavor':
