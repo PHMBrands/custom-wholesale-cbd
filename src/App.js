@@ -6,7 +6,7 @@ import ProgressiveForm from './components/ProgressiveForm/ProgressiveForm';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <header>
       </header>
       <ProgressiveForm />
     </div>
