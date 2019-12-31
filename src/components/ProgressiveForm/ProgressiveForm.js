@@ -13,10 +13,10 @@ class ProgressiveForm extends Component {
     }
   }
 
-  testFunction = () => {
-    console.log('test')
-    return <div>Test Func</div>
-  }
+  // testFunction = () => {
+  //   console.log('test')
+  //   return <div>Test Func</div>
+  // }
 
   updateSelectionsObject = (selection) => {
     this.setState({ currentDisplay: this.state.currentDisplay += 1 })
@@ -28,15 +28,19 @@ class ProgressiveForm extends Component {
     this.setState({ currentDisplay: this.state.currentDisplay++ })
   }
 
+  updateDisplay = (display) => {
+    this.setState({ currentDisplay: display })
+  }
+
   render() {
     return <section> 
-      <p>This is a test</p>
       <SingleChoice 
         currentDisplay={ this.state.currentDisplay } 
         updateSelectionsObject={ this.updateSelectionsObject }
       />
       <SelectionDisplay 
         currentSelections={ this.state.selections }
+        updateDisplay={ this.updateDisplay }
       />
     </section>
 

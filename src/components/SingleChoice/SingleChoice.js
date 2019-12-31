@@ -35,7 +35,6 @@ class SingleChoice extends Component {
   handleChangeNoButton = (event) => {
     const { name, value } = event.target
     this.setState({ selectionName: name, selectionValue: value }, () => this.handleClick(event))
-    // this.handleClick(event)
   }
 
   displayChoice = (status) => {
@@ -72,7 +71,7 @@ class SingleChoice extends Component {
               <label for="guava-lime">Guava Lime</label>
               <input type="radio" id="mocha" name="flavor" value="Mocha" onChange={this.handleChangeNoButton} />
               <label for="mocha">Mocha</label>
-              <input type="radio" id="mojito" name="flavor" value="Mojita" onChange={this.handleChangeNoButton} />
+              <input type="radio" id="mojito" name="flavor" value="Mojito" onChange={this.handleChangeNoButton} />
               <label for="mojito">Mojito</label>
               <input type="radio" id="orange-creamsicle" name="flavor" value="Orange Creamsicle" onChange={this.handleChangeNoButton} />
               <label for="orange-creamsicle">Orange Creamsicle</label>
