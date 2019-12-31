@@ -5,22 +5,22 @@ class SingleChoice extends Component {
     super()
 
     this.state = {
-      selectionName: '',
-      selectionValue: undefined
+      selectionName: 'quantity',
+      selectionValue: 100
     }
   }
 
-  componentDidMount = () => {
-    console.log('test mount')
-    switch(this.props.currentDisplay) {
-      case 0:
-        console.log('switch test')
-        this.setState({ selectionName: 'quantity', selectionValue: 100 })
-        return 
-      default:
-        return console.log('error')
-    }
-  }
+  // componentDidMount = () => {
+  //   console.log('test mount')
+  //   switch(this.props.currentDisplay) {
+  //     case 0:
+  //       console.log('switch test')
+  //       this.setState({ selectionName: 'quantity', selectionValue: 100 })
+  //       return 
+  //     default:
+  //       return console.log('error')
+  //   }
+  // }
 
   handleClick = (event) => {
     event.preventDefault();
@@ -35,7 +35,6 @@ class SingleChoice extends Component {
   handleChangeNoButton = (event) => {
     const { name, value } = event.target
     this.setState({ selectionName: name, selectionValue: value }, () => this.handleClick(event))
-    console.log('log', this.state)
     // this.handleClick(event)
   }
 

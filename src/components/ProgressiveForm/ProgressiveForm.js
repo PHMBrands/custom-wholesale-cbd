@@ -19,11 +19,7 @@ class ProgressiveForm extends Component {
   }
 
   updateSelectionsObject = (selection) => {
-    console.log('updateSelectionsObject function')
-    console.log('selection', selection)
-
     this.setState({ currentDisplay: this.state.currentDisplay += 1 })
-    console.log(selection)
     let selections = { ...this.state.selections, [selection.selectionName]: selection.selectionValue }
     this.setState({ selections })
   }
