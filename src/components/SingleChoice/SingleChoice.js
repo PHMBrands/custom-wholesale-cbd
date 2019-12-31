@@ -24,17 +24,18 @@ class SingleChoice extends Component {
 
   handleClick = (event) => {
     event.preventDefault();
-    this.props.updateSelectionsObject(this.state)
+    this.props.updateSelectionsObject(this.state);
   }
 
   handleChange = (event) => {
-    const { name, value } = event.target
-    this.setState({ selectionName: name, selectionValue: value })
+    const { name, value } = event.target;
+    this.setState({ selectionName: name, selectionValue: value });
   }
 
   handleChangeNoButton = (event) => {
-    const { name, value } = event.target
-    this.setState({ selectionName: name, selectionValue: value }, () => this.handleClick(event))
+    const { name, value } = event.target;
+    this.setState({ selectionName: name, selectionValue: value }, () => this.handleClick(event));
+    // console.log(this.props.stashedDisplay)
   }
 
   displayChoice = (status) => {
@@ -58,9 +59,9 @@ class SingleChoice extends Component {
             <h4>Please select your container size:</h4>
             <form>
               <input type="radio" id="15ml" name="container" value="15mL" onChange={this.handleChangeNoButton} />
-              <label for="15ml">15mL</label>
+                <label for="15ml">15mL</label>
               <input type="radio" id="30ml" name="container" value="30mL" onChange={ this.handleChangeNoButton } />
-              <label for="30ml">30mL</label>
+                <label for="30ml">30mL</label>
             </form>
           </article>
       case 2:
@@ -68,19 +69,19 @@ class SingleChoice extends Component {
             <h4>Please select your flavor:</h4>
             <form>
               <input type="radio" id="guava-lime" name="flavor" value="Guava Lime" onChange={this.handleChangeNoButton} />
-              <label for="guava-lime">Guava Lime</label>
+                <label for="guava-lime">Guava Lime</label>
               <input type="radio" id="mocha" name="flavor" value="Mocha" onChange={this.handleChangeNoButton} />
-              <label for="mocha">Mocha</label>
+                <label for="mocha">Mocha</label>
               <input type="radio" id="mojito" name="flavor" value="Mojito" onChange={this.handleChangeNoButton} />
-              <label for="mojito">Mojito</label>
+                <label for="mojito">Mojito</label>
               <input type="radio" id="orange-creamsicle" name="flavor" value="Orange Creamsicle" onChange={this.handleChangeNoButton} />
-              <label for="orange-creamsicle">Orange Creamsicle</label>
+                <label for="orange-creamsicle">Orange Creamsicle</label>
               <input type="radio" id="peppermint" name="flavor" value="Peppermint" onChange={this.handleChangeNoButton} />
-              <label for="peppermint">Peppermint</label>
+                <label for="peppermint">Peppermint</label>
               <input type="radio" id="mint-chocolate" name="flavor" value="Mint Chocolate" onChange={this.handleChangeNoButton} />
-              <label for="mint-chocolate">Mint Chocolate</label>
+                <label for="mint-chocolate">Mint Chocolate</label>
               <input type="radio" id="unflavored" name="flavor" value="unflavored" onChange={this.handleChangeNoButton} />
-              <label for="unflavored">unflavored</label>
+                <label for="unflavored">unflavored</label>
             </form>
           </article>
       case 3:
@@ -88,9 +89,9 @@ class SingleChoice extends Component {
             <h4>Please select your carrier oil:</h4>
             <form>
               <input type="radio" id="wheat-germ-oil" name="carrier" value="Wheat Germ Oil" onChange={this.handleChangeNoButton} />
-              <label for="wheat-germ-oil">Wheat Germ Oil</label>
+                <label for="wheat-germ-oil">Wheat Germ Oil</label>
               <input type="radio" id="mct-oil" name="carrier" value="MCT Oil" onChange={this.handleChangeNoButton} />
-              <label for="mct-oil">MCT Oil</label>
+                <label for="mct-oil">MCT Oil</label>
             </form>
           </article>
       case 4:
@@ -98,9 +99,9 @@ class SingleChoice extends Component {
           <h4>Please select your spectrum:</h4>
           <form>
             <input type="radio" id="full-spectrum" name="spectrum" value="Full Spectrum" onChange={this.handleChangeNoButton} />
-            <label for="full-spectrum">Full Spectrum</label>
+              <label for="full-spectrum">Full Spectrum</label>
             <input type="radio" id="broad-spectrum" name="spectrum" value="Broad Spectrum" onChange={this.handleChangeNoButton} />
-            <label for="broad-spectrum">Broad Spectrum</label>
+              <label for="broad-spectrum">Broad Spectrum</label>
           </form>
         </article>
       case 5:
@@ -108,13 +109,13 @@ class SingleChoice extends Component {
             <h4>Please select your potency per serving:</h4>
             <form>
               <input type="radio" id="10mg" name="potency" value="10 mg" onChange={this.handleChangeNoButton} />
-              <label for="10mg">10 mg</label>
+                <label for="10mg">10 mg</label>
               <input type="radio" id="20mg" name="potency" value="20 mg" onChange={this.handleChangeNoButton} />
-              <label for="20mg">20 mg</label>
+                <label for="20mg">20 mg</label>
               <input type="radio" id="30mg" name="potency" value="30 mg" onChange={this.handleChangeNoButton} />
-              <label for="30mg">30 mg</label>
+                <label for="30mg">30 mg</label>
               <input type="radio" id="50mg" name="potency" value="50 mg" onChange={this.handleChangeNoButton} />
-              <label for="50mg">50 mg</label>
+                <label for="50mg">50 mg</label>
             </form>
           </article>
       case 6:

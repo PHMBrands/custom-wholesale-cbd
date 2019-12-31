@@ -9,7 +9,8 @@ class ProgressiveForm extends Component {
     this.state = {
       selections: {},
       pricing: {},
-      currentDisplay: 0
+      currentDisplay: 0,
+      stashedDisplay: undefined
     }
   }
 
@@ -19,22 +20,31 @@ class ProgressiveForm extends Component {
   // }
 
   updateSelectionsObject = (selection) => {
-    this.setState({ currentDisplay: this.state.currentDisplay += 1 })
-    let selections = { ...this.state.selections, [selection.selectionName]: selection.selectionValue }
-    this.setState({ selections })
+    if (this.state.stashedDisplay) {
+      let newDisplay = this.state.stashedDisplay
+      let selections = { ...this.state.selections, [selection.selectionName]: selection.selectionValue }
+      this.setState({ selections, currentDisplay: newDisplay, stashedDisplay: undefined })
+
+    } else {
+      let selections = { ...this.state.selections, [selection.selectionName]: selection.selectionValue }
+      this.setState({ selections, currentDisplay: this.state.currentDisplay += 1  })
+    }
+
+    // this.setState({ currentDisplay: this.state.currentDisplay += 1 });
+    // this.setState({ selections })
   }
 
-  progressDisplay = () => {
-    this.setState({ currentDisplay: this.state.currentDisplay++ })
-  }
+  // progressDisplay = () => {
+  //   this.setState({ currentDisplay: this.state.currentDisplay++ })
+  // }
 
   updateDisplay = (display) => {
-    this.setState({ currentDisplay: display })
+    let stashedDisplay = this.state.currentDisplay;
+    this.setState({ currentDisplay: display, stashedDisplay })
   }
 
   regressDisplay = () => {
-    let newDisplay = this.state.currentDisplay - 1
-    console.log(newDisplay)
+    let newDisplay = this.state.currentDisplay - 1;
     this.setState({ currentDisplay: newDisplay })
   }
 
@@ -44,6 +54,7 @@ class ProgressiveForm extends Component {
       <SingleChoice 
         currentDisplay={ this.state.currentDisplay } 
         updateSelectionsObject={ this.updateSelectionsObject }
+        stashedDisplay={ this.state.stashedDisplay }
       />
       <SelectionDisplay 
         currentSelections={ this.state.selections }
