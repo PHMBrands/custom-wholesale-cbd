@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SingleChoice from '../SingleChoice/SingleChoice';
+import SelectionDisplay from '../SelectionDisplay/SelectionDisplay';
 
 class ProgressiveForm extends Component {
   constructor() {
@@ -37,6 +38,9 @@ class ProgressiveForm extends Component {
       <SingleChoice 
         currentDisplay={ this.state.currentDisplay } 
         updateSelectionsObject={ this.updateSelectionsObject }
+      />
+      <SelectionDisplay 
+        currentSelections={ this.state.selections }
       />
     </section>
 
