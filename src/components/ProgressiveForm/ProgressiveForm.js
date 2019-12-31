@@ -32,8 +32,15 @@ class ProgressiveForm extends Component {
     this.setState({ currentDisplay: display })
   }
 
+  regressDisplay = () => {
+    let newDisplay = this.state.currentDisplay - 1
+    console.log(newDisplay)
+    this.setState({ currentDisplay: newDisplay })
+  }
+
   render() {
     return <section> 
+      <button onClick={ this.regressDisplay }>BACK</button>
       <SingleChoice 
         currentDisplay={ this.state.currentDisplay } 
         updateSelectionsObject={ this.updateSelectionsObject }
