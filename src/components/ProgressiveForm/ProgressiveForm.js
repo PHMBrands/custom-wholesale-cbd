@@ -3,6 +3,7 @@ import SingleChoice from '../SingleChoice/SingleChoice';
 import SelectionDisplay from '../SelectionDisplay/SelectionDisplay';
 import ProgressBar from '../ProgressBar/ProgressBar';
 import SoftgelChoices from '../SoftgelChoices/SoftgelChoices';  
+import TopicalsChoices from '../TopicalsChoices/TopicalsChoices';
 
 class ProgressiveForm extends Component {
   constructor() {
@@ -55,11 +56,12 @@ class ProgressiveForm extends Component {
         updateSelectionsObject={ this.updateSelectionsObject }
         stashedDisplay={ this.state.stashedDisplay }
       /> */}
-      <SoftgelChoices 
+      {/* <SoftgelChoices 
         currentDisplay={ this.state.currentDisplay }
         updateSelectionsObject={this.updateSelectionsObject}
         stashedDisplay={this.state.stashedDisplay}
-      />
+      /> */}
+      <TopicalsChoices />
       <SelectionDisplay 
         currentSelections={ this.state.selections }
         updateDisplay={ this.updateDisplay }

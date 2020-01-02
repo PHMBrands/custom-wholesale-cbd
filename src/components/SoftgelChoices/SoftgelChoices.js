@@ -25,8 +25,6 @@ class SoftgelChoices extends Component {
     this.setState({ selectionName: name, selectionValue: value }, () => this.handleClick(event))
   }
 
-
-
   displayChoice = (status) => {
     switch (status) {
       case 0:
