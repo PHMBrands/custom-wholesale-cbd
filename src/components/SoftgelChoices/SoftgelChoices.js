@@ -12,7 +12,7 @@ class SoftgelChoices extends Component {
 
   handleClick = (event) => {
     event.preventDefault();
-    this.props.updateSelectionsObject(this.state)
+    this.props.updateSelectionsObject(this.state);
   }
 
   handleChange = (event) => {
@@ -45,9 +45,9 @@ class SoftgelChoices extends Component {
         return <article>
             <h4>Please select your softgel size:</h4>
             <form>
-              <input type="radio" id="15mg" name="container" value="15mg" onChange={this.handleChangeNoButton} />
+              <input type="radio" id="15mg" name="softgelSize" value="15mg" onChange={this.handleChangeNoButton} />
               <label for="15mg">15mg</label>
-              <input type="radio" id="25mg" name="container" value="25mg" onChange={this.handleChangeNoButton} />
+              <input type="radio" id="25mg" name="softgelSize" value="25mg" onChange={this.handleChangeNoButton} />
               <label for="25mg">25mg</label>
             </form>
           </article>

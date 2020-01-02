@@ -61,7 +61,11 @@ class ProgressiveForm extends Component {
         updateSelectionsObject={this.updateSelectionsObject}
         stashedDisplay={this.state.stashedDisplay}
       /> */}
-      <TopicalsChoices />
+      <TopicalsChoices 
+        currentDisplay={this.state.currentDisplay}
+        updateSelectionsObject={this.updateSelectionsObject}
+        stashedDisplay={this.state.stashedDisplay}
+      />
       <SelectionDisplay 
         currentSelections={ this.state.selections }
         updateDisplay={ this.updateDisplay }
