@@ -4,6 +4,7 @@ import SelectionDisplay from '../SelectionDisplay/SelectionDisplay';
 import ProgressBar from '../ProgressBar/ProgressBar';
 import SoftgelChoices from '../SoftgelChoices/SoftgelChoices';  
 import TopicalsChoices from '../TopicalsChoices/TopicalsChoices';
+import LabelCreator from '../LabelCreator/LabelCreator';
 
 class ProgressiveForm extends Component {
   constructor() {
@@ -83,6 +84,7 @@ class ProgressiveForm extends Component {
     return <section> 
       <button onClick={ this.regressDisplay }>BACK</button>
       { this.selectProduct(this.state.productSelected) }
+      <LabelCreator />
       <SelectionDisplay 
         currentSelections={ this.state.selections }
         updateDisplay={ this.updateDisplay }
