@@ -13,7 +13,8 @@ class ProgressiveForm extends Component {
       selections: {},
       pricing: {},
       currentDisplay: 0,
-      stashedDisplay: undefined
+      stashedDisplay: undefined,
+      productSelected: 'products'
     }
   }
 
@@ -48,9 +49,46 @@ class ProgressiveForm extends Component {
     this.setState({ currentDisplay: newDisplay })
   }
 
+  updateProductSelection = (product) => {
+    this.setState({ productSelected: product })
+  }
+
+  selectProduct = (selection) => {
+    switch (selection) {
+      case 'products':
+        return <form>
+            <button onClick={ () => this.updateProductSelection('tinctures') }>Tinctures</button>
+            <button onClick={ () => this.updateProductSelection('softgels') }>Softgels</button>
+            <button onClick={ () => this.updateProductSelection('topicals') }>Lotions</button>
+          </form>
+      case 'tinctures':
+        return <SingleChoice 
+            currentDisplay={ this.state.currentDisplay } 
+            updateSelectionsObject={ this.updateSelectionsObject }
+            stashedDisplay={ this.state.stashedDisplay }
+          />
+      case 'softgels':
+        return <SoftgelChoices
+          currentDisplay={this.state.currentDisplay}
+          updateSelectionsObject={this.updateSelectionsObject}
+          stashedDisplay={this.state.stashedDisplay}
+        />
+      case 'topicals':
+        return <TopicalsChoices
+          currentDisplay={this.state.currentDisplay}
+          updateSelectionsObject={this.updateSelectionsObject}
+          stashedDisplay={this.state.stashedDisplay}
+        />
+      default:
+        return <p>Something went wrong, we apologize. Please refresh the page.</p>
+
+    }
+  }
+
   render() {
     return <section> 
       <button onClick={ this.regressDisplay }>BACK</button>
+      { this.selectProduct(this.state.productSelected) }
       {/* <SingleChoice 
         currentDisplay={ this.state.currentDisplay } 
         updateSelectionsObject={ this.updateSelectionsObject }
@@ -61,11 +99,11 @@ class ProgressiveForm extends Component {
         updateSelectionsObject={this.updateSelectionsObject}
         stashedDisplay={this.state.stashedDisplay}
       /> */}
-      <TopicalsChoices 
+      {/* <TopicalsChoices 
         currentDisplay={this.state.currentDisplay}
         updateSelectionsObject={this.updateSelectionsObject}
         stashedDisplay={this.state.stashedDisplay}
-      />
+      /> */}
       <SelectionDisplay 
         currentSelections={ this.state.selections }
         updateDisplay={ this.updateDisplay }

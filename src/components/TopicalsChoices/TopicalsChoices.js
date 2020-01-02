@@ -51,16 +51,6 @@ class TopicalsChoices extends Component {
               <label for="size-two">Lotion Size Two</label>
           </form>
         </article>
-      // case 2:
-      //   return <article>
-      //     <h4>Please select your carrier oil:</h4>
-      //     <form>
-      //       <input type="radio" id="wheat-germ-oil" name="carrier" value="Wheat Germ Oil" onChange={this.handleChangeNoButton} />
-      //       <label for="wheat-germ-oil">Wheat Germ Oil</label>
-      //       <input type="radio" id="mct-oil" name="carrier" value="MCT Oil" onChange={this.handleChangeNoButton} />
-      //       <label for="mct-oil">MCT Oil</label>
-      //     </form>
-      //   </article>
       case 2:
         return <article>
           <h4>Please select your spectrum:</h4>
@@ -90,22 +80,8 @@ class TopicalsChoices extends Component {
             <label for="15mg">15 mg</label>
             <input type="radio" id="25mg" name="potency" value="25 mg" onChange={this.handleChangeNoButton} />
             <label for="25mg">25 mg</label>
-            {/* <input type="radio" id="30mg" name="potency" value="30 mg" onChange={this.handleChangeNoButton} />
-              <label for="30mg">30 mg</label>
-              <input type="radio" id="50mg" name="potency" value="50 mg" onChange={this.handleChangeNoButton} />
-              <label for="50mg">50 mg</label> */}
           </form>
         </article>
-      // case 5:
-      //   return <article>
-      //     <h4>Please select the number of softgels per bottle:</h4>
-      //     <form>
-      //       <input type="radio" id="30-softgels" name="softgelPerBottle" value="30" onChange={this.handleChangeNoButton} />
-      //       <label for="30-softgels">30 softgels per bottle</label>
-      //       <input type="radio" id="60-softgels" name="softgelPerBottle" value="60" onChange={this.handleChangeNoButton} />
-      //       <label for="60-softgels">60 softgels per bottle</label>
-      //     </form>
-      //   </article>
       case 5:
         return <article>
           <p>This is the label selection section</p>
