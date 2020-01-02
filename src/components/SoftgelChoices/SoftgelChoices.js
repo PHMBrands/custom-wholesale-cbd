@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class SoftgelChoices extends Component {
-  constructor(props) {
+  constructor() {
     super()
 
     this.state = {
@@ -102,6 +102,7 @@ class SoftgelChoices extends Component {
 
   render() {
     return <section>
+        <h3>Private Label Softgels</h3>
         { this.displayChoice(this.props.currentDisplay) }
       </section>
   }

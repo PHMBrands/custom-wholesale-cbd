@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-class SingleChoice extends Component {
-  constructor(props) {
+class TinctureChoices extends Component {
+  constructor() {
     super()
 
     this.state = {
@@ -9,18 +9,6 @@ class SingleChoice extends Component {
       selectionValue: 100
     }
   }
-
-  // componentDidMount = () => {
-  //   console.log('test mount')
-  //   switch(this.props.currentDisplay) {
-  //     case 0:
-  //       console.log('switch test')
-  //       this.setState({ selectionName: 'quantity', selectionValue: 100 })
-  //       return 
-  //     default:
-  //       return console.log('error')
-  //   }
-  // }
 
   handleClick = (event) => {
     event.preventDefault();
@@ -35,7 +23,6 @@ class SingleChoice extends Component {
   handleChangeNoButton = (event) => {
     const { name, value } = event.target;
     this.setState({ selectionName: name, selectionValue: value }, () => this.handleClick(event));
-    // console.log(this.props.stashedDisplay)
   }
 
   displayChoice = (status) => {
@@ -129,9 +116,10 @@ class SingleChoice extends Component {
 
   render () {
     return <section>
-      { this.displayChoice(this.props.currentDisplay) }
-    </section>
+        <h3>Private Label Tinctures</h3>
+        { this.displayChoice(this.props.currentDisplay) }
+      </section>
   }
 }
 
-export default SingleChoice;
+export default TinctureChoices;

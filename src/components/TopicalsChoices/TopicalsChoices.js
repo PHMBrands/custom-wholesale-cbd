@@ -43,7 +43,7 @@ class TopicalsChoices extends Component {
           </article>
       case 1:
         return <article>
-          <h4>Please select your container size size:</h4>
+          <h4>Please select your container size:</h4>
           <form>
             <input type="radio" id="size-one" name="container" value="Lotion Size One" onChange={this.handleChangeNoButton} />
               <label for="size-one">Lotion Size One</label>
@@ -93,6 +93,7 @@ class TopicalsChoices extends Component {
 
   render() {
     return <section>
+        <h3>Private Label Topicals</h3>
         { this.displayChoice(this.props.currentDisplay) }
       </section>
   }

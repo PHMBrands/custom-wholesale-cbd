@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SingleChoice from '../SingleChoice/SingleChoice';
+import TinctureChoices from '../TinctureChoices/TinctureChoices';
 import SelectionDisplay from '../SelectionDisplay/SelectionDisplay';
 import ProgressBar from '../ProgressBar/ProgressBar';
 import SoftgelChoices from '../SoftgelChoices/SoftgelChoices';  
@@ -17,11 +17,6 @@ class ProgressiveForm extends Component {
       productSelected: 'products'
     }
   }
-
-  // testFunction = () => {
-  //   console.log('test')
-  //   return <div>Test Func</div>
-  // }
 
   updateSelectionsObject = (selection) => {
     if (this.state.stashedDisplay) {
@@ -62,7 +57,7 @@ class ProgressiveForm extends Component {
             <button onClick={ () => this.updateProductSelection('topicals') }>Lotions</button>
           </form>
       case 'tinctures':
-        return <SingleChoice 
+        return <TinctureChoices 
             currentDisplay={ this.state.currentDisplay } 
             updateSelectionsObject={ this.updateSelectionsObject }
             stashedDisplay={ this.state.stashedDisplay }
@@ -81,7 +76,6 @@ class ProgressiveForm extends Component {
         />
       default:
         return <p>Something went wrong, we apologize. Please refresh the page.</p>
-
     }
   }
 
@@ -89,21 +83,6 @@ class ProgressiveForm extends Component {
     return <section> 
       <button onClick={ this.regressDisplay }>BACK</button>
       { this.selectProduct(this.state.productSelected) }
-      {/* <SingleChoice 
-        currentDisplay={ this.state.currentDisplay } 
-        updateSelectionsObject={ this.updateSelectionsObject }
-        stashedDisplay={ this.state.stashedDisplay }
-      /> */}
-      {/* <SoftgelChoices 
-        currentDisplay={ this.state.currentDisplay }
-        updateSelectionsObject={this.updateSelectionsObject}
-        stashedDisplay={this.state.stashedDisplay}
-      /> */}
-      {/* <TopicalsChoices 
-        currentDisplay={this.state.currentDisplay}
-        updateSelectionsObject={this.updateSelectionsObject}
-        stashedDisplay={this.state.stashedDisplay}
-      /> */}
       <SelectionDisplay 
         currentSelections={ this.state.selections }
         updateDisplay={ this.updateDisplay }
