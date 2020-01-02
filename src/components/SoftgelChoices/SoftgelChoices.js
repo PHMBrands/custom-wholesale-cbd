@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class SoftgelChoices extends Component {
-  constructor(props) {
+  constructor() {
     super()
 
     this.state = {
@@ -51,26 +51,6 @@ class SoftgelChoices extends Component {
               <label for="25mg">25mg</label>
             </form>
           </article>
-      // case 2:
-      //   return <article>
-      //     <h4>Please select your flavor:</h4>
-      //     <form>
-      //       <input type="radio" id="guava-lime" name="flavor" value="Guava Lime" onChange={this.handleChangeNoButton} />
-      //       <label for="guava-lime">Guava Lime</label>
-      //       <input type="radio" id="mocha" name="flavor" value="Mocha" onChange={this.handleChangeNoButton} />
-      //       <label for="mocha">Mocha</label>
-      //       <input type="radio" id="mojito" name="flavor" value="Mojito" onChange={this.handleChangeNoButton} />
-      //       <label for="mojito">Mojito</label>
-      //       <input type="radio" id="orange-creamsicle" name="flavor" value="Orange Creamsicle" onChange={this.handleChangeNoButton} />
-      //       <label for="orange-creamsicle">Orange Creamsicle</label>
-      //       <input type="radio" id="peppermint" name="flavor" value="Peppermint" onChange={this.handleChangeNoButton} />
-      //       <label for="peppermint">Peppermint</label>
-      //       <input type="radio" id="mint-chocolate" name="flavor" value="Mint Chocolate" onChange={this.handleChangeNoButton} />
-      //       <label for="mint-chocolate">Mint Chocolate</label>
-      //       <input type="radio" id="unflavored" name="flavor" value="unflavored" onChange={this.handleChangeNoButton} />
-      //       <label for="unflavored">unflavored</label>
-      //     </form>
-      //   </article>
       case 2:
         return <article>
             <h4>Please select your carrier oil:</h4>
@@ -99,10 +79,6 @@ class SoftgelChoices extends Component {
               <label for="15mg">15 mg</label>
               <input type="radio" id="25mg" name="potency" value="25 mg" onChange={this.handleChangeNoButton} />
               <label for="25mg">25 mg</label>
-              {/* <input type="radio" id="30mg" name="potency" value="30 mg" onChange={this.handleChangeNoButton} />
-              <label for="30mg">30 mg</label>
-              <input type="radio" id="50mg" name="potency" value="50 mg" onChange={this.handleChangeNoButton} />
-              <label for="50mg">50 mg</label> */}
             </form>
           </article>
       case 5:
@@ -126,6 +102,7 @@ class SoftgelChoices extends Component {
 
   render() {
     return <section>
+        <h3>Private Label Softgels</h3>
         { this.displayChoice(this.props.currentDisplay) }
       </section>
   }

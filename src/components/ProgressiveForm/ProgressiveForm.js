@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SingleChoice from '../SingleChoice/SingleChoice';
+import TinctureChoices from '../TinctureChoices/TinctureChoices';
 import SelectionDisplay from '../SelectionDisplay/SelectionDisplay';
 import ProgressBar from '../ProgressBar/ProgressBar';
 import SoftgelChoices from '../SoftgelChoices/SoftgelChoices';  
@@ -13,14 +13,10 @@ class ProgressiveForm extends Component {
       selections: {},
       pricing: {},
       currentDisplay: 0,
-      stashedDisplay: undefined
+      stashedDisplay: undefined,
+      productSelected: 'products'
     }
   }
-
-  // testFunction = () => {
-  //   console.log('test')
-  //   return <div>Test Func</div>
-  // }
 
   updateSelectionsObject = (selection) => {
     if (this.state.stashedDisplay) {
@@ -48,24 +44,45 @@ class ProgressiveForm extends Component {
     this.setState({ currentDisplay: newDisplay })
   }
 
+  updateProductSelection = (product) => {
+    this.setState({ productSelected: product })
+  }
+
+  selectProduct = (selection) => {
+    switch (selection) {
+      case 'products':
+        return <form>
+            <button onClick={ () => this.updateProductSelection('tinctures') }>Tinctures</button>
+            <button onClick={ () => this.updateProductSelection('softgels') }>Softgels</button>
+            <button onClick={ () => this.updateProductSelection('topicals') }>Lotions</button>
+          </form>
+      case 'tinctures':
+        return <TinctureChoices 
+            currentDisplay={ this.state.currentDisplay } 
+            updateSelectionsObject={ this.updateSelectionsObject }
+            stashedDisplay={ this.state.stashedDisplay }
+          />
+      case 'softgels':
+        return <SoftgelChoices
+          currentDisplay={this.state.currentDisplay}
+          updateSelectionsObject={this.updateSelectionsObject}
+          stashedDisplay={this.state.stashedDisplay}
+        />
+      case 'topicals':
+        return <TopicalsChoices
+          currentDisplay={this.state.currentDisplay}
+          updateSelectionsObject={this.updateSelectionsObject}
+          stashedDisplay={this.state.stashedDisplay}
+        />
+      default:
+        return <p>Something went wrong, we apologize. Please refresh the page.</p>
+    }
+  }
+
   render() {
     return <section> 
       <button onClick={ this.regressDisplay }>BACK</button>
-      {/* <SingleChoice 
-        currentDisplay={ this.state.currentDisplay } 
-        updateSelectionsObject={ this.updateSelectionsObject }
-        stashedDisplay={ this.state.stashedDisplay }
-      /> */}
-      {/* <SoftgelChoices 
-        currentDisplay={ this.state.currentDisplay }
-        updateSelectionsObject={this.updateSelectionsObject}
-        stashedDisplay={this.state.stashedDisplay}
-      /> */}
-      <TopicalsChoices 
-        currentDisplay={this.state.currentDisplay}
-        updateSelectionsObject={this.updateSelectionsObject}
-        stashedDisplay={this.state.stashedDisplay}
-      />
+      { this.selectProduct(this.state.productSelected) }
       <SelectionDisplay 
         currentSelections={ this.state.selections }
         updateDisplay={ this.updateDisplay }
