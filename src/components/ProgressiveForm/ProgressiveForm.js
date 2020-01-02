@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import SingleChoice from '../SingleChoice/SingleChoice';
 import SelectionDisplay from '../SelectionDisplay/SelectionDisplay';
+import ProgressBar from '../ProgressBar/ProgressBar';
+import SoftgelChoices from '../SoftgelChoices/SoftgelChoices';  
 
 class ProgressiveForm extends Component {
   constructor() {
@@ -24,14 +26,11 @@ class ProgressiveForm extends Component {
       let newDisplay = this.state.stashedDisplay
       let selections = { ...this.state.selections, [selection.selectionName]: selection.selectionValue }
       this.setState({ selections, currentDisplay: newDisplay, stashedDisplay: undefined })
-
     } else {
+      let newDisplay = this.state.currentDisplay + 1
       let selections = { ...this.state.selections, [selection.selectionName]: selection.selectionValue }
-      this.setState({ selections, currentDisplay: this.state.currentDisplay += 1  })
+      this.setState({ selections, currentDisplay: newDisplay  })
     }
-
-    // this.setState({ currentDisplay: this.state.currentDisplay += 1 });
-    // this.setState({ selections })
   }
 
   // progressDisplay = () => {
@@ -51,17 +50,22 @@ class ProgressiveForm extends Component {
   render() {
     return <section> 
       <button onClick={ this.regressDisplay }>BACK</button>
-      <SingleChoice 
+      {/* <SingleChoice 
         currentDisplay={ this.state.currentDisplay } 
         updateSelectionsObject={ this.updateSelectionsObject }
         stashedDisplay={ this.state.stashedDisplay }
+      /> */}
+      <SoftgelChoices 
+        currentDisplay={ this.state.currentDisplay }
       />
       <SelectionDisplay 
         currentSelections={ this.state.selections }
         updateDisplay={ this.updateDisplay }
       />
+      <ProgressBar 
+        currentDisplay={this.state.currentDisplay}
+      />
     </section>
-
   }
 }
 

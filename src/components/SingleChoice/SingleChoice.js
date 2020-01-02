@@ -42,7 +42,7 @@ class SingleChoice extends Component {
     switch(status) {
       case 0:
         return <article>
-            <h4>Please Select a quantity below:</h4>
+            <h4>Please select a quantity below:</h4>
             <form>
               <input 
                 type="number" 
@@ -128,9 +128,9 @@ class SingleChoice extends Component {
   }
 
   render () {
-    return <div>
+    return <section>
       { this.displayChoice(this.props.currentDisplay) }
-    </div>
+    </section>
   }
 }
 
