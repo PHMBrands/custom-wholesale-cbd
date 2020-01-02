@@ -17,6 +17,8 @@ const SelectionDisplay = (props) => {
         <button onClick={() => props.updateDisplay(4)}>Spectrum: { props.currentSelections.spectrum }</button> }
       { props.currentSelections.potency && 
         <button onClick={() => props.updateDisplay(5)}>Potency: { props.currentSelections.potency }</button> }
+      { props.currentSelections.softgelPerBottle && 
+        <button onClick={() => props.updateDisplay(5)}>Softgels per bottle: {props.currentSelections.softgelPerBottle }</button> }
     </section>
 }
 

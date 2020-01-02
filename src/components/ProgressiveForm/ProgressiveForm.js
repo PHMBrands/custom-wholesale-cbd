@@ -57,6 +57,8 @@ class ProgressiveForm extends Component {
       /> */}
       <SoftgelChoices 
         currentDisplay={ this.state.currentDisplay }
+        updateSelectionsObject={this.updateSelectionsObject}
+        stashedDisplay={this.state.stashedDisplay}
       />
       <SelectionDisplay 
         currentSelections={ this.state.selections }
