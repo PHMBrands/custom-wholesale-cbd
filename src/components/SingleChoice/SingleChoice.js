@@ -5,45 +5,44 @@ class SingleChoice extends Component {
     super()
 
     this.state = {
-      selectionName: '',
-      selectionValue: undefined
+      selectionName: 'quantity',
+      selectionValue: 100
     }
   }
 
-  componentDidMount = () => {
-    console.log('test mount')
-    switch(this.props.currentDisplay) {
-      case 0:
-        console.log('switch test')
-        this.setState({ selectionName: 'quantity', selectionValue: 100 })
-        return 
-      default:
-        return console.log('error')
-    }
-  }
+  // componentDidMount = () => {
+  //   console.log('test mount')
+  //   switch(this.props.currentDisplay) {
+  //     case 0:
+  //       console.log('switch test')
+  //       this.setState({ selectionName: 'quantity', selectionValue: 100 })
+  //       return 
+  //     default:
+  //       return console.log('error')
+  //   }
+  // }
 
   handleClick = (event) => {
     event.preventDefault();
-    this.props.updateSelectionsObject(this.state)
+    this.props.updateSelectionsObject(this.state);
   }
 
   handleChange = (event) => {
-    const { name, value } = event.target
-    this.setState({ selectionName: name, selectionValue: value })
+    const { name, value } = event.target;
+    this.setState({ selectionName: name, selectionValue: value });
   }
 
   handleChangeNoButton = (event) => {
-    const { name, value } = event.target
-    this.setState({ selectionName: name, selectionValue: value }, () => this.handleClick(event))
-    console.log('log', this.state)
-    // this.handleClick(event)
+    const { name, value } = event.target;
+    this.setState({ selectionName: name, selectionValue: value }, () => this.handleClick(event));
+    // console.log(this.props.stashedDisplay)
   }
 
   displayChoice = (status) => {
     switch(status) {
       case 0:
         return <article>
-            <h4>Please Select a quantity below:</h4>
+            <h4>Please select a quantity below:</h4>
             <form>
               <input 
                 type="number" 
@@ -59,57 +58,67 @@ class SingleChoice extends Component {
         return <article>
             <h4>Please select your container size:</h4>
             <form>
-              <input type="radio" id="15ml" name="container" onChange={this.handleChangeNoButton} />
-              <label for="15ml">15mL</label>
-              <input type="radio" id="30ml" name="container" onChange={ this.handleChangeNoButton } />
-              <label for="30ml">30mL</label>
+              <input type="radio" id="15ml" name="container" value="15mL" onChange={this.handleChangeNoButton} />
+                <label for="15ml">15mL</label>
+              <input type="radio" id="30ml" name="container" value="30mL" onChange={ this.handleChangeNoButton } />
+                <label for="30ml">30mL</label>
             </form>
           </article>
       case 2:
         return <article>
             <h4>Please select your flavor:</h4>
             <form>
-              <input type="radio" id="guava-lime" name="flavor" onChange={this.handleChangeNoButton} />
-              <label for="guava-lime">Guava Lime</label>
-              <input type="radio" id="mocha" name="flavor" onChange={this.handleChangeNoButton} />
-              <label for="mocha">Mocha</label>
-              <input type="radio" id="mojito" name="flavor" onChange={this.handleChangeNoButton} />
-              <label for="mojito">Mojito</label>
-              <input type="radio" id="orange-creamsicle" name="flavor" onChange={this.handleChangeNoButton} />
-              <label for="orange-creamsicle">Orange Creamsicle</label>
-              <input type="radio" id="peppermint" name="flavor" onChange={this.handleChangeNoButton} />
-              <label for="peppermint">Peppermint</label>
-              <input type="radio" id="mint-chocolate" name="flavor" onChange={this.handleChangeNoButton} />
-              <label for="mint-chocolate">Mint Chocolate</label>
-              <input type="radio" id="unflavored" name="flavor" onChange={this.handleChangeNoButton} />
-              <label for="unflavored">unflavored</label>
+              <input type="radio" id="guava-lime" name="flavor" value="Guava Lime" onChange={this.handleChangeNoButton} />
+                <label for="guava-lime">Guava Lime</label>
+              <input type="radio" id="mocha" name="flavor" value="Mocha" onChange={this.handleChangeNoButton} />
+                <label for="mocha">Mocha</label>
+              <input type="radio" id="mojito" name="flavor" value="Mojito" onChange={this.handleChangeNoButton} />
+                <label for="mojito">Mojito</label>
+              <input type="radio" id="orange-creamsicle" name="flavor" value="Orange Creamsicle" onChange={this.handleChangeNoButton} />
+                <label for="orange-creamsicle">Orange Creamsicle</label>
+              <input type="radio" id="peppermint" name="flavor" value="Peppermint" onChange={this.handleChangeNoButton} />
+                <label for="peppermint">Peppermint</label>
+              <input type="radio" id="mint-chocolate" name="flavor" value="Mint Chocolate" onChange={this.handleChangeNoButton} />
+                <label for="mint-chocolate">Mint Chocolate</label>
+              <input type="radio" id="unflavored" name="flavor" value="unflavored" onChange={this.handleChangeNoButton} />
+                <label for="unflavored">unflavored</label>
             </form>
           </article>
       case 3:
         return <article>
             <h4>Please select your carrier oil:</h4>
             <form>
-              <input type="radio" id="wheat-germ-oil" name="carrier" onChange={this.handleChangeNoButton} />
-              <label for="wheat-germ-oil">Wheat Germ Oil</label>
-              <input type="radio" id="mct-oil" name="carrier" onChange={this.handleChangeNoButton} />
-              <label for="mct-oil">MCT Oil</label>
+              <input type="radio" id="wheat-germ-oil" name="carrier" value="Wheat Germ Oil" onChange={this.handleChangeNoButton} />
+                <label for="wheat-germ-oil">Wheat Germ Oil</label>
+              <input type="radio" id="mct-oil" name="carrier" value="MCT Oil" onChange={this.handleChangeNoButton} />
+                <label for="mct-oil">MCT Oil</label>
             </form>
           </article>
       case 4:
         return <article>
+          <h4>Please select your spectrum:</h4>
+          <form>
+            <input type="radio" id="full-spectrum" name="spectrum" value="Full Spectrum" onChange={this.handleChangeNoButton} />
+              <label for="full-spectrum">Full Spectrum</label>
+            <input type="radio" id="broad-spectrum" name="spectrum" value="Broad Spectrum" onChange={this.handleChangeNoButton} />
+              <label for="broad-spectrum">Broad Spectrum</label>
+          </form>
+        </article>
+      case 5:
+        return <article>
             <h4>Please select your potency per serving:</h4>
             <form>
-              <input type="radio" id="10mg" name="potency" onChange={this.handleChangeNoButton} />
-              <label for="10mg">10 mg</label>
-              <input type="radio" id="20mg" name="potency" onChange={this.handleChangeNoButton} />
-              <label for="20mg">20 mg</label>
-              <input type="radio" id="30mg" name="potency" onChange={this.handleChangeNoButton} />
-              <label for="30mg">30 mg</label>
-              <input type="radio" id="50mg" name="potency" onChange={this.handleChangeNoButton} />
-              <label for="50mg">50 mg</label>
+              <input type="radio" id="10mg" name="potency" value="10 mg" onChange={this.handleChangeNoButton} />
+                <label for="10mg">10 mg</label>
+              <input type="radio" id="20mg" name="potency" value="20 mg" onChange={this.handleChangeNoButton} />
+                <label for="20mg">20 mg</label>
+              <input type="radio" id="30mg" name="potency" value="30 mg" onChange={this.handleChangeNoButton} />
+                <label for="30mg">30 mg</label>
+              <input type="radio" id="50mg" name="potency" value="50 mg" onChange={this.handleChangeNoButton} />
+                <label for="50mg">50 mg</label>
             </form>
           </article>
-      case 5:
+      case 6:
         return <article>
           <p>This is the label selection section</p>
         </article>
@@ -119,9 +128,9 @@ class SingleChoice extends Component {
   }
 
   render () {
-    return <div>
+    return <section>
       { this.displayChoice(this.props.currentDisplay) }
-    </div>
+    </section>
   }
 }
 
