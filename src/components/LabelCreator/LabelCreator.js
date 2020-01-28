@@ -16,18 +16,19 @@ class LabelCreator extends Component {
   renderFlavorImage = (status) => {
     switch(status) {
       case 'Guava Lime':
-        return <div><img src={ guavaLime } class="flavor-choice" /></div>
+        return <div><img src={ guavaLime } /></div>
       default: 
-        return <div>This switch statement works kind of.</div>
+        return <div>This switch statement went to default.</div>
     }
   }
 
   render() {
     return <div>
         <img src={ labelSource } />
+        <div className="test-box">This is a color test.</div>
         {/* <div>Quantity: {this.props.currentSelections.quantity}</div> */}
         {this.props.currentSelections.flavor &&
-          <div>Flavor: {this.renderFlavorImage('Guava Lime')}</div>}
+          <div className="flavor-selection">Flavor: {this.renderFlavorImage('Guava Lime')}</div>}
       </div>
 
   }
