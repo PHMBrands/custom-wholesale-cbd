@@ -81,18 +81,20 @@ class ProgressiveForm extends Component {
   }
 
   render() {
-    return <section> 
-      <button onClick={ this.regressDisplay }>BACK</button>
-      { this.selectProduct(this.state.productSelected) }
-      <LabelCreator />
-      <SelectionDisplay 
-        currentSelections={ this.state.selections }
-        updateDisplay={ this.updateDisplay }
-      />
-      <ProgressBar 
-        currentDisplay={this.state.currentDisplay}
-      />
-    </section>
+    return (
+      <section>
+        <button onClick={this.regressDisplay}>BACK</button>
+        {this.selectProduct(this.state.productSelected)}
+        <LabelCreator 
+          currentSelections={this.state.selections} 
+        />
+        <SelectionDisplay
+          currentSelections={this.state.selections}
+          updateDisplay={this.updateDisplay}
+        />
+        <ProgressBar currentDisplay={this.state.currentDisplay} />
+      </section>
+    );
   }
 }
 

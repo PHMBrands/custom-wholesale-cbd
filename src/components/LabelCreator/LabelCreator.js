@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import labelSource from '../../images/label-parts/tincture-template.jpg';
+import guavaLime from '../../images/label-parts/flavor-choice.jpg';
 
 class LabelCreator extends Component {
   constructor(props) {
@@ -6,13 +8,19 @@ class LabelCreator extends Component {
 
   }
 
-  onImageDrop(files) {
-    this.setState({ uploadedFile: files[0] });
-    this.handleImageUpload(files[0]);
-  }
+  // onImageDrop(files) {
+  //   this.setState({ uploadedFile: files[0] });
+  //   this.handleImageUpload(files[0]);
+  // }
 
   render() {
-    return <div>We are testing the labelcreataor again</div>
+    return <div>
+        <img src={labelSource} />
+        {/* <div>Quantity: {this.props.currentSelections.quantity}</div> */}
+        {this.props.currentSelections.flavor &&
+          <div>Flavor: {this.props.currentSelections.flavor}</div>}
+      </div>
+
   }
 }
 
