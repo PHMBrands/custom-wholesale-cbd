@@ -85,14 +85,14 @@ class ProgressiveForm extends Component {
     return (
       <section>
         <button onClick={this.regressDisplay}>BACK</button>
-        {this.selectProduct(this.state.productSelected)}
-        <LabelCreator 
-          currentSelections={this.state.selections} 
-        />
-        <SelectionDisplay
-          currentSelections={this.state.selections}
-          updateDisplay={this.updateDisplay}
-        />
+        <section className="selection-area">
+          {this.selectProduct(this.state.productSelected)}
+          <SelectionDisplay
+            currentSelections={this.state.selections}
+            updateDisplay={this.updateDisplay}
+          />
+        </section>
+        <LabelCreator currentSelections={this.state.selections} />
         <ProgressBar currentDisplay={this.state.currentDisplay} />
       </section>
     );
