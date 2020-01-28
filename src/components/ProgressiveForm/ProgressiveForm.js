@@ -29,6 +29,7 @@ class ProgressiveForm extends Component {
       let selections = { ...this.state.selections, [selection.selectionName]: selection.selectionValue }
       this.setState({ selections, currentDisplay: newDisplay  })
     }
+    console.log(this.state.selections)
   }
 
   // progressDisplay = () => {
