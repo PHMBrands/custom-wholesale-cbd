@@ -37,10 +37,8 @@ class ProgressiveForm extends Component {
   // }
 
   updateDisplay = (display) => {
-    console.log("this.state.currentDisplay", this.state.currentDisplay);
     let stashedDisplay = this.state.currentDisplay;
-    // console.log('TEST TEST TEST TEST ———— updateDisplay')
-    this.setState({ currentDisplay: display, stashedDisplay }, () => console.log('this.state.stashedDisplay', this.state.stashedDisplay))
+    this.setState({ currentDisplay: display, stashedDisplay })
   }
 
   regressDisplay = () => {

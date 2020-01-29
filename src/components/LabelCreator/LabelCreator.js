@@ -18,55 +18,55 @@ class LabelCreator extends Component {
   //   this.handleImageUpload(files[0]);
   // }
 
-  renderFlavorImage = (status) => {
-    switch(status) {
-      case 'Guava Lime':
-        return <div><img src={ guavaLime } /></div>
-      default: 
-        return (
-          <div>
-            <p>The flavor switch statement went to default.</p>
-            <p>{ this.props.currentSelections.flavor }</p>
-          </div>
-        );
-    }
-  }
+  // renderFlavorImage = (status) => {
+  //   switch(status) {
+  //     case 'Guava Lime':
+  //       return <div><img src={ guavaLime } /></div>
+  //     default: 
+  //       return (
+  //         <div>
+  //           <p>The flavor switch statement went to default.</p>
+  //           <p>{ this.props.currentSelections.flavor }</p>
+  //         </div>
+  //       );
+  //   }
+  // }
 
-  renderSpectrumImage = (status) => {
-    switch (status) {
-      case 'Full Spectrum':
-        return <div><img src={fullSpectrum} /></div>;
-      default:
-        return <div>The spectrum switch statement went to default.</div>;
-    }
-  }
+  // renderSpectrumImage = (status) => {
+  //   switch (status) {
+  //     case 'Full Spectrum':
+  //       return <div><img src={fullSpectrum} /></div>;
+  //     default:
+  //       return <div>The spectrum switch statement went to default.</div>;
+  //   }
+  // }
 
-  renderPotencyImage = (status) => {
-    switch (status) {
-      case '20 mg':
-        return <div><img src={twentyMg} /></div>;
-      default:
-        return <div>The potency switch statement went to default.</div>;
-    }
-  }
+  // renderPotencyImage = (status) => {
+  //   switch (status) {
+  //     case '20 mg':
+  //       return <div><img src={twentyMg} /></div>;
+  //     default:
+  //       return <div>The potency switch statement went to default.</div>;
+  //   }
+  // }
 
-  renderPerBottleImage = (status) => {
-    switch (status) {
-      case '20 mg':
-        return <div><img src={ sixHundredMg } /></div>;
-      default:
-        return <div>The potency switch statement went to default.</div>;
-    }
-  }
+  // renderPerBottleImage = (status) => {
+  //   switch (status) {
+  //     case '20 mg':
+  //       return <div><img src={ sixHundredMg } /></div>;
+  //     default:
+  //       return <div>The potency switch statement went to default.</div>;
+  //   }
+  // }
   
-  renderLogoImage = (status) => {
-    switch (status) {
-      case 'gym':
-        return <div><img src={Gym} className="logo" /></div>;
-      default:
-        return <div>The potency switch statement went to default.</div>;
-    }
-  }
+  // renderLogoImage = (status) => {
+  //   switch (status) {
+  //     case 'gym':
+  //       return <div><img src={Gym} className="logo" /></div>;
+  //     default:
+  //       return <div>The potency switch statement went to default.</div>;
+  //   }
+  // }
 
   render() {
     return (
@@ -75,24 +75,32 @@ class LabelCreator extends Component {
         {/* <div>Quantity: {this.props.currentSelections.quantity}</div> */}
         {this.props.currentSelections.flavor && (
           <div className="flavor-selection">
-            {this.renderFlavorImage(this.props.currentSelections.flavor)}
+              <p>{ this.props.currentSelections.flavor }</p>
+            {/* {this.renderFlavorImage(this.props.currentSelections.flavor)} */}
           </div>
         )}
-        {/* <div className="flavor-selection">
-          {this.renderFlavorImage("Guava Lime")}
-        </div> */}
+        {this.props.currentSelections.carrier && (
+          <div className="carrier-selection">
+              <p>{ this.props.currentSelections.carrier }</p>
+            {/* {this.renderFlavorImage(this.props.currentSelections.flavor)} */}
+          </div>
+        )}
         {this.props.currentSelections.spectrum && (
           <div className="spectrum-selection">
-            {this.renderSpectrumImage("Full Spectrum")}
+            <p>{ this.props.currentSelections.spectrum }</p>
+
+            {/* {this.renderSpectrumImage("Full Spectrum")} */}
           </div>
         )}
         {this.props.currentSelections.potency && (
           <div>
             <div className="potency-selection">
-              {this.renderPotencyImage("20 mg")}
+              <p>{ this.props.currentSelections.potency } </p>
+              {/* {this.renderPotencyImage("20 mg")} */}
             </div>
             <div className="per-bottle-selection">
-              {this.renderPerBottleImage("20 mg")}
+              { this.props.currentSelections.potency }
+              {/* {this.renderPerBottleImage("20 mg")} */}
             </div>
           </div>
         )}
