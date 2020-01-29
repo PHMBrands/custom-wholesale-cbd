@@ -15,21 +15,21 @@ class ProgressiveForm extends Component {
       pricing: {},
       currentDisplay: 0,
       stashedDisplay: undefined,
-      productSelected: 'products'
+      productSelected: 'products',
+      logoChoice: undefined
     }
   }
 
   updateSelectionsObject = (selection) => {
+    let updatedSelections = { ...this.state.selections, [selection.selectionName]: selection.selectionValue }
+    
     if (this.state.stashedDisplay) {
       let newDisplay = this.state.stashedDisplay
-      let selections = { ...this.state.selections, [selection.selectionName]: selection.selectionValue }
-      this.setState({ selections, currentDisplay: newDisplay, stashedDisplay: undefined })
+      this.setState({ selections: updatedSelections, currentDisplay: newDisplay, stashedDisplay: undefined })
     } else {
       let newDisplay = this.state.currentDisplay + 1
-      let selections = { ...this.state.selections, [selection.selectionName]: selection.selectionValue }
-      this.setState({ selections, currentDisplay: newDisplay  })
+      this.setState({ selections: updatedSelections, currentDisplay: newDisplay  })
     }
-    console.log(this.state.selections)
   }
 
   // progressDisplay = () => {
@@ -37,8 +37,10 @@ class ProgressiveForm extends Component {
   // }
 
   updateDisplay = (display) => {
+    console.log("this.state.currentDisplay", this.state.currentDisplay);
     let stashedDisplay = this.state.currentDisplay;
-    this.setState({ currentDisplay: display, stashedDisplay })
+    // console.log('TEST TEST TEST TEST ———— updateDisplay')
+    this.setState({ currentDisplay: display, stashedDisplay }, () => console.log('this.state.stashedDisplay', this.state.stashedDisplay))
   }
 
   regressDisplay = () => {
@@ -48,6 +50,12 @@ class ProgressiveForm extends Component {
 
   updateProductSelection = (product) => {
     this.setState({ productSelected: product })
+  }
+
+  setLogoChoice = (logo) => {
+    // console.log(logo)
+
+    this.setState({ logoChoice: logo })
   }
 
   selectProduct = (selection) => {
@@ -63,6 +71,7 @@ class ProgressiveForm extends Component {
             currentDisplay={ this.state.currentDisplay } 
             updateSelectionsObject={ this.updateSelectionsObject }
             stashedDisplay={ this.state.stashedDisplay }
+            setLogoChoice={ this.setLogoChoice }
           />
       case 'softgels':
         return <SoftgelChoices
@@ -84,16 +93,19 @@ class ProgressiveForm extends Component {
   render() {
     return (
       <section>
-        <button onClick={this.regressDisplay}>BACK</button>
+        <button onClick={ this.regressDisplay }>BACK</button>
         <section className="selection-area">
-          {this.selectProduct(this.state.productSelected)}
+          { this.selectProduct(this.state.productSelected) }
           <SelectionDisplay
-            currentSelections={this.state.selections}
-            updateDisplay={this.updateDisplay}
+            currentSelections={ this.state.selections }
+            updateDisplay={ this.updateDisplay}
           />
         </section>
-        <LabelCreator currentSelections={this.state.selections} />
-        <ProgressBar currentDisplay={this.state.currentDisplay} />
+        <LabelCreator 
+          currentSelections={ this.state.selections } 
+          logoChoice={ this.state.logoChoice }
+        />
+        <ProgressBar currentDisplay={ this.state.currentDisplay } />
       </section>
     );
   }

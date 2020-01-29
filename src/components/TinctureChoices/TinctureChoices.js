@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import LogoSelector from '../LogoSelector/LogoSelector';
 
 class TinctureChoices extends Component {
   constructor() {
@@ -25,6 +26,8 @@ class TinctureChoices extends Component {
     this.setState({ selectionName: name, selectionValue: value }, () => this.handleClick(event));
   }
 
+  //updateDisplay argument must correspond with corresponding switch statement in TinctureChoices
+  
   displayChoice = (status) => {
     switch(status) {
       case 0:
@@ -41,17 +44,17 @@ class TinctureChoices extends Component {
               <button onClick={ this.handleClick }>SUBMIT</button>
             </form>
           </article>
+      // case 1:
+      //   return <article>
+      //       <h4>Please select your container size:</h4>
+      //       <form>
+      //         <input type="radio" id="15ml" name="container" value="15mL" onChange={this.handleChangeNoButton} />
+      //           <label for="15ml">15mL</label>
+      //         <input type="radio" id="30ml" name="container" value="30mL" onChange={ this.handleChangeNoButton } />
+      //           <label for="30ml">30mL</label>
+      //       </form>
+      //     </article>
       case 1:
-        return <article>
-            <h4>Please select your container size:</h4>
-            <form>
-              <input type="radio" id="15ml" name="container" value="15mL" onChange={this.handleChangeNoButton} />
-                <label for="15ml">15mL</label>
-              <input type="radio" id="30ml" name="container" value="30mL" onChange={ this.handleChangeNoButton } />
-                <label for="30ml">30mL</label>
-            </form>
-          </article>
-      case 2:
         return <article>
             <h4>Please select your flavor:</h4>
             <form>
@@ -71,7 +74,7 @@ class TinctureChoices extends Component {
                 <label for="unflavored">unflavored</label>
             </form>
           </article>
-      case 3:
+      case 2:
         return <article>
             <h4>Please select your carrier oil:</h4>
             <form>
@@ -81,7 +84,7 @@ class TinctureChoices extends Component {
                 <label for="mct-oil">MCT Oil</label>
             </form>
           </article>
-      case 4:
+      case 3:
         return <article>
           <h4>Please select your spectrum:</h4>
           <form>
@@ -91,7 +94,7 @@ class TinctureChoices extends Component {
               <label for="broad-spectrum">Broad Spectrum</label>
           </form>
         </article>
-      case 5:
+      case 4:
         return <article>
             <h4>Please select your potency per serving:</h4>
             <form>
@@ -105,9 +108,11 @@ class TinctureChoices extends Component {
                 <label for="50mg">50 mg</label>
             </form>
           </article>
-      case 6:
+      case 5:
         return <article>
-          <p>This is the label selection section</p>
+          <LogoSelector 
+            setLogoChoice={ this.props.setLogoChoice }
+          />
         </article>
       default:
         return <div>We're sorry, something seems to have gone wrong. Please reload the page.</div>  
@@ -115,10 +120,13 @@ class TinctureChoices extends Component {
   }
 
   render () {
-    return <section>
+    return (
+      <section>
         <h3>Private Label Tinctures</h3>
         { this.displayChoice(this.props.currentDisplay) }
+        {/* <LogoSelector setLogoChoice={ this.props.setLogoChoice } /> */}
       </section>
+    );
   }
 }
 

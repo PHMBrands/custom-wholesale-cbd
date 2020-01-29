@@ -4,6 +4,8 @@ import guavaLime from '../../images/label-parts/flavor-choice.jpg';
 import fullSpectrum from '../../images/label-parts/spectrum.jpg';
 import twentyMg from '../../images/label-parts/per-serving.jpg';
 import sixHundredMg from '../../images/label-parts/per-bottle.jpg';
+import Yoga from '../../images/logo-selector/yoga.svg';
+import Gym from '../../images/logo-selector/gym.svg';
 
 class LabelCreator extends Component {
   constructor(props) {
@@ -21,7 +23,12 @@ class LabelCreator extends Component {
       case 'Guava Lime':
         return <div><img src={ guavaLime } /></div>
       default: 
-        return <div>The flavor switch statement went to default.</div>
+        return (
+          <div>
+            <p>The flavor switch statement went to default.</p>
+            <p>{ this.props.currentSelections.flavor }</p>
+          </div>
+        );
     }
   }
 
@@ -51,6 +58,15 @@ class LabelCreator extends Component {
         return <div>The potency switch statement went to default.</div>;
     }
   }
+  
+  renderLogoImage = (status) => {
+    switch (status) {
+      case 'gym':
+        return <div><img src={Gym} className="logo" /></div>;
+      default:
+        return <div>The potency switch statement went to default.</div>;
+    }
+  }
 
   render() {
     return (
@@ -59,7 +75,7 @@ class LabelCreator extends Component {
         {/* <div>Quantity: {this.props.currentSelections.quantity}</div> */}
         {this.props.currentSelections.flavor && (
           <div className="flavor-selection">
-            {this.renderFlavorImage("Guava Lime")}
+            {this.renderFlavorImage(this.props.currentSelections.flavor)}
           </div>
         )}
         {/* <div className="flavor-selection">
@@ -79,6 +95,9 @@ class LabelCreator extends Component {
               {this.renderPerBottleImage("20 mg")}
             </div>
           </div>
+        )}
+        {this.props.logoChoice && (
+          <div className="logo-selection">{this.renderLogoImage("gym")}</div>
         )}
       </div>
     );
