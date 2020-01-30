@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import LogoSelector from '../LogoSelector/LogoSelector';
+
 
 class TopicalsChoices extends Component {
   constructor() {
@@ -41,17 +43,17 @@ class TopicalsChoices extends Component {
               <button onClick={this.handleClick}>SUBMIT</button>
             </form>
           </article>
+      // case 1:
+      //   return <article>
+      //     <h4>Please select your container size:</h4>
+      //     <form>
+      //       <input type="radio" id="size-one" name="container" value="Lotion Size One" onChange={this.handleChangeNoButton} />
+      //         <label for="size-one">Lotion Size One</label>
+      //       <input type="radio" id="size-two" name="container" value="Lotion Size Two" onChange={this.handleChangeNoButton} />
+      //         <label for="size-two">Lotion Size Two</label>
+      //     </form>
+      //   </article>
       case 1:
-        return <article>
-          <h4>Please select your container size:</h4>
-          <form>
-            <input type="radio" id="size-one" name="container" value="Lotion Size One" onChange={this.handleChangeNoButton} />
-              <label for="size-one">Lotion Size One</label>
-            <input type="radio" id="size-two" name="container" value="Lotion Size Two" onChange={this.handleChangeNoButton} />
-              <label for="size-two">Lotion Size Two</label>
-          </form>
-        </article>
-      case 2:
         return <article>
           <h4>Please select your spectrum:</h4>
           <form>
@@ -61,7 +63,7 @@ class TopicalsChoices extends Component {
             <label for="broad-spectrum">Broad Spectrum</label>
           </form>
         </article>
-      case 3:
+      case 2:
         return <article>
           <h4>Please select your flavor:</h4>
           <form>
@@ -72,7 +74,7 @@ class TopicalsChoices extends Component {
 
           </form>
         </article>
-      case 4:
+      case 3:
         return <article>
           <h4>Please select your potency per serving:</h4>
           <form>
@@ -82,10 +84,10 @@ class TopicalsChoices extends Component {
             <label for="25mg">25 mg</label>
           </form>
         </article>
-      case 5:
+      case 4:
         return <article>
-          <p>This is the label selection section</p>
-        </article>
+            <LogoSelector setLogoChoice={ this.props.setLogoChoice } />
+          </article>
       default:
         return <div>We're sorry, something seems to have gone wrong. Please reload the page.</div>
     }

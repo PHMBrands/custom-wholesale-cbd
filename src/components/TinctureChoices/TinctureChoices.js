@@ -110,12 +110,10 @@ class TinctureChoices extends Component {
           </article>
       case 5:
         return <article>
-          <LogoSelector 
-            setLogoChoice={ this.props.setLogoChoice }
-          />
+          <LogoSelector setLogoChoice={ this.props.setLogoChoice } />
         </article>
       default:
-        return <div>We're sorry, something seems to have gone wrong. Please reload the page.</div>  
+        return <div>Something went wrong with the displayChoice switch statement</div>  
     }
   }
 

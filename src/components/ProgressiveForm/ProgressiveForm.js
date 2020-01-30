@@ -68,30 +68,32 @@ class ProgressiveForm extends Component {
         return <TinctureChoices 
             currentDisplay={ this.state.currentDisplay } 
             updateSelectionsObject={ this.updateSelectionsObject }
-            stashedDisplay={ this.state.stashedDisplay }
+            // stashedDisplay={ this.state.stashedDisplay }
             setLogoChoice={ this.setLogoChoice }
           />
       case 'softgels':
         return <SoftgelChoices
           currentDisplay={this.state.currentDisplay}
           updateSelectionsObject={this.updateSelectionsObject}
-          stashedDisplay={this.state.stashedDisplay}
+          setLogoChoice={ this.setLogoChoice }
+          // stashedDisplay={this.state.stashedDisplay}
         />
       case 'topicals':
         return <TopicalsChoices
-          currentDisplay={this.state.currentDisplay}
-          updateSelectionsObject={this.updateSelectionsObject}
-          stashedDisplay={this.state.stashedDisplay}
+          currentDisplay={ this.state.currentDisplay }
+          updateSelectionsObject={ this.updateSelectionsObject }
+          setLogoChoice={ this.setLogoChoice }
+          // stashedDisplay={this.state.stashedDisplay}
         />
       default:
-        return <p>Something went wrong, we apologize. Please refresh the page.</p>
+        return <p>Something went wrong with the selectProduct switch statement.</p>
     }
   }
 
   render() {
     return (
       <section>
-        <button onClick={ this.regressDisplay }>BACK</button>
+        <button onClick={ this.regressDisplay }>Previous Option</button>
         <section className="selection-area">
           { this.selectProduct(this.state.productSelected) }
           <SelectionDisplay
@@ -102,6 +104,7 @@ class ProgressiveForm extends Component {
         <LabelCreator 
           currentSelections={ this.state.selections } 
           logoChoice={ this.state.logoChoice }
+          productSelected={ this.state.productSelected }
         />
         <ProgressBar currentDisplay={ this.state.currentDisplay } />
       </section>
