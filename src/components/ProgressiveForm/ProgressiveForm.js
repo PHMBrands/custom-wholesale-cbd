@@ -16,7 +16,7 @@ class ProgressiveForm extends Component {
       pricing: {},
       currentDisplay: 0,
       stashedDisplay: undefined,
-      productSelected: 'products',
+      productSelected: 'company',
       logoChoice: undefined,
       company: {}
     }
@@ -35,7 +35,7 @@ class ProgressiveForm extends Component {
   }
 
   createCompany = (company) => {
-    this.setState({ company });
+    this.setState({ company, productSelected: 'products' });
   }
 
   // progressDisplay = () => {
@@ -67,6 +67,8 @@ class ProgressiveForm extends Component {
 
   selectProduct = (selection) => {
     switch (selection) {
+      case 'company':
+        return <CompanyInfo createCompany={ this.createCompany } /> 
       case 'products':
         return <form>
             <button onClick={ () => this.updateProductSelection('tinctures') }>Tinctures</button>
@@ -111,7 +113,7 @@ class ProgressiveForm extends Component {
 
     return (
       <section>
-        <CompanyInfo createCompany={ this.createCompany } />
+        {/* <CompanyInfo createCompany={ this.createCompany } /> */}
         { startOverButton }
         {/* <button onClick={ this.startOver }>Start Over</button> */}
         <button onClick={ this.regressDisplay }>Previous Option</button>

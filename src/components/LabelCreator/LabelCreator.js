@@ -132,7 +132,6 @@ class LabelCreator extends Component {
         { this.props.currentSelections.softgelPerBottle && 
           <div className="softgel-per-bottle-selection">
             <p>{ this.props.currentSelections.softgelPerBottle }</p>
-
             {/* {this.renderSpectrumImage("Full Spectrum")} */}
           </div> }
         { this.props.logoChoice && 
