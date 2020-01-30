@@ -118,23 +118,18 @@ class TinctureChoices extends Component {
     }
   }
 
-  render () {
-    
+  render () { 
     let previousButton
 
     if (this.state.selectionName !== 'quantity') {
-      console.log('if test')
       previousButton = <button onClick={ this.props.regressDisplay }>Previous Option</button>
     }
-
 
     return (
       <section>
         <h3>Private Label Tinctures</h3>
         { previousButton }
-        {/* <button onClick={ this.props.regressDisplay }>Previous Option</button> */}
         { this.displayChoice(this.props.currentDisplay) }
-        {/* <LogoSelector setLogoChoice={ this.props.setLogoChoice } /> */}
       </section>
     );
   }

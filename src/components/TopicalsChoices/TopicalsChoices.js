@@ -94,9 +94,15 @@ class TopicalsChoices extends Component {
   }
 
   render() {
+    let previousButton
+
+    if (this.state.selectionName !== 'quantity') {
+      previousButton = <button onClick={ this.props.regressDisplay }>Previous Option</button>
+    }
+
     return <section>
         <h3>Private Label Topicals</h3>
-        <button onClick={ this.props.regressDisplay }>Previous Option</button>
+        { previousButton }
         { this.displayChoice(this.props.currentDisplay) }
       </section>
   }

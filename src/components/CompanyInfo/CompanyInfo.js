@@ -22,8 +22,7 @@ class CompanyInfo extends Component {
   }
   
   render() {
-
-    return <section>
+    return <section className="company-form">
         <form>
           <input 
             type="text" 

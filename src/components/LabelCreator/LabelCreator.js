@@ -108,6 +108,11 @@ class LabelCreator extends Component {
             <p>{ this.props.company.phone }</p>
             {/* {this.renderFlavorImage(this.props.currentSelections.flavor)} */}
           </div> }
+          { this.props.currentSelections.flavor && 
+          <div className="flavor-selection">
+            <p>{ this.props.currentSelections.flavor }</p>
+            {/* {this.renderFlavorImage(this.props.currentSelections.flavor)} */}
+          </div> }  
         { this.props.currentSelections.softgelSize && 
           <div className="softgel-size-selection">
               <p>{ this.props.currentSelections.softgelSize }</p>

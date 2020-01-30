@@ -6,6 +6,10 @@ import SoftgelChoices from '../SoftgelChoices/SoftgelChoices';
 import TopicalsChoices from '../TopicalsChoices/TopicalsChoices';
 import LabelCreator from '../LabelCreator/LabelCreator';
 import CompanyInfo from '../CompanyInfo/CompanyInfo';
+import TinctureChoice from '../../images/form-options/tincture-icon.svg';
+import SoftgelChoice from '../../images/form-options/softgel-icon.svg'
+import TopicalChoice from '../../images/form-options/topical-icon.svg';
+
 
 class ProgressiveForm extends Component {
   constructor() {
@@ -18,7 +22,8 @@ class ProgressiveForm extends Component {
       stashedDisplay: undefined,
       productSelected: 'products',
       logoChoice: undefined,
-      company: {}
+      company: {},
+      stashedProduct: ''
     }
   }
 
@@ -35,7 +40,7 @@ class ProgressiveForm extends Component {
   }
 
   createCompany = (company) => {
-    this.setState({ company, productSelected: 'products' });
+    this.setState({ company, productSelected: this.state.stashedProduct });
   }
 
   // progressDisplay = () => {
@@ -53,7 +58,7 @@ class ProgressiveForm extends Component {
   }
 
   updateProductSelection = (product) => {
-    this.setState({ productSelected: product })
+    this.setState({ productSelected: 'company', stashedProduct: product })
   }
 
   setLogoChoice = (logo) => {
@@ -61,7 +66,6 @@ class ProgressiveForm extends Component {
   }
 
   startOver = () => {
-    console.log('test')
     this.setState({ selections: {}, currentDisplay: 0, productSelected: 'products', logoChoice: undefined })
   }
 
@@ -71,9 +75,9 @@ class ProgressiveForm extends Component {
         return <CompanyInfo createCompany={ this.createCompany } /> 
       case 'products':
         return <form>
-            <button onClick={ () => this.updateProductSelection('tinctures') }>Tinctures</button>
-            <button onClick={ () => this.updateProductSelection('softgels') }>Softgels</button>
-            <button onClick={ () => this.updateProductSelection('topicals') }>Lotions</button>
+            <button onClick={ () => this.updateProductSelection('tinctures') }><img src={ TinctureChoice } className="product-choice-image" />Tinctures</button>
+            <button onClick={ () => this.updateProductSelection('softgels') }><img src={ SoftgelChoice } className="product-choice-image" />Softgels</button>
+            <button onClick={ () => this.updateProductSelection('topicals') }><img src={ TopicalChoice } className="product-choice-image" />Lotions</button>
           </form>
       case 'tinctures':
         return <TinctureChoices 
