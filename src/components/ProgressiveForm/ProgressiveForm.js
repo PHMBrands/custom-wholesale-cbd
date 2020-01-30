@@ -23,7 +23,8 @@ class ProgressiveForm extends Component {
       productSelected: 'products',
       logoChoice: undefined,
       company: {},
-      stashedProduct: ''
+      stashedProduct: '',
+      progress: 'open'
     }
   }
 
@@ -62,11 +63,16 @@ class ProgressiveForm extends Component {
   }
 
   setLogoChoice = (logo) => {
-    this.setState({ logoChoice: logo })
+    this.setState({ logoChoice: logo, progress: 'button' })
   }
 
   startOver = () => {
     this.setState({ selections: {}, currentDisplay: 0, productSelected: 'products', logoChoice: undefined })
+  }
+
+  buildTheBrand = () => {
+    this.setState({ progress: 'close' })
+    console.log('test')
   }
 
   selectProduct = (selection) => {
@@ -83,7 +89,6 @@ class ProgressiveForm extends Component {
         return <TinctureChoices 
             currentDisplay={ this.state.currentDisplay } 
             updateSelectionsObject={ this.updateSelectionsObject }
-            // stashedDisplay={ this.state.stashedDisplay }
             setLogoChoice={ this.setLogoChoice }
             regressDisplay={ this.regressDisplay }
           />
@@ -92,7 +97,6 @@ class ProgressiveForm extends Component {
           currentDisplay={this.state.currentDisplay}
           updateSelectionsObject={this.updateSelectionsObject}
           setLogoChoice={ this.setLogoChoice }
-          // stashedDisplay={this.state.stashedDisplay}
           regressDisplay={ this.regressDisplay }
         />
       case 'topicals':
@@ -100,7 +104,6 @@ class ProgressiveForm extends Component {
           currentDisplay={ this.state.currentDisplay }
           updateSelectionsObject={ this.updateSelectionsObject }
           setLogoChoice={ this.setLogoChoice }
-          // stashedDisplay={this.state.stashedDisplay}
           regressDisplay={ this.regressDisplay }
         />
       default:
@@ -109,19 +112,15 @@ class ProgressiveForm extends Component {
   }
 
   render() {
-
     let startOverButton
+    let progressiveForm
 
     if (this.state.productSelected !== 'products') {
       startOverButton = <button onClick={ this.startOver }>Start Over</button>
     }
 
-    return (
-      <section>
-        {/* <CompanyInfo createCompany={ this.createCompany } /> */}
-        { startOverButton }
-        {/* <button onClick={ this.startOver }>Start Over</button> */}
-        {/* <button onClick={ this.regressDisplay }>Previous Option</button> */}
+    if (this.state.progress === 'open') {
+      progressiveForm = <div>
         <section className="selection-area">
           { this.selectProduct(this.state.productSelected) }
           <SelectionDisplay
@@ -138,6 +137,53 @@ class ProgressiveForm extends Component {
           />
         </section>
         <ProgressBar currentDisplay={ this.state.currentDisplay } />
+        { startOverButton }
+        </div>
+    } else if (this.state.progress === 'button') {
+      progressiveForm = <button onClick={ this.buildTheBrand }>BUILD MY BRAND</button>
+    } else {
+      progressiveForm = <div>
+        <section className="selection-area">
+          {/* { this.selectProduct(this.state.productSelected) } */}
+          <h3>HERE IS YOUR FINISHED PRODUCT</h3>
+          {/* <SelectionDisplay
+            currentSelections={ this.state.selections }
+            updateDisplay={ this.updateDisplay}
+          /> */}
+        </section>
+        <section className="created-label">
+          <LabelCreator 
+            currentSelections={ this.state.selections } 
+            logoChoice={ this.state.logoChoice }
+            productSelected={ this.state.productSelected }
+            company={ this.state.company }
+          />
+        </section>
+        {/* <ProgressBar currentDisplay={ this.state.currentDisplay } /> */}
+        { startOverButton }
+        </div>
+    }
+
+    return (
+      <section>
+        { progressiveForm }
+        {/* <section className="selection-area">
+          { this.selectProduct(this.state.productSelected) }
+          <SelectionDisplay
+            currentSelections={ this.state.selections }
+            updateDisplay={ this.updateDisplay}
+          />
+        </section>
+        <section className="created-label">
+          <LabelCreator 
+            currentSelections={ this.state.selections } 
+            logoChoice={ this.state.logoChoice }
+            productSelected={ this.state.productSelected }
+            company={ this.state.company }
+          />
+        </section>
+        <ProgressBar currentDisplay={ this.state.currentDisplay } />
+        { startOverButton } */}
       </section>
     );
   }
