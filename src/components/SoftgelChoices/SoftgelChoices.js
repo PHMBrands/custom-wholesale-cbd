@@ -105,6 +105,7 @@ class SoftgelChoices extends Component {
   render() {
     return <section>
         <h3>Private Label Softgels</h3>
+        <button onClick={ this.props.regressDisplay }>Previous Option</button>
         { this.displayChoice(this.props.currentDisplay) }
       </section>
   }

@@ -14,6 +14,7 @@ class TinctureChoices extends Component {
   handleClick = (event) => {
     event.preventDefault();
     this.props.updateSelectionsObject(this.state);
+    this.setState({ selectionName: 'test' })
   }
 
   handleChange = (event) => {
@@ -118,9 +119,20 @@ class TinctureChoices extends Component {
   }
 
   render () {
+    
+    let previousButton
+
+    if (this.state.selectionName !== 'quantity') {
+      console.log('if test')
+      previousButton = <button onClick={ this.props.regressDisplay }>Previous Option</button>
+    }
+
+
     return (
       <section>
         <h3>Private Label Tinctures</h3>
+        { previousButton }
+        {/* <button onClick={ this.props.regressDisplay }>Previous Option</button> */}
         { this.displayChoice(this.props.currentDisplay) }
         {/* <LogoSelector setLogoChoice={ this.props.setLogoChoice } /> */}
       </section>

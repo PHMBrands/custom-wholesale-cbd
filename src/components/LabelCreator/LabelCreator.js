@@ -93,9 +93,19 @@ class LabelCreator extends Component {
         { this.renderDefaultLabel(this.props.productSelected) }
         {/* <img src={labelSource} /> */}
         {/* <div>Quantity: {this.props.currentSelections.quantity}</div> */}
-        { this.props.currentSelections.flavor && 
-          <div className="flavor-selection">
-            <p>{ this.props.currentSelections.flavor }</p>
+        { this.props.company.companyName && 
+          <div className="company-name-selection">
+            <p>{ this.props.company.companyName }</p>
+            {/* {this.renderFlavorImage(this.props.currentSelections.flavor)} */}
+          </div> }
+        { this.props.company.address && 
+          <div className="company-address-selection">
+            <p>{ this.props.company.address }</p>
+            {/* {this.renderFlavorImage(this.props.currentSelections.flavor)} */}
+          </div> }
+        { this.props.company.phone && 
+          <div className="company-phone-selection">
+            <p>{ this.props.company.phone }</p>
             {/* {this.renderFlavorImage(this.props.currentSelections.flavor)} */}
           </div> }
         { this.props.currentSelections.softgelSize && 

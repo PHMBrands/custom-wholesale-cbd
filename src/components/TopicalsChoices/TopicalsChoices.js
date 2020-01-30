@@ -96,6 +96,7 @@ class TopicalsChoices extends Component {
   render() {
     return <section>
         <h3>Private Label Topicals</h3>
+        <button onClick={ this.props.regressDisplay }>Previous Option</button>
         { this.displayChoice(this.props.currentDisplay) }
       </section>
   }

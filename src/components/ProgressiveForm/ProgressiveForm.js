@@ -16,7 +16,7 @@ class ProgressiveForm extends Component {
       pricing: {},
       currentDisplay: 0,
       stashedDisplay: undefined,
-      productSelected: 'company',
+      productSelected: 'products',
       logoChoice: undefined,
       company: {}
     }
@@ -81,6 +81,7 @@ class ProgressiveForm extends Component {
             updateSelectionsObject={ this.updateSelectionsObject }
             // stashedDisplay={ this.state.stashedDisplay }
             setLogoChoice={ this.setLogoChoice }
+            regressDisplay={ this.regressDisplay }
           />
       case 'softgels':
         return <SoftgelChoices
@@ -88,6 +89,7 @@ class ProgressiveForm extends Component {
           updateSelectionsObject={this.updateSelectionsObject}
           setLogoChoice={ this.setLogoChoice }
           // stashedDisplay={this.state.stashedDisplay}
+          regressDisplay={ this.regressDisplay }
         />
       case 'topicals':
         return <TopicalsChoices
@@ -95,6 +97,7 @@ class ProgressiveForm extends Component {
           updateSelectionsObject={ this.updateSelectionsObject }
           setLogoChoice={ this.setLogoChoice }
           // stashedDisplay={this.state.stashedDisplay}
+          regressDisplay={ this.regressDisplay }
         />
       default:
         return <p>Something went wrong with the selectProduct switch statement.</p>
@@ -107,8 +110,6 @@ class ProgressiveForm extends Component {
 
     if (this.state.productSelected !== 'products') {
       startOverButton = <button onClick={ this.startOver }>Start Over</button>
-    } else {
-      startOverButton = <p></p>
     }
 
     return (
@@ -116,7 +117,7 @@ class ProgressiveForm extends Component {
         {/* <CompanyInfo createCompany={ this.createCompany } /> */}
         { startOverButton }
         {/* <button onClick={ this.startOver }>Start Over</button> */}
-        <button onClick={ this.regressDisplay }>Previous Option</button>
+        {/* <button onClick={ this.regressDisplay }>Previous Option</button> */}
         <section className="selection-area">
           { this.selectProduct(this.state.productSelected) }
           <SelectionDisplay
@@ -124,11 +125,14 @@ class ProgressiveForm extends Component {
             updateDisplay={ this.updateDisplay}
           />
         </section>
-        <LabelCreator 
-          currentSelections={ this.state.selections } 
-          logoChoice={ this.state.logoChoice }
-          productSelected={ this.state.productSelected }
-        />
+        <section className="created-label">
+          <LabelCreator 
+            currentSelections={ this.state.selections } 
+            logoChoice={ this.state.logoChoice }
+            productSelected={ this.state.productSelected }
+            company={ this.state.company }
+          />
+        </section>
         <ProgressBar currentDisplay={ this.state.currentDisplay } />
       </section>
     );
