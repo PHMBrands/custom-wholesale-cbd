@@ -5,6 +5,7 @@ import ProgressBar from '../ProgressBar/ProgressBar';
 import SoftgelChoices from '../SoftgelChoices/SoftgelChoices';  
 import TopicalsChoices from '../TopicalsChoices/TopicalsChoices';
 import LabelCreator from '../LabelCreator/LabelCreator';
+import CompanyInfo from '../CompanyInfo/CompanyInfo';
 
 class ProgressiveForm extends Component {
   constructor() {
@@ -16,7 +17,8 @@ class ProgressiveForm extends Component {
       currentDisplay: 0,
       stashedDisplay: undefined,
       productSelected: 'products',
-      logoChoice: undefined
+      logoChoice: undefined,
+      company: {}
     }
   }
 
@@ -30,6 +32,10 @@ class ProgressiveForm extends Component {
       let newDisplay = this.state.currentDisplay + 1
       this.setState({ selections: updatedSelections, currentDisplay: newDisplay  })
     }
+  }
+
+  createCompany = (company) => {
+    this.setState({ company });
   }
 
   // progressDisplay = () => {
@@ -51,7 +57,6 @@ class ProgressiveForm extends Component {
   }
 
   setLogoChoice = (logo) => {
-    // console.log(logo)
     this.setState({ logoChoice: logo })
   }
 
@@ -106,6 +111,7 @@ class ProgressiveForm extends Component {
 
     return (
       <section>
+        <CompanyInfo createCompany={ this.createCompany } />
         { startOverButton }
         {/* <button onClick={ this.startOver }>Start Over</button> */}
         <button onClick={ this.regressDisplay }>Previous Option</button>
