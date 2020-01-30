@@ -52,8 +52,12 @@ class ProgressiveForm extends Component {
 
   setLogoChoice = (logo) => {
     // console.log(logo)
-
     this.setState({ logoChoice: logo })
+  }
+
+  startOver = () => {
+    console.log('test')
+    this.setState({ selections: {}, currentDisplay: 0, productSelected: 'products', logoChoice: undefined })
   }
 
   selectProduct = (selection) => {
@@ -91,8 +95,19 @@ class ProgressiveForm extends Component {
   }
 
   render() {
+
+    let startOverButton
+
+    if (this.state.productSelected !== 'products') {
+      startOverButton = <button onClick={ this.startOver }>Start Over</button>
+    } else {
+      startOverButton = <p></p>
+    }
+
     return (
       <section>
+        { startOverButton }
+        {/* <button onClick={ this.startOver }>Start Over</button> */}
         <button onClick={ this.regressDisplay }>Previous Option</button>
         <section className="selection-area">
           { this.selectProduct(this.state.productSelected) }
