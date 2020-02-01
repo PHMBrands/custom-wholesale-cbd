@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import defaultTinctureLabel from '../../images/label-parts/tincture-template.jpg';
+import defaultTinctureLabel from '../../images/label-parts/tincture-template-update.jpg';
 import Gym from '../../images/logo-selector/gym.svg';
 import Hemp from '../../images/logo-selector/hemp.svg'
 import Moon from '../../images/logo-selector/moon.svg';
