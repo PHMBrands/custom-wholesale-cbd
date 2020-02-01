@@ -122,9 +122,9 @@ class TinctureChoices extends Component {
     let backButton
 
     if (this.state.selectionName !== 'quantity') {
-      backButton = <button onClick={ this.props.regressDisplay }>Previous Option</button>
+      backButton = <button onClick={ this.props.regressDisplay } className="back-button">Previous Option</button>
     } else {
-      backButton = <button onClick={ this.props.backToCompanyInfo }>BACK</button>
+      backButton = <button onClick={ this.props.backToCompanyInfo } className="back-button">BACK</button>
     }
 
     return (

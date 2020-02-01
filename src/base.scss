@@ -2,6 +2,7 @@
 @import './components/ProgressiveForm/ProgressiveForm';
 @import './components/LogoSelector/LogoSelector';
 @import './components/ProgressBar/ProgressBar';
+@import './components/CompanyInfo/CompanyInfo';
 
 body {
   margin: 0;
@@ -10,11 +11,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  // text-align: center;
 }
 
 header {
   height: 200px;
+  text-align: center;
 }
 
 .viobin-logo {
