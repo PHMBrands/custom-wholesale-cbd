@@ -103,15 +103,17 @@ class SoftgelChoices extends Component {
   }
 
   render() {
-    let previousButton
+    let backButton
 
     if (this.state.selectionName !== 'quantity') {
-      previousButton = <button onClick={ this.props.regressDisplay }>Previous Option</button>
+      backButton = <button onClick={ this.props.regressDisplay }>Previous Option</button>
+    } else {
+      backButton = <button onClick={ this.props.backToCompanyInfo }>BACK</button>
     }
 
     return <section>
         <h3>Private Label Softgels</h3>
-        { previousButton }
+        { backButton }
         { this.displayChoice(this.props.currentDisplay) }
       </section>
   }

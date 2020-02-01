@@ -22,7 +22,7 @@ class ProgressiveForm extends Component {
       stashedDisplay: undefined,
       productSelected: 'products',
       logoChoice: undefined,
-      company: {},
+      company: { companyEntered: false },
       stashedProduct: '',
       progress: 'open'
     }
@@ -70,6 +70,10 @@ class ProgressiveForm extends Component {
     this.setState({ selections: {}, currentDisplay: 0, productSelected: 'products', logoChoice: undefined })
   }
 
+  backToCompanyInfo = () => {
+    this.setState({ productSelected: 'company' })
+  }
+
   buildTheBrand = () => {
     this.setState({ progress: 'close' })
     console.log('test')
@@ -78,19 +82,31 @@ class ProgressiveForm extends Component {
   selectProduct = (selection) => {
     switch (selection) {
       case 'company':
-        return <CompanyInfo createCompany={ this.createCompany } /> 
+        return <section>
+            <button onClick={ this.startOver } className="back-button">BACK</button>
+            <CompanyInfo 
+              createCompany={ this.createCompany } 
+              company={ this.state.company }
+            />
+          </section> 
       case 'products':
-        return <form>
-            <button onClick={ () => this.updateProductSelection('tinctures') }><img src={ TinctureChoice } className="product-choice-image" />Tinctures</button>
-            <button onClick={ () => this.updateProductSelection('softgels') }><img src={ SoftgelChoice } className="product-choice-image" />Softgels</button>
-            <button onClick={ () => this.updateProductSelection('topicals') }><img src={ TopicalChoice } className="product-choice-image" />Lotions</button>
-          </form>
+        return <section className="intro-page">
+            <h1>VIOBIN® Build a Brand</h1>
+            <h2>Create your own private label CBD products in less than three minutes</h2>
+            <p>To get started select a product below:</p>
+            <form>
+              <button onClick={ () => this.updateProductSelection('tinctures') }><img src={ TinctureChoice } className="product-choice-image" />Tinctures</button>
+              <button onClick={ () => this.updateProductSelection('softgels') }><img src={ SoftgelChoice } className="product-choice-image" />Softgels</button>
+              <button onClick={ () => this.updateProductSelection('topicals') }><img src={ TopicalChoice } className="product-choice-image" />Lotions</button>
+            </form>
+          </section>
       case 'tinctures':
         return <TinctureChoices 
             currentDisplay={ this.state.currentDisplay } 
             updateSelectionsObject={ this.updateSelectionsObject }
             setLogoChoice={ this.setLogoChoice }
             regressDisplay={ this.regressDisplay }
+            backToCompanyInfo={ this.backToCompanyInfo }
           />
       case 'softgels':
         return <SoftgelChoices
@@ -98,6 +114,7 @@ class ProgressiveForm extends Component {
           updateSelectionsObject={this.updateSelectionsObject}
           setLogoChoice={ this.setLogoChoice }
           regressDisplay={ this.regressDisplay }
+          backToCompanyInfo={ this.backToCompanyInfo }
         />
       case 'topicals':
         return <TopicalsChoices
@@ -105,6 +122,7 @@ class ProgressiveForm extends Component {
           updateSelectionsObject={ this.updateSelectionsObject }
           setLogoChoice={ this.setLogoChoice }
           regressDisplay={ this.regressDisplay }
+          backToCompanyInfo={ this.backToCompanyInfo }
         />
       default:
         return <p>Something went wrong with the selectProduct switch statement.</p>

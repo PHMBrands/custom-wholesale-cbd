@@ -67,8 +67,10 @@ class LabelCreator extends Component {
         return <div>Default Topical label needed</div>;
       case 'products':
         return <div></div>;
+      case 'company':
+        return<div></div>
       default:
-        return <div>The renderDefaultLabel switch statement went to default.</div>;
+        return <div>The renderDefaultLabel switch statement in LabelCreator went to default.</div>;
     }
   }
   
@@ -88,6 +90,11 @@ class LabelCreator extends Component {
   }
 
   render() {
+
+    // if (this.) {
+
+    // }
+
     return (
       <div>
         { this.renderDefaultLabel(this.props.productSelected) }

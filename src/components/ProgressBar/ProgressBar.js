@@ -2,8 +2,7 @@ import React from 'react';
 
 const ProgressBar = (props) => {
 
-
-  return <div>{props.currentDisplay}/7</div>
+  return <section className="progress-bar">{props.currentDisplay}/7</section>
 }
 
 export default ProgressBar;
