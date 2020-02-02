@@ -1,3 +1,27 @@
-.company-form {
+.company-info {
   text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.company-form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 300px;
+
+  input {
+    margin: 5px 0px;
+    height: 30px;
+    font-size: 1.3em;
+    padding-left: 8px;
+    border: 1px solid #BFBFBF
+  }
+
+  button {
+    font-size: 1.3em;
+    margin-top: 5px;
+    border: 1px solid #BFBFBF;
+    height: 34px;
+  }
 }

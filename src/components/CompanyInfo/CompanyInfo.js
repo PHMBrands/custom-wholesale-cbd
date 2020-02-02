@@ -34,8 +34,8 @@ class CompanyInfo extends Component {
   }
   
   render() {
-    return <section className="company-form">
-        <form>
+    return <section className="company-info">
+        <form className="company-form">
           <input 
             type="text" 
             placeholder="Company Name"

@@ -33,7 +33,8 @@ class TinctureChoices extends Component {
     switch(status) {
       case 0:
         return <article>
-            <h4>Please select a quantity below:</h4>
+            <h4>Please select a quantity below: Why is this not coming through</h4>
+            <p>hello</p>
             <form>
               <input 
                 type="number" 
@@ -128,9 +129,9 @@ class TinctureChoices extends Component {
     }
 
     return (
-      <section>
-        <h3>Private Label Tinctures</h3>
+      <section className="tincture-choices">
         { backButton }
+        <h3>Private Label Tinctures</h3>
         { this.displayChoice(this.props.currentDisplay) }
       </section>
     );
