@@ -10,9 +10,7 @@ function App() {
         <img src={ ViobinLogo } className="viobin-logo" />
         <p>Build a Brand Tool</p>
       </header>
-      <section className="progressive-form">
-        <ProgressiveForm />
-      </section>
+      <ProgressiveForm />
       <footer>
         <p>Copyright VIOBIN</p>
       </footer>

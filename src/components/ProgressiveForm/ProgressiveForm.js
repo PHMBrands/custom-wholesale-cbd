@@ -6,9 +6,9 @@ import SoftgelChoices from '../SoftgelChoices/SoftgelChoices';
 import TopicalsChoices from '../TopicalsChoices/TopicalsChoices';
 import LabelCreator from '../LabelCreator/LabelCreator';
 import CompanyInfo from '../CompanyInfo/CompanyInfo';
-import TinctureChoice from '../../images/form-options/tincture-icon.svg';
-import SoftgelChoice from '../../images/form-options/softgel-icon.svg'
-import TopicalChoice from '../../images/form-options/topical-icon.svg';
+import TinctureChoice from '../../images/form-options/tincture-icon.jpg';
+import SoftgelChoice from '../../images/form-options/softgel-icon.jpg'
+import TopicalChoice from '../../images/form-options/topical-icon.jpg';
 
 
 class ProgressiveForm extends Component {
@@ -91,13 +91,12 @@ class ProgressiveForm extends Component {
           </section> 
       case 'products':
         return <section className="intro-page">
-            <h1>VIOBIN® Build a Brand</h1>
             <h2>Create your own private label CBD products in less than three minutes</h2>
             <p>To get started select a product below:</p>
             <form>
-              <button onClick={ () => this.updateProductSelection('tinctures') }><img src={ TinctureChoice } className="product-choice-image" />Tinctures</button>
-              <button onClick={ () => this.updateProductSelection('softgels') }><img src={ SoftgelChoice } className="product-choice-image" />Softgels</button>
-              <button onClick={ () => this.updateProductSelection('topicals') }><img src={ TopicalChoice } className="product-choice-image" />Lotions</button>
+              <button onClick={ () => this.updateProductSelection('tinctures') } className="product-button" ><img src={ TinctureChoice } className="product-choice-image" />Tinctures</button>
+              <button onClick={ () => this.updateProductSelection('softgels') } className="product-button" ><img src={ SoftgelChoice } className="product-choice-image" />Softgels</button>
+              <button onClick={ () => this.updateProductSelection('topicals') } className="product-button" ><img src={ TopicalChoice } className="product-choice-image" />Lotions</button>
             </form>
           </section>
       case 'tinctures':
@@ -183,7 +182,7 @@ class ProgressiveForm extends Component {
     }
 
     return (
-      <section>
+      <section className="progressive-form">
         { progressiveForm }
         {/* <section className="selection-area">
           { this.selectProduct(this.state.productSelected) }
