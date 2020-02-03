@@ -1,6 +1,6 @@
 import React from 'react';
 import ProgressiveForm from './components/ProgressiveForm/ProgressiveForm';
-import ViobinLogo from './images/LargeViobinLogo.png';
+import ViobinLogo from './images/White-Gold-Viobin-Logo.png';
 
 function App() {
 
@@ -8,6 +8,7 @@ function App() {
     <section className="App">
       <header>
         <img src={ ViobinLogo } className="viobin-logo" />
+        <p>Build a Brand Tool</p>
       </header>
       <section className="progressive-form">
         <ProgressiveForm />
