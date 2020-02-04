@@ -13,11 +13,11 @@ class LabelCreator extends Component {
 
   renderDefaultLabel = (status) => {
     switch (status) {
-      case 'tinctures':
+      case 'Tinctures':
         return <div className="tincture-mock-label"><img src={ defaultTinctureLabel } className="default-tincture-label" /></div>;
-      case 'softgels':
+      case 'Softgels':
         return <div>Default softgel label needed</div>;
-      case 'topicals':
+      case 'Topicals':
         return <div>Default Topical label needed</div>;
       case 'products':
         return <div></div>;

@@ -97,12 +97,12 @@ class ProgressiveForm extends Component {
             <h2>Create your own private label CBD products in less than three minutes</h2>
             <p>To get started select a product below:</p>
             <form>
-              <button onClick={ () => this.updateProductSelection('tinctures') } className="product-button" ><img src={ TinctureChoice } className="product-choice-image" />Tinctures</button>
-              <button onClick={ () => this.updateProductSelection('softgels') } className="product-button" ><img src={ SoftgelChoice } className="product-choice-image" />Softgels</button>
-              <button onClick={ () => this.updateProductSelection('topicals') } className="product-button" ><img src={ TopicalChoice } className="product-choice-image" />Lotions</button>
+              <button onClick={ () => this.updateProductSelection('Tinctures') } className="product-button" ><img src={ TinctureChoice } className="product-choice-image" />Tinctures</button>
+              <button onClick={ () => this.updateProductSelection('Softgels') } className="product-button" ><img src={ SoftgelChoice } className="product-choice-image" />Softgels</button>
+              <button onClick={ () => this.updateProductSelection('Topicals') } className="product-button" ><img src={ TopicalChoice } className="product-choice-image" />Lotions</button>
             </form>
           </section>
-      case 'tinctures':
+      case 'Tinctures':
         return <TinctureChoices 
             currentDisplay={ this.state.currentDisplay } 
             updateSelectionsObject={ this.updateSelectionsObject }
@@ -110,7 +110,7 @@ class ProgressiveForm extends Component {
             regressDisplay={ this.regressDisplay }
             backToCompanyInfo={ this.backToCompanyInfo }
           />
-      case 'softgels':
+      case 'Softgels':
         return <SoftgelChoices
           currentDisplay={this.state.currentDisplay}
           updateSelectionsObject={this.updateSelectionsObject}
@@ -118,7 +118,7 @@ class ProgressiveForm extends Component {
           regressDisplay={ this.regressDisplay }
           backToCompanyInfo={ this.backToCompanyInfo }
         />
-      case 'topicals':
+      case 'Topicals':
         return <TopicalsChoices
           currentDisplay={ this.state.currentDisplay }
           updateSelectionsObject={ this.updateSelectionsObject }
@@ -134,17 +134,25 @@ class ProgressiveForm extends Component {
   render() {
     let resetButton
     let progressiveForm
+    let productHeader
 
     if (this.state.productSelected !== 'products') {
       resetButton = <button onClick={ this.startOver } className="reset-button">RESET</button>
     }
 
+    if(this.state.productSelected !== 'products' && this.state.productSelected !== 'company') {
+      productHeader = <h2>Private Label {this.state.productSelected}</h2>
+    }
+
     if (this.state.progress === 'open') {
       progressiveForm = <div>
         <section className="selection-area">
+          {/* <h2>Private Label {this.state.productSelected}</h2> */}
+          { productHeader }
           <SelectionDisplay
             currentSelections={ this.state.selections }
             updateDisplay={ this.updateDisplay}
+            productSelected={ this.state.productSelected }
           />
           { this.selectProduct(this.state.productSelected) }
           {/* <SelectionDisplay

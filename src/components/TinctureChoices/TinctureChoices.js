@@ -130,7 +130,7 @@ class TinctureChoices extends Component {
     return (
       <section className="tincture-choices">
         { backButton }
-        <h3>Private Label Tinctures</h3>
+        {/* <h3>Private Label Tinctures</h3> */}
         { this.displayChoice(this.props.currentDisplay) }
       </section>
     );
