@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import defaultTinctureLabel from '../../images/label-parts/tincture-template.jpg';
+import defaultTinctureLabel from '../../images/label-parts/tincture-template-update.jpg';
 import Gym from '../../images/logo-selector/gym.svg';
 import Hemp from '../../images/logo-selector/hemp.svg'
 import Moon from '../../images/logo-selector/moon.svg';
@@ -11,64 +11,20 @@ class LabelCreator extends Component {
 
   }
 
-  // onImageDrop(files) {
-  //   this.setState({ uploadedFile: files[0] });
-  //   this.handleImageUpload(files[0]);
-  // }
-
-  // renderFlavorImage = (status) => {
-  //   switch(status) {
-  //     case 'Guava Lime':
-  //       return <div><img src={ guavaLime } /></div>
-  //     default: 
-  //       return (
-  //         <div>
-  //           <p>The flavor switch statement went to default.</p>
-  //           <p>{ this.props.currentSelections.flavor }</p>
-  //         </div>
-  //       );
-  //   }
-  // }
-
-  // renderSpectrumImage = (status) => {
-  //   switch (status) {
-  //     case 'Full Spectrum':
-  //       return <div><img src={fullSpectrum} /></div>;
-  //     default:
-  //       return <div>The spectrum switch statement went to default.</div>;
-  //   }
-  // }
-
-  // renderPotencyImage = (status) => {
-  //   switch (status) {
-  //     case '20 mg':
-  //       return <div><img src={twentyMg} /></div>;
-  //     default:
-  //       return <div>The potency switch statement went to default.</div>;
-  //   }
-  // }
-
-  // renderPerBottleImage = (status) => {
-  //   switch (status) {
-  //     case '20 mg':
-  //       return <div><img src={ sixHundredMg } /></div>;
-  //     default:
-  //       return <div>The potency switch statement went to default.</div>;
-  //   }
-  // }
-
   renderDefaultLabel = (status) => {
     switch (status) {
       case 'tinctures':
-        return <div><img src={ defaultTinctureLabel } /></div>;
+        return <div className="tincture-mock-label"><img src={ defaultTinctureLabel } className="default-tincture-label" /></div>;
       case 'softgels':
         return <div>Default softgel label needed</div>;
       case 'topicals':
         return <div>Default Topical label needed</div>;
       case 'products':
         return <div></div>;
+      case 'company':
+        return<div></div>
       default:
-        return <div>The renderDefaultLabel switch statement went to default.</div>;
+        return <div>The renderDefaultLabel switch statement in LabelCreator went to default.</div>;
     }
   }
   
@@ -88,8 +44,9 @@ class LabelCreator extends Component {
   }
 
   render() {
+
     return (
-      <div>
+      <section className="label-display">
         { this.renderDefaultLabel(this.props.productSelected) }
         {/* <img src={labelSource} /> */}
         {/* <div>Quantity: {this.props.currentSelections.quantity}</div> */}
@@ -151,9 +108,8 @@ class LabelCreator extends Component {
           </div> }
         { this.props.logoChoice && 
           <div className="logo-selection">{this.renderLogoImage(this.props.logoChoice)}</div> }
-      </div>
+      </section>
     );
-
   }
 }
 

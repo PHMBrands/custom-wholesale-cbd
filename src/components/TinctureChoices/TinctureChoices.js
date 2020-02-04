@@ -34,7 +34,7 @@ class TinctureChoices extends Component {
       case 0:
         return <article>
             <h4>Please select a quantity below:</h4>
-            <form>
+            <form className="company-form">
               <input 
                 type="number" 
                 placeholder="100"
@@ -119,16 +119,18 @@ class TinctureChoices extends Component {
   }
 
   render () { 
-    let previousButton
+    let backButton
 
     if (this.state.selectionName !== 'quantity') {
-      previousButton = <button onClick={ this.props.regressDisplay }>Previous Option</button>
+      backButton = <button onClick={ this.props.regressDisplay } className="back-button">Previous Option</button>
+    } else {
+      backButton = <button onClick={ this.props.backToCompanyInfo } className="back-button">BACK</button>
     }
 
     return (
-      <section>
+      <section className="tincture-choices">
+        { backButton }
         <h3>Private Label Tinctures</h3>
-        { previousButton }
         { this.displayChoice(this.props.currentDisplay) }
       </section>
     );

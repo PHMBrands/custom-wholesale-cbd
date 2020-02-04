@@ -1,3 +1,81 @@
 @import './components/LabelCreator/LabelCreator';
 @import './components/ProgressiveForm/ProgressiveForm';
 @import './components/LogoSelector/LogoSelector';
+@import './components/ProgressBar/ProgressBar';
+@import './components/CompanyInfo/CompanyInfo';
+@import './components/TinctureChoices/TinctureChoices';
+@import './components/SelectionDisplay/SelectionDisplay';
+
+@import url('https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,800&display=swap');
+
+body {
+  margin: 0;
+  // font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  //   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  //   sans-serif;
+  // -webkit-font-smoothing: antialiased;
+  // -moz-osx-font-smoothing: grayscale;
+  // text-align: center;
+  font-family: 'Nunito', sans-serif;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+header {
+  background: #00B1AF;
+  height: 80px;
+  // text-align: center;
+  display: flex;
+  color: #FFFFFF;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2.3em;
+
+  p {
+    margin: 0px 40px;
+    font-weight: 200;
+  }
+
+  .viobin-logo {
+    height: 60px;
+    margin: 0px 40px;
+    position: relative;
+    bottom: 4px;
+  }
+}
+
+footer {
+  border-top: 1px solid #37A9BA;
+  height: 75px;
+  width: 100vw;
+  position: fixed;
+  bottom: 0px;
+  // position: absolute;
+  // bottom: 150px;
+}
+
+.back-button {
+  position: absolute;
+  top: 95px;
+  left: 50px;
+  border: 1px solid #37A9BA;
+  padding: 12px 40px;
+  font-size: .8em;
+  cursor: pointer;
+  color: #37A9BA;
+}
+
+.back-button:hover {
+  // border: 4px solid #000000;
+  background-color: #F8B03C;
+  color: #FFFFFF;
+  // font-weight: bolder;
+}
+
+
+
+

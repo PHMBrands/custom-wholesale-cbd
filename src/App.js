@@ -1,14 +1,24 @@
 import React from 'react';
-import './App.css';
 import ProgressiveForm from './components/ProgressiveForm/ProgressiveForm';
+import ViobinLogo from './images/White-Gold-Viobin-Logo.png';
 
 function App() {
+
+
+
+  
+
   return (
-    <div className="App">
+    <section className="App">
       <header>
+        <img src={ ViobinLogo } className="viobin-logo" />
+        <p>Build a Brand Tool</p>
       </header>
       <ProgressiveForm />
-    </div>
+      <footer>
+        <p>Copyright VIOBIN</p>
+      </footer>
+    </section>
   );
 }
 
