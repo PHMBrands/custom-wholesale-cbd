@@ -1,5 +1,35 @@
+.label-display {
+  position: relative;
+  top: 20px;
+  width: auto;
+  display: inline-block;
+}
+
 .default-tincture-label {
   height: 400px;
+}
+
+.company-name-selection {
+  font-family: 'Oswald', sans-serif;
+  transform: rotate(-90deg);
+  font-size: 5em;
+}
+
+.flavor-selection {
+  // font-family: 'Oswald', sans-serif;
+  // color: purple;
+  // position: absolute;
+  // left: 356px;
+  // top: 13px;
+  font-family: 'Oswald', sans-serif;
+  color: purple;
+  position: absolute;
+  left: 355px;
+  top: 6px;
+  font-size: 1.6em;
+  border: none;
+  text-transform: uppercase;
+  padding: 0px;
 }
 
 // .flavor-selection {

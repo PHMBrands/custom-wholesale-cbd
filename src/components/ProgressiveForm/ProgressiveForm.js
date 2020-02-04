@@ -161,14 +161,14 @@ class ProgressiveForm extends Component {
             updateDisplay={ this.updateDisplay}
           /> */}
         </section>
-        <section className="created-label">
+        {/* <section className="created-label"> */}
           <LabelCreator 
             currentSelections={ this.state.selections } 
             logoChoice={ this.state.logoChoice }
             productSelected={ this.state.productSelected }
             company={ this.state.company }
           />
-        </section>
+        {/* </section> */}
         {/* <ProgressBar currentDisplay={ this.state.currentDisplay } /> */}
         {/* { startOverButton } */}
         </div>

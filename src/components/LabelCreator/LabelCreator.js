@@ -14,7 +14,7 @@ class LabelCreator extends Component {
   renderDefaultLabel = (status) => {
     switch (status) {
       case 'Tinctures':
-        return <div className="tincture-mock-label"><img src={ defaultTinctureLabel } className="default-tincture-label" /></div>;
+        return <img src={ defaultTinctureLabel } className="default-tincture-label" />;
       case 'Softgels':
         return <div>Default softgel label needed</div>;
       case 'Topicals':
@@ -65,11 +65,18 @@ class LabelCreator extends Component {
             <p>{ this.props.company.phone }</p>
             {/* {this.renderFlavorImage(this.props.currentSelections.flavor)} */}
           </div> }
-          { this.props.currentSelections.flavor && 
+
+
+          {/* { this.props.currentSelections.flavor && 
           <div className="flavor-selection">
             <p>{ this.props.currentSelections.flavor }</p>
             {/* {this.renderFlavorImage(this.props.currentSelections.flavor)} */}
-          </div> }  
+          {/* </div> }  */}
+
+          { this.props.currentSelections.flavor &&
+            <button className="flavor-selection"> { this.props.currentSelections.flavor }</button> }
+
+          
         { this.props.currentSelections.softgelSize && 
           <div className="softgel-size-selection">
               <p>{ this.props.currentSelections.softgelSize }</p>
