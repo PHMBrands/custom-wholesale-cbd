@@ -38,14 +38,21 @@ class CompanyInfo extends Component {
         <form className="company-form">
           <input 
             type="text" 
-            placeholder="Company Name"
+            placeholder="Company"
             name="companyName"
             value={ this.state.companyName}
             onChange={ this.handleChange }
           />
           <input 
             type="text" 
-            placeholder="Address"
+            placeholder="Your Name"
+            name="address"
+            value={ this.state.address}
+            onChange={ this.handleChange }
+          />
+          <input 
+            type="text" 
+            placeholder="Email"
             name="address"
             value={ this.state.address}
             onChange={ this.handleChange }

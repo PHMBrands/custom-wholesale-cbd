@@ -6,14 +6,14 @@ const SelectionDisplay = (props) => {
 
   return <section>
       {/* Quantity */}
-      { props.currentSelections.quantity && 
-        <button onClick={ () => props.updateDisplay(0) }>Quantity: {props.currentSelections.quantity}</button> }
+       {/* props.currentSelections.quantity &&  */}
+        <button onClick={ () => props.updateDisplay(0) }>Quantity: {props.currentSelections.quantity}</button>
       {/* Container */}
-      { props.currentSelections.container && 
-        <button onClick={() => props.updateDisplay(1) }>Container Size: { props.currentSelections.container }</button> }
+      {/* { props.currentSelections.container &&  */}
+        <button onClick={() => props.updateDisplay(1) }>Container Size: { props.currentSelections.container }</button> 
       {/* SoftgelSize */}
-      { props.currentSelections.softgelSize && 
-        <button onClick={() => props.updateDisplay(1) }>Softgel Size: {props.currentSelections.softgelSize }</button> }
+      {/* { props.currentSelections.softgelSize &&  */}
+        <button onClick={() => props.updateDisplay(1) }>Softgel Size: {props.currentSelections.softgelSize }</button> 
       {/* Flavor */}
       { props.currentSelections.flavor && 
         <button onClick={() => props.updateDisplay(1) }>Flavor: { props.currentSelections.flavor }</button> }

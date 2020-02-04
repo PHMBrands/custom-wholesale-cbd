@@ -84,6 +84,8 @@ class ProgressiveForm extends Component {
       case 'company':
         return <section>
             <button onClick={ this.startOver } className="back-button">BACK</button>
+            <p>Your company name will appear on the label, and the contact info below that.</p>
+            <p>Enter your information below</p>
             <CompanyInfo 
               createCompany={ this.createCompany } 
               company={ this.state.company }
@@ -133,17 +135,21 @@ class ProgressiveForm extends Component {
     let progressiveForm
 
     if (this.state.productSelected !== 'products') {
-      startOverButton = <button onClick={ this.startOver }>Start Over</button>
+      startOverButton = <button onClick={ this.startOver }>RESET</button>
     }
 
     if (this.state.progress === 'open') {
       progressiveForm = <div>
         <section className="selection-area">
-          { this.selectProduct(this.state.productSelected) }
           <SelectionDisplay
             currentSelections={ this.state.selections }
             updateDisplay={ this.updateDisplay}
           />
+          { this.selectProduct(this.state.productSelected) }
+          {/* <SelectionDisplay
+            currentSelections={ this.state.selections }
+            updateDisplay={ this.updateDisplay}
+          /> */}
         </section>
         <section className="created-label">
           <LabelCreator 
@@ -153,7 +159,7 @@ class ProgressiveForm extends Component {
             company={ this.state.company }
           />
         </section>
-        <ProgressBar currentDisplay={ this.state.currentDisplay } />
+        {/* <ProgressBar currentDisplay={ this.state.currentDisplay } /> */}
         { startOverButton }
         </div>
     } else if (this.state.progress === 'button') {

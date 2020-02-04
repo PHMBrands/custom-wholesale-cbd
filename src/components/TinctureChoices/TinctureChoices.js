@@ -33,9 +33,8 @@ class TinctureChoices extends Component {
     switch(status) {
       case 0:
         return <article>
-            <h4>Please select a quantity below: Why is this not coming through</h4>
-            <p>hello</p>
-            <form>
+            <h4>Please select a quantity below:</h4>
+            <form className="company-form">
               <input 
                 type="number" 
                 placeholder="100"
