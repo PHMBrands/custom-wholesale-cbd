@@ -3,8 +3,8 @@
   // align-content: space-between;
   
   button {
-    border: 0px;
-    background: lightpink;
+    // border: 0px;
+    // background: lightpink;
     width: 200px;
     margin: 0px 3px;
   }
@@ -16,5 +16,17 @@
     border: 0px;
     background: lightpink;
   }
+}
+
+.selection-display-future {
+  background: lightpink;
+}
+
+.selection-display-current {
+  background: yellow;
+}
+
+.selection-display-completed {
+  background: green;
 }
 

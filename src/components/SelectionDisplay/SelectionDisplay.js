@@ -5,15 +5,25 @@ class SelectionDisplay extends Component {
     super()
   }
 
+
+
   renderSelections = (productSelected) => {
+    console.log(this.props.currentDisplay)
     switch (productSelected) {
       case 'Tinctures':
         return <article className="selection-display">
+
             <button onClick={ () => this.props.updateDisplay(0) }>Quantity: {this.props.currentSelections.quantity}</button>
             <button onClick={() => this.props.updateDisplay(1) }>Flavor: { this.props.currentSelections.flavor }</button>
             <button onClick={() => this.props.updateDisplay(2) }>Carrier Oil: { this.props.currentSelections.carrier }</button>
             <button onClick={() => this.props.updateDisplay(3) }>Spectrum: { this.props.currentSelections.spectrum }</button>
-            <button onClick={() => this.props.updateDisplay(4) }>Potency: { this.props.currentSelections.potency }</button>
+                        {/* Potency Button */}
+            { (this.props.currentSelections.potency && (this.props.currentDisplay !== 4)) && 
+              <button onClick={() => this.props.updateDisplay(4) } className="selection-display-completed">Potency: { this.props.currentSelections.potency } </button> }
+            { ((this.props.currentSelections.potency === undefined) && (this.props.currentDisplay !== 4)) && 
+              <button onClick={() => this.props.updateDisplay(4) } className="selection-display-future">Potency: { this.props.currentSelections.potency }</button> }
+            { (this.props.currentDisplay === 4) && 
+              <button onClick={() => this.props.updateDisplay(4) } className="selection-display-current">Potency: { this.props.currentSelections.potency }</button> }
           </article>
       case 'Softgels':
         return <article>

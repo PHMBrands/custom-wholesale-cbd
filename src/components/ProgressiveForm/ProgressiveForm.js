@@ -153,6 +153,7 @@ class ProgressiveForm extends Component {
             currentSelections={ this.state.selections }
             updateDisplay={ this.updateDisplay}
             productSelected={ this.state.productSelected }
+            currentDisplay={ this.state.currentDisplay }
           />
           { this.selectProduct(this.state.productSelected) }
           {/* <SelectionDisplay
