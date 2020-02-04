@@ -4,6 +4,8 @@ import ViobinLogo from './images/White-Gold-Viobin-Logo.png';
 
 function App() {
 
+
+
   
 
   return (
@@ -14,7 +16,6 @@ function App() {
       </header>
       <ProgressiveForm />
       <footer>
-
         <p>Copyright VIOBIN</p>
       </footer>
     </section>

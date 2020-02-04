@@ -1,0 +1,16 @@
+.selection-display {
+  width: 100vw;
+  color: purple;
+  display: flex;
+  grid-template-rows: auto;
+  // align-content: space-between;
+}
+
+.selection-display-test {
+
+  button {
+    border: 0px;
+    background: lightpink;
+  }
+}
+

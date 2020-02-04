@@ -131,11 +131,11 @@ class ProgressiveForm extends Component {
   }
 
   render() {
-    let startOverButton
+    let resetButton
     let progressiveForm
 
     if (this.state.productSelected !== 'products') {
-      startOverButton = <button onClick={ this.startOver }>RESET</button>
+      resetButton = <button onClick={ this.startOver } className="reset-button">RESET</button>
     }
 
     if (this.state.progress === 'open') {
@@ -160,7 +160,7 @@ class ProgressiveForm extends Component {
           />
         </section>
         {/* <ProgressBar currentDisplay={ this.state.currentDisplay } /> */}
-        { startOverButton }
+        {/* { startOverButton } */}
         </div>
     } else if (this.state.progress === 'button') {
       progressiveForm = <button onClick={ this.buildTheBrand }>BUILD MY BRAND</button>
@@ -183,7 +183,7 @@ class ProgressiveForm extends Component {
           />
         </section>
         {/* <ProgressBar currentDisplay={ this.state.currentDisplay } /> */}
-        { startOverButton }
+        {/* { startOverButton } */}
         </div>
     }
 
@@ -207,6 +207,8 @@ class ProgressiveForm extends Component {
         </section>
         <ProgressBar currentDisplay={ this.state.currentDisplay } />
         { startOverButton } */}
+        { resetButton }
+
       </section>
     );
   }
