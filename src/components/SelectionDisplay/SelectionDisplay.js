@@ -8,7 +8,6 @@ class SelectionDisplay extends Component {
 
 
   renderSelections = (productSelected) => {
-    console.log(this.props.currentDisplay)
     switch (productSelected) {
       case 'Tinctures':
         return <article className="selection-display">

@@ -9,7 +9,6 @@ import CompanyInfo from '../CompanyInfo/CompanyInfo';
 import TinctureChoice from '../../images/form-options/tincture-icon.jpg';
 import SoftgelChoice from '../../images/form-options/softgel-icon.jpg'
 import TopicalChoice from '../../images/form-options/topical-icon.jpg';
-// import TestComponent from '../SelectionDisplay/SelectionDisplay';
 
 
 class ProgressiveForm extends Component {
@@ -112,20 +111,20 @@ class ProgressiveForm extends Component {
           />
       case 'Softgels':
         return <SoftgelChoices
-          currentDisplay={this.state.currentDisplay}
-          updateSelectionsObject={this.updateSelectionsObject}
-          setLogoChoice={ this.setLogoChoice }
-          regressDisplay={ this.regressDisplay }
-          backToCompanyInfo={ this.backToCompanyInfo }
-        />
+            currentDisplay={this.state.currentDisplay}
+            updateSelectionsObject={this.updateSelectionsObject}
+            setLogoChoice={ this.setLogoChoice }
+            regressDisplay={ this.regressDisplay }
+            backToCompanyInfo={ this.backToCompanyInfo }
+          />
       case 'Topicals':
         return <TopicalsChoices
-          currentDisplay={ this.state.currentDisplay }
-          updateSelectionsObject={ this.updateSelectionsObject }
-          setLogoChoice={ this.setLogoChoice }
-          regressDisplay={ this.regressDisplay }
-          backToCompanyInfo={ this.backToCompanyInfo }
-        />
+            currentDisplay={ this.state.currentDisplay }
+            updateSelectionsObject={ this.updateSelectionsObject }
+            setLogoChoice={ this.setLogoChoice }
+            regressDisplay={ this.regressDisplay }
+            backToCompanyInfo={ this.backToCompanyInfo }
+          />
       default:
         return <p>Something went wrong with the selectProduct switch statement.</p>
     }
@@ -167,6 +166,7 @@ class ProgressiveForm extends Component {
             logoChoice={ this.state.logoChoice }
             productSelected={ this.state.productSelected }
             company={ this.state.company }
+            updateDisplay={ this.updateDisplay}
           />
         {/* </section> */}
         {/* <ProgressBar currentDisplay={ this.state.currentDisplay } /> */}

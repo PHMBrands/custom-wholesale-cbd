@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import defaultTinctureLabel from '../../images/label-parts/tincture-template-update.jpg';
+import defaultTinctureLabel from '../../images/label-parts/tincture-template-update-two.jpg';
 import Gym from '../../images/logo-selector/gym.svg';
 import Hemp from '../../images/logo-selector/hemp.svg'
 import Moon from '../../images/logo-selector/moon.svg';
@@ -8,7 +8,6 @@ import Yoga from '../../images/logo-selector/yoga.svg';
 class LabelCreator extends Component {
   constructor(props) {
     super(props);
-
   }
 
   renderDefaultLabel = (status) => {
@@ -49,7 +48,6 @@ class LabelCreator extends Component {
       <section className="label-display">
         { this.renderDefaultLabel(this.props.productSelected) }
         {/* <div>Quantity: {this.props.currentSelections.quantity}</div> */}
-
         { this.props.company.companyName && 
           <button className="tincture-company-name-selection">{ this.props.company.companyName }</button> }
         { this.props.company.companyName && 
@@ -80,7 +78,7 @@ class LabelCreator extends Component {
           {/* </div> }  */}
 
           { this.props.currentSelections.flavor &&
-            <button className="tincture-flavor-selection"> { this.props.currentSelections.flavor }</button> }
+            <button className="tincture-flavor-selection" onClick={ () => this.props.updateDisplay(1) }> { this.props.currentSelections.flavor }</button> }
 
           
         { this.props.currentSelections.softgelSize && 
@@ -91,12 +89,12 @@ class LabelCreator extends Component {
 
 
         { this.props.currentSelections.carrier && 
-              <button className="tincture-carrier-selection">Other Ingredients: { this.props.currentSelections.carrier }, Natural <br />Flavor, Monk Fruit Extract</button> }
+              <button className="tincture-carrier-selection" onClick={ () => this.props.updateDisplay(2) }>{ this.props.currentSelections.carrier },</button> }
 
 
 
         { this.props.currentSelections.spectrum && 
-          <button className="tincture-spectrum-selection">{ this.props.currentSelections.spectrum }<br/><span>CBD Oil Supplement</span></button>}
+          <button className="tincture-spectrum-selection" onClick={ () => this.props.updateDisplay(3) }>{ this.props.currentSelections.spectrum }<br/><span>CBD Oil Supplement</span></button>}
 
 
 
@@ -108,7 +106,7 @@ class LabelCreator extends Component {
 
 
         { this.props.currentSelections.potency && 
-          <button className="tincture-potency-selection">{ this.props.currentSelections.potency }<br /><span>CBD per serving</span></button>}
+          <button className="tincture-potency-selection" onClick={ () => this.props.updateDisplay(4) }>{ this.props.currentSelections.potency }<br /><span>CBD per serving</span></button>}
 
 
 
