@@ -48,23 +48,29 @@ class LabelCreator extends Component {
     return (
       <section className="label-display">
         { this.renderDefaultLabel(this.props.productSelected) }
-        {/* <img src={labelSource} /> */}
         {/* <div>Quantity: {this.props.currentSelections.quantity}</div> */}
+
         { this.props.company.companyName && 
-          <div className="company-name-selection">
-            <p>{ this.props.company.companyName }</p>
-            {/* {this.renderFlavorImage(this.props.currentSelections.flavor)} */}
-          </div> }
-        { this.props.company.address && 
+          <button className="tincture-company-name-selection">{ this.props.company.companyName }</button> }
+        { this.props.company.companyName && 
+          <button className="tincture-company-info-selection">
+              <p className="prepared-for">Prepared for:</p>
+              <p className="company-name"></p>{ this.props.company.companyName }
+              <p className="person-name">{ this.props.company.personsName }</p>
+              <p className="company-email">{ this.props.company.email }</p>
+              <p className="company-phone">{ this.props.company.phone }</p>
+
+          </button> }
+
+
+        {/* { this.props.company.address && 
           <div className="company-address-selection">
             <p>{ this.props.company.address }</p>
-            {/* {this.renderFlavorImage(this.props.currentSelections.flavor)} */}
           </div> }
         { this.props.company.phone && 
           <div className="company-phone-selection">
             <p>{ this.props.company.phone }</p>
-            {/* {this.renderFlavorImage(this.props.currentSelections.flavor)} */}
-          </div> }
+          </div> } */}
 
 
           {/* { this.props.currentSelections.flavor && 
@@ -74,7 +80,7 @@ class LabelCreator extends Component {
           {/* </div> }  */}
 
           { this.props.currentSelections.flavor &&
-            <button className="flavor-selection"> { this.props.currentSelections.flavor }</button> }
+            <button className="tincture-flavor-selection"> { this.props.currentSelections.flavor }</button> }
 
           
         { this.props.currentSelections.softgelSize && 
@@ -82,32 +88,31 @@ class LabelCreator extends Component {
               <p>{ this.props.currentSelections.softgelSize }</p>
             {/* {this.renderFlavorImage(this.props.currentSelections.flavor)} */}
           </div> }  
+
+
         { this.props.currentSelections.carrier && 
-          <div className="carrier-selection">
-              <p>{ this.props.currentSelections.carrier }</p>
-            {/* {this.renderFlavorImage(this.props.currentSelections.flavor)} */}
-          </div> }
+              <button className="tincture-carrier-selection">Other Ingredients: { this.props.currentSelections.carrier }, Natural <br />Flavor, Monk Fruit Extract</button> }
+
+
+
         { this.props.currentSelections.spectrum && 
-          <div className="spectrum-selection">
-            <p>{ this.props.currentSelections.spectrum }</p>
-            {/* {this.renderSpectrumImage("Full Spectrum")} */}
-          </div> }
+          <button className="tincture-spectrum-selection">{ this.props.currentSelections.spectrum }<br/><span>CBD Oil Supplement</span></button>}
+
+
+
         { this.props.currentSelections.scent && 
           <div className="spectrum-selection">
             <p>{ this.props.currentSelections.scent }</p>
             {/* {this.renderSpectrumImage("Full Spectrum")} */}
           </div> }
+
+
         { this.props.currentSelections.potency && 
-          <div>
-            <div className="potency-selection">
-              <p>{ this.props.currentSelections.potency } </p>
-              {/* {this.renderPotencyImage("20 mg")} */}
-            </div>
-            <div className="per-bottle-selection">
-              { this.props.currentSelections.potency }
-              {/* {this.renderPerBottleImage("20 mg")} */}
-            </div>
-          </div> }
+          <button className="tincture-potency-selection">{ this.props.currentSelections.potency }<br /><span>CBD per serving</span></button>}
+
+
+
+
         { this.props.currentSelections.softgelPerBottle && 
           <div className="softgel-per-bottle-selection">
             <p>{ this.props.currentSelections.softgelPerBottle }</p>

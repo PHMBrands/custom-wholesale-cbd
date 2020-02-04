@@ -6,7 +6,8 @@ class CompanyInfo extends Component {
 
     this.state = {
       companyName: '',
-      address: '',
+      personsName: '',
+      email: '',
       phone: '',
       companyEntered: false
     }
@@ -46,14 +47,14 @@ class CompanyInfo extends Component {
           <input 
             type="text" 
             placeholder="Your Name"
-            name="address"
+            name="personsName"
             value={ this.state.address}
             onChange={ this.handleChange }
           />
           <input 
             type="text" 
             placeholder="Email"
-            name="address"
+            name="email"
             value={ this.state.address}
             onChange={ this.handleChange }
           />

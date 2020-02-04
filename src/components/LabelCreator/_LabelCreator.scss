@@ -9,20 +9,37 @@
   height: 400px;
 }
 
-.company-name-selection {
+.tincture-company-name-selection {
   font-family: 'Oswald', sans-serif;
   transform: rotate(-90deg);
   font-size: 5em;
+  border: none;
+  text-transform: uppercase;
+  position: absolute;
+  left: 180px;
+  bottom: 180px;
+  text-align: left;
+  line-height: 0px;
 }
 
-.flavor-selection {
-  // font-family: 'Oswald', sans-serif;
-  // color: purple;
-  // position: absolute;
-  // left: 356px;
-  // top: 13px;
+.tincture-company-info-selection {
   font-family: 'Oswald', sans-serif;
-  color: purple;
+  font-size: 0.8em;
+  border: none;
+  text-transform: uppercase;
+  position: absolute;
+  left: 25px;
+  bottom: 91px;
+  text-align: left;
+  line-height: 1px;
+
+  .prepared-for {
+    font-size: 1.2em
+  }
+}
+
+.tincture-flavor-selection {
+  font-family: 'Oswald', sans-serif;
   position: absolute;
   left: 355px;
   top: 6px;
@@ -30,6 +47,60 @@
   border: none;
   text-transform: uppercase;
   padding: 0px;
+  text-align: right;
+  width: 206px;
+}
+
+.tincture-carrier-selection {
+  font-family: 'Oswald', sans-serif;
+  position: absolute;
+  right: 36px;
+  top: 260px;
+  font-size: 0.8em;
+  border: none;
+  text-transform: uppercase;
+  padding: 0px;
+  text-align: left;
+}
+
+.tincture-potency-selection {
+  font-family: 'Oswald', sans-serif;
+  position: absolute;
+  right: 288px;
+  top: 50px;
+  font-size: 1.8em;
+  border: none;
+  text-transform: uppercase;
+  padding: 0px;
+  text-align: right;
+  line-height: 18px;
+
+  span {
+    color: purple;
+    font-size: 0.6em;
+  }
+}
+.tincture-spectrum-selection {
+  font-family: 'Oswald', sans-serif;
+  position: absolute;
+  left: 355px;
+  bottom: 90px;
+  font-size: 1.8em;
+  border: none;
+  text-transform: uppercase;
+  padding: 0px;
+  text-align: right;
+  width: 206px;
+  line-height: 26px;
+
+  span {
+    font-weight: 300;
+    font-size: .7em;
+  }
+}
+
+.tincture-company-selection {
+
 }
 
 // .flavor-selection {
