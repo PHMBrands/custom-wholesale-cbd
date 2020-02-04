@@ -9,6 +9,7 @@ import CompanyInfo from '../CompanyInfo/CompanyInfo';
 import TinctureChoice from '../../images/form-options/tincture-icon.jpg';
 import SoftgelChoice from '../../images/form-options/softgel-icon.jpg'
 import TopicalChoice from '../../images/form-options/topical-icon.jpg';
+// import TestComponent from '../SelectionDisplay/SelectionDisplay';
 
 
 class ProgressiveForm extends Component {
@@ -189,6 +190,7 @@ class ProgressiveForm extends Component {
 
     return (
       <section className="progressive-form">
+        {/* <TestComponent /> */}
         { progressiveForm }
         {/* <section className="selection-area">
           { this.selectProduct(this.state.productSelected) }
