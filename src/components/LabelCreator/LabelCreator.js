@@ -52,7 +52,7 @@ class LabelCreator extends Component {
           <button className="tincture-company-name-selection">{ this.props.company.companyName }</button> }
         { this.props.company.companyName && 
           <button className="tincture-company-info-selection">
-              <p className="prepared-for">Prepared for:</p>
+              <p className="manufactured-for">Manufactured For:</p>
               <p className="company-name"></p>{ this.props.company.companyName }
               <p className="person-name">{ this.props.company.personsName }</p>
               <p className="company-email">{ this.props.company.email }</p>

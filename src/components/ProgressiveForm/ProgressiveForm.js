@@ -107,7 +107,6 @@ class ProgressiveForm extends Component {
             updateSelectionsObject={ this.updateSelectionsObject }
             setLogoChoice={ this.setLogoChoice }
             regressDisplay={ this.regressDisplay }
-            backToCompanyInfo={ this.backToCompanyInfo }
           />
       case 'Softgels':
         return <SoftgelChoices
@@ -153,6 +152,8 @@ class ProgressiveForm extends Component {
             updateDisplay={ this.updateDisplay}
             productSelected={ this.state.productSelected }
             currentDisplay={ this.state.currentDisplay }
+            company={ this.state.company }
+            backToCompanyInfo={ this.backToCompanyInfo }
           />
           { this.selectProduct(this.state.productSelected) }
           {/* <SelectionDisplay

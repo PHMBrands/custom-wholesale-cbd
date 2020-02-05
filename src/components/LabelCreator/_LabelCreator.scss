@@ -16,10 +16,12 @@
   border: none;
   text-transform: uppercase;
   position: absolute;
-  left: 130px;
+  left: 135px;
   bottom: 180px;
   text-align: left;
   line-height: 0px;
+  height: 75px;
+  padding: 0px;
 }
 
 .tincture-company-info-selection {
@@ -33,7 +35,7 @@
   text-align: left;
   line-height: 1px;
 
-  .prepared-for {
+  .manufactured-for {
     font-size: 1.2em;
     font-weight: 600;
   }

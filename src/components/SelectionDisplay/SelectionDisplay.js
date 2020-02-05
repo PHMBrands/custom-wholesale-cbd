@@ -11,6 +11,13 @@ class SelectionDisplay extends Component {
     switch (productSelected) {
       case 'Tinctures':
         return <article className="selection-display">
+                                  {/* Product Button */}
+            { (this.props.company.email) && 
+              <button onClick={ this.props.backToCompanyInfo } className="selection-display-completed">Company Info</button> }
+            {/* { ((this.props.currentSelections.quantity === undefined) && (this.props.currentDisplay !== 0)) && 
+              <button onClick={ this.props.backToCompanyInfo } className="selection-display-future">Company Info</button> } */}
+            { (this.props.productSelected === 'company') && 
+              <button onClick={ this.props.backToCompanyInfo } className="selection-display-current">Company Info</button> }
                                   {/* Quantity Button */}
             { (this.props.currentSelections.quantity && (this.props.currentDisplay !== 0)) && 
               <button onClick={() => this.props.updateDisplay(0) } className="selection-display-completed">Quantity: { this.props.currentSelections.quantity } </button> }
@@ -58,6 +65,13 @@ class SelectionDisplay extends Component {
           </article>
       case 'Softgels':
         return <article>
+                                      {/* Product Button */}
+            { (this.props.company.email) && 
+              <button onClick={ this.props.backToCompanyInfo } className="selection-display-completed">Company Info</button> }
+            {/* { ((this.props.currentSelections.quantity === undefined) && (this.props.currentDisplay !== 0)) && 
+              <button onClick={ this.props.backToCompanyInfo } className="selection-display-future">Company Info</button> } */}
+            { (this.props.productSelected === 'company') && 
+              <button onClick={ this.props.backToCompanyInfo } className="selection-display-current">Company Info</button> }
                         {/* Quantity Button */}
             { (this.props.currentSelections.quantity && (this.props.currentDisplay !== 0)) && 
               <button onClick={() => this.props.updateDisplay(0) } className="selection-display-completed">Quantity: { this.props.currentSelections.quantity } </button> }
@@ -117,6 +131,13 @@ class SelectionDisplay extends Component {
           </article>
       case 'Topicals':
         return <article>
+                                    {/* Product Button */}
+            { (this.props.company.email) && 
+              <button onClick={ this.props.backToCompanyInfo } className="selection-display-completed">Company Info</button> }
+            {/* { ((this.props.currentSelections.quantity === undefined) && (this.props.currentDisplay !== 0)) && 
+              <button onClick={ this.props.backToCompanyInfo } className="selection-display-future">Company Info</button> } */}
+            { (this.props.productSelected === 'company') && 
+              <button onClick={ this.props.backToCompanyInfo } className="selection-display-current">Company Info</button> }
                                   {/* Quantity Button */}
             { (this.props.currentSelections.quantity && (this.props.currentDisplay !== 0)) && 
               <button onClick={() => this.props.updateDisplay(0) } className="selection-display-completed">Quantity: { this.props.currentSelections.quantity } </button> }
@@ -169,6 +190,8 @@ class SelectionDisplay extends Component {
   render() {
 
     return <section className="selection-display">
+
+
         { this.renderSelections(this.props.productSelected) }
         {/* <button onClick={ () => this.props.updateDisplay(0) }>Quantity: {this.props.currentSelections.quantity}</button>
         <button onClick={() => this.props.updateDisplay(1) }>Container Size: { this.props.currentSelections.container }</button> 

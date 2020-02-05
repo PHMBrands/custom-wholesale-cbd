@@ -18,7 +18,8 @@ class CompanyInfo extends Component {
     if (this.props.company.companyEntered) {
       this.setState({ 
         companyName: existingCompany.companyName,
-        address: existingCompany.address,
+        personsName: existingCompany.personsName,
+        email: existingCompany.email,
         phone: existingCompany.phone
       })
     }
@@ -48,14 +49,14 @@ class CompanyInfo extends Component {
             type="text" 
             placeholder="Your Name"
             name="personsName"
-            value={ this.state.address}
+            value={ this.state.personsName}
             onChange={ this.handleChange }
           />
           <input 
             type="text" 
             placeholder="Email"
             name="email"
-            value={ this.state.address}
+            value={ this.state.email}
             onChange={ this.handleChange }
           />
           <input 
