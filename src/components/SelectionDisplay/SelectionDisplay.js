@@ -62,6 +62,14 @@ class SelectionDisplay extends Component {
               <button onClick={() => this.props.updateDisplay(4) } className="selection-display-future">Potency: { this.props.currentSelections.potency }</button> }
             { (this.props.currentDisplay === 4) && 
               <button onClick={() => this.props.updateDisplay(4) } className="selection-display-current">Potency: { this.props.currentSelections.potency }</button> }
+
+            {/* { (this.props.currentSelections.potency && (this.props.currentDisplay !== 4)) && 
+              <button onClick={() => this.props.updateDisplay(4) } className="selection-display-completed">Logo</button> }
+            { ((this.props.currentSelections.potency === undefined) && (this.props.currentDisplay !== 4)) && 
+              <button onClick={() => this.props.updateDisplay(4) } className="selection-display-future">Logo</button> }
+            { (this.props.currentDisplay === 4) && 
+              <button onClick={() => this.props.updateDisplay(4) } className="selection-display-current">Logo</button> } */}
+            
           </article>
       case 'Softgels':
         return <article>
@@ -190,8 +198,13 @@ class SelectionDisplay extends Component {
   render() {
 
     return <section className="selection-display">
-
-
+      { (this.props.logoChoice && (this.props.currentDisplay !== 5)) && 
+        <button onClick={() => this.props.updateDisplay(5) } className="selection-display-completed">Logo</button> }
+      { ((this.props.logoChoice === undefined) && (this.props.currentDisplay !== 5)) && 
+        <button onClick={() => this.props.updateDisplay(5) } className="selection-display-future">Logo</button> }
+      { (this.props.currentDisplay === 4) && 
+        <button onClick={() => this.props.updateDisplay(5) } className="selection-display-current">Logo</button> }
+        
         { this.renderSelections(this.props.productSelected) }
         {/* <button onClick={ () => this.props.updateDisplay(0) }>Quantity: {this.props.currentSelections.quantity}</button>
         <button onClick={() => this.props.updateDisplay(1) }>Container Size: { this.props.currentSelections.container }</button> 

@@ -154,6 +154,7 @@ class ProgressiveForm extends Component {
             currentDisplay={ this.state.currentDisplay }
             company={ this.state.company }
             backToCompanyInfo={ this.backToCompanyInfo }
+            logoChoice={ this.state.logoChoice }
           />
           { this.selectProduct(this.state.productSelected) }
           {/* <SelectionDisplay
