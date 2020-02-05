@@ -13,16 +13,16 @@ const LogoSelector = (props) => {
   return (
     <div>
       <p>Your logos goes here, in the meantime, select from one of these fun options.</p>
-      <button onClick={ () => props.setLogoChoice('gym') }>
+      <button onClick={ () => props.setLogoChoice('gym') } className="logo-button">
         <img src={ Gym } className="logo-sample" />
       </button>
-      <button onClick={ () => props.setLogoChoice('hemp') }>
+      <button onClick={ () => props.setLogoChoice('hemp') } className="logo-button">
         <img src={ Hemp } className="logo-sample" />
       </button>
-      <button onClick={ () => props.setLogoChoice('yoga') }>
+      <button onClick={ () => props.setLogoChoice('yoga') } className="logo-button">
         <img src={ Yoga } className="logo-sample" />
       </button>
-      <button onClick={ () => props.setLogoChoice('moon') }>
+      <button onClick={ () => props.setLogoChoice('moon') } className="logo-button">
         <img src={ Moon } className="logo-sample" />
       </button>
     </div>

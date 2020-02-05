@@ -13,18 +13,18 @@ class LabelCreator extends Component {
   renderDefaultLabel = (status) => {
     switch (status) {
       case 'Tinctures':
-        return <section>
-          <img src={ defaultTinctureLabel } className="default-tincture-label" />
-          { this.props.company.companyName && 
-            <button className="tincture-company-name-selection">{ this.props.company.companyName }</button> }
-          { this.props.company.companyName && 
-            <button className="tincture-company-info-selection">
-              <p className="manufactured-for">Manufactured For:</p>
-              <p className="company-name"></p>{ this.props.company.companyName }
-              <p className="person-name">{ this.props.company.personsName }</p>
-              <p className="company-email">{ this.props.company.email }</p>
-              <p className="company-phone">{ this.props.company.phone }</p>
-            </button> };
+        return <section className="tincture-label">
+            <img src={ defaultTinctureLabel } className="default-tincture-label" />
+            { this.props.company.companyName && 
+              <button className="tincture-company-name-selection">{ this.props.company.companyName }</button> }
+            { this.props.company.companyName && 
+              <button className="tincture-company-info-selection">
+                <p className="manufactured-for">Manufactured For:</p>
+                <p className="company-name"></p>{ this.props.company.companyName }
+                <p className="person-name">{ this.props.company.personsName }</p>
+                <p className="company-email">{ this.props.company.email }</p>
+                <p className="company-phone">{ this.props.company.phone }</p>
+              </button> }
             { this.props.currentSelections.flavor &&
               <button className="tincture-flavor-selection" onClick={ () => this.props.updateDisplay(1) }> { this.props.currentSelections.flavor }</button> }
             { this.props.currentSelections.carrier && 
@@ -33,6 +33,8 @@ class LabelCreator extends Component {
               <button className="tincture-spectrum-selection" onClick={ () => this.props.updateDisplay(3) }>{ this.props.currentSelections.spectrum }<br/><span>CBD Oil Supplement</span></button> }
             { this.props.currentSelections.potency && 
               <button className="tincture-potency-selection" onClick={ () => this.props.updateDisplay(4) }>{ this.props.currentSelections.potency }<br /><span>CBD per serving</span></button> }
+            { this.props.logoChoice && 
+              <div className="tincture-logo-selection">{this.renderLogoImage(this.props.logoChoice)}</div> }
           </section>;
       case 'Softgels':
         return <div>Default softgel label needed</div>;
@@ -50,13 +52,13 @@ class LabelCreator extends Component {
   renderLogoImage = (status) => {
     switch (status) {
       case 'gym':
-        return <div><img src={ Gym } className="logo" /></div>;
+        return <img src={ Gym } className="label-creator-logo" />;
       case 'hemp':
-        return <div><img src={ Hemp } className="logo" /></div>;
+        return <img src={ Hemp } className="label-creator-logo" />;
       case 'moon':
-        return <div><img src={ Moon } className="logo" /></div>;
+        return <img src={ Moon } className="label-creator-logo" />;
       case 'yoga':
-        return <div><img src={ Yoga } className="logo" /></div>;  
+        return <img src={ Yoga } className="label-creator-logo" />;  
       default:
         return <div>The renderLogoImage switch statement went to default.</div>;
     }
@@ -136,10 +138,9 @@ class LabelCreator extends Component {
             <p>{ this.props.currentSelections.softgelPerBottle }</p>
             {/* {this.renderSpectrumImage("Full Spectrum")} */}
           </div> }
-        { this.props.logoChoice && 
-          <div className="logo-selection">{this.renderLogoImage(this.props.logoChoice)}</div> }
+        {/* { this.props.logoChoice && 
+          <div className="logo-selection">{this.renderLogoImage(this.props.logoChoice)}</div> } */}
 
-          
       </section>
     );
   }

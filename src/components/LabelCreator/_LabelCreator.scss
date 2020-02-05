@@ -5,6 +5,10 @@
   display: inline-block;
 }
 
+.label-creator-logo {
+  height: 150px;
+}
+
 .default-tincture-label {
   height: 400px;
 }
@@ -104,7 +108,10 @@
   }
 }
 
-.tincture-company-selection {
+.tincture-logo-selection {
+  position: absolute;
+  top: 110px;
+  right: 310px;
 
 }
 

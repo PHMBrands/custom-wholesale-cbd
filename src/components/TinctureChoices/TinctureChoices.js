@@ -113,6 +113,10 @@ class TinctureChoices extends Component {
         return <article>
           <LogoSelector setLogoChoice={ this.props.setLogoChoice } />
         </article>
+      case 5:
+        return <article>
+          <p>Please complete all sections to build your brand</p>
+        </article>
       default:
         return <div>Something went wrong with the displayChoice switch statement</div>  
     }
@@ -126,6 +130,8 @@ class TinctureChoices extends Component {
     } else {
       backButton = <button onClick={ this.props.backToCompanyInfo } className="back-button">BACK</button>
     }
+
+
 
     return (
       <section className="tincture-choices">
