@@ -63,7 +63,8 @@ class ProgressiveForm extends Component {
   }
 
   setLogoChoice = (logo) => {
-    this.setState({ logoChoice: logo, progress: 'button' })
+    this.setState({ logoChoice: logo })
+    // this.setState({ logoChoice: logo, progress: 'final screen' })
   }
 
   startOver = () => {
@@ -74,10 +75,10 @@ class ProgressiveForm extends Component {
     this.setState({ productSelected: 'company' })
   }
 
-  buildTheBrand = () => {
-    this.setState({ progress: 'close' })
-    console.log('test')
-  }
+  // buildTheBrand = () => {
+  //   this.setState({ progress: 'close' })
+  //   console.log('test')
+  // }
 
   selectProduct = (selection) => {
     switch (selection) {
@@ -174,8 +175,8 @@ class ProgressiveForm extends Component {
         {/* <ProgressBar currentDisplay={ this.state.currentDisplay } /> */}
         {/* { startOverButton } */}
         </div>
-    } else if (this.state.progress === 'button') {
-      progressiveForm = <button onClick={ this.buildTheBrand }>BUILD MY BRAND</button>
+    // } else if (this.state.progress === 'button') {
+    //   progressiveForm = <button onClick={ this.buildTheBrand }>BUILD MY BRAND</button>
     } else {
       progressiveForm = <div>
         <section className="selection-area">
