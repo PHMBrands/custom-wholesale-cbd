@@ -14,7 +14,7 @@ class TinctureChoices extends Component {
   handleClick = (event) => {
     event.preventDefault();
     this.props.updateSelectionsObject(this.state);
-    this.setState({ selectionName: 'test' })
+    this.setState({ selectionName: 'not quantity' })
   }
 
   handleChange = (event) => {
@@ -25,6 +25,10 @@ class TinctureChoices extends Component {
   handleChangeNoButton = (event) => {
     const { name, value } = event.target;
     this.setState({ selectionName: name, selectionValue: value }, () => this.handleClick(event));
+  }
+
+  logoHandler = (logo) => {
+    this.props.setLogoChoice(logo);
   }
 
   //updateDisplay argument must correspond with corresponding switch statement in TinctureChoices
@@ -111,7 +115,10 @@ class TinctureChoices extends Component {
           </article>
       case 5:
         return <article>
-          <LogoSelector setLogoChoice={ this.props.setLogoChoice } />
+          <LogoSelector 
+            logoHandler={ this.logoHandler }
+            setLogoChoice={ this.props.setLogoChoice }
+          />
         </article>
       case 5:
         return <article>

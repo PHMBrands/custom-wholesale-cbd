@@ -53,16 +53,18 @@ class CompanyInfo extends Component {
             onChange={ this.handleChange }
           />
           <input 
-            type="text" 
+            type="email" 
             placeholder="Email"
             name="email"
             value={ this.state.email}
             onChange={ this.handleChange }
           />
           <input 
-            type="text" 
+            type="tel" 
             placeholder="Phone"
             name="phone"
+            pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+            required
             value={ this.state.phone}
             onChange={ this.handleChange }
           /> 

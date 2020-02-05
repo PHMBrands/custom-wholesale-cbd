@@ -63,8 +63,8 @@ class ProgressiveForm extends Component {
   }
 
   setLogoChoice = (logo) => {
-    this.setState({ logoChoice: logo })
-    // this.setState({ logoChoice: logo, progress: 'final screen' })
+    let company = {...this.state.company, logo }
+    this.setState({ logoChoice: logo, company })
   }
 
   startOver = () => {
