@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ReactToPrint from 'react-to-print';
 import LabelCreator from '../LabelCreator/LabelCreator';
-import TestPrintComponent from '../TestPrintComponent/TestPrintComponent';
 
 class PrintButton extends Component {
 

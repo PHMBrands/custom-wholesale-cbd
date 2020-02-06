@@ -10,8 +10,8 @@ import TinctureChoice from '../../images/form-options/tincture-icon.jpg';
 import SoftgelChoice from '../../images/form-options/softgel-icon.jpg'
 import TopicalChoice from '../../images/form-options/topical-icon.jpg';
 import PrintButton from '../PrintButton/PrintButton';
-import TestPrintComponent from '../TestPrintComponent/TestPrintComponent';
-import ReactToPrint from 'react-to-print';
+// import TestPrintComponent from '../TestPrintComponent/TestPrintComponent';
+// import ReactToPrint from 'react-to-print';
 
 
 
@@ -181,34 +181,37 @@ class ProgressiveForm extends Component {
         {/* <ProgressBar currentDisplay={ this.state.currentDisplay } /> */}
         {/* { startOverButton } */}
         </div>
+    }
     // } else if (this.state.progress === 'button') {
     //   progressiveForm = <button onClick={ this.buildTheBrand }>BUILD MY BRAND</button>
-    } else {
-      progressiveForm = <div>
-        <section className="selection-area">
-          {/* { this.selectProduct(this.state.productSelected) } */}
-          <h3>HERE IS YOUR FINISHED PRODUCT</h3>
-          {/* <SelectionDisplay
-            currentSelections={ this.state.selections }
-            updateDisplay={ this.updateDisplay}
-          /> */}
-        </section>
-        <section className="created-label">
-          <LabelCreator 
-            currentSelections={ this.state.selections } 
-            logoChoice={ this.state.logoChoice }
-            productSelected={ this.state.productSelected }
-            company={ this.state.company }
-          />
-        </section>
-        {/* <ProgressBar currentDisplay={ this.state.currentDisplay } /> */}
-        {/* { startOverButton } */}
-        </div>
-    }
+    // } else {
+    //   progressiveForm = <div>
+    //     <section className="selection-area">
+    //       {/* { this.selectProduct(this.state.productSelected) } */}
+    //       <h3>HERE IS YOUR FINISHED PRODUCT</h3>
+    //       {/* <SelectionDisplay
+    //         currentSelections={ this.state.selections }
+    //         updateDisplay={ this.updateDisplay}
+    //       /> */}
+    //     </section>
+    //     <section className="created-label">
+    //       <LabelCreator 
+    //         currentSelections={ this.state.selections } 
+    //         logoChoice={ this.state.logoChoice }
+    //         productSelected={ this.state.productSelected }
+    //         company={ this.state.company }
+    //       />
+    //     </section>
+    //     {/* <ProgressBar currentDisplay={ this.state.currentDisplay } /> */}
+    //     {/* { startOverButton } */}
+    //     </div>
+    // }
 
     return (
       <section className="progressive-form">
-        {/* <TestPrintComponent /> */}
+
+
+                       {/* This is the working component */}
         {/* <PrintButton 
           productSelected={ this.state.productSelected }
           currentSelections={ this.state.selections } 
@@ -217,7 +220,8 @@ class ProgressiveForm extends Component {
           company={ this.state.company }
           updateDisplay={ this.updateDisplay}
         /> */}
-        {/* <TestComponent /> */}
+
+
         { progressiveForm }
         {/* <section className="selection-area">
           { this.selectProduct(this.state.productSelected) }
@@ -236,7 +240,6 @@ class ProgressiveForm extends Component {
         </section>
         <ProgressBar currentDisplay={ this.state.currentDisplay } />
         { startOverButton } */}
-        {/* <PrintButton /> */}
         { resetButton }
       </section>
     );
@@ -244,25 +247,3 @@ class ProgressiveForm extends Component {
 }
 
 export default ProgressiveForm;
-
-// class PrintButton extends Component {
-
-//   render() {
-//     return(
-//       <div>
-//         <ReactToPrint
-//           trigger={() => <a href="#">Print this out!</a>}
-//           content={() => this.componentRef}
-//         />
-//         <LabelCreator 
-//           ref={el => (this.componentRef = el)}
-//           currentSelections={ this.state.selections } 
-//           logoChoice={ this.state.logoChoice }
-//           productSelected={ this.state.productSelected }
-//           company={ this.state.company }
-//           updateDisplay={ this.updateDisplay} 
-//         />
-//       </div>
-//     )
-//   }
-// }

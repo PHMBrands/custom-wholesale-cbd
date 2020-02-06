@@ -4,7 +4,6 @@ import Gym from '../../images/logo-selector/gym.svg';
 import Hemp from '../../images/logo-selector/hemp.svg'
 import Moon from '../../images/logo-selector/moon.svg';
 import Yoga from '../../images/logo-selector/yoga.svg';
-import ReactToPrint from 'react-to-print'
 
 class LabelCreator extends Component {
   constructor(props) {
@@ -36,7 +35,6 @@ class LabelCreator extends Component {
               <button className="tincture-potency-selection" onClick={ () => this.props.updateDisplay(4) }>{ this.props.currentSelections.potency }<br /><span>CBD per serving</span></button> }
             { this.props.logoChoice && 
               <div className="tincture-logo-selection">{this.renderLogoImage(this.props.logoChoice)}</div> }
-            <Example />
           </section>;
       case 'Softgels':
         return <div>Default softgel label needed</div>;
@@ -109,7 +107,7 @@ class LabelCreator extends Component {
           <div className="softgel-size-selection">
               <p>{ this.props.currentSelections.softgelSize }</p>
             {/* {this.renderFlavorImage(this.props.currentSelections.flavor)} */}
-          {/* </div> }   */} */}
+          {/* </div> }   */}
 
 
         {/* { this.props.currentSelections.carrier && 
@@ -127,7 +125,7 @@ class LabelCreator extends Component {
             <p>{ this.props.currentSelections.scent }</p>
             {/* {this.renderSpectrumImage("Full Spectrum")} */}
           {/* </div> } */}
- */}
+ 
 
         {/* { this.props.currentSelections.potency && 
           <button className="tincture-potency-selection" onClick={ () => this.props.updateDisplay(4) }>{ this.props.currentSelections.potency }<br /><span>CBD per serving</span></button> } */}
@@ -139,26 +137,11 @@ class LabelCreator extends Component {
           <div className="softgel-per-bottle-selection">
             <p>{ this.props.currentSelections.softgelPerBottle }</p>
             {/* {this.renderSpectrumImage("Full Spectrum")} */}
-          {/* </div> } */} */}
+          {/* </div> } */} 
         {/* { this.props.logoChoice && 
           <div className="logo-selection">{this.renderLogoImage(this.props.logoChoice)}</div> } */}
 
       </section>
-    );
-  }
-}
-
-class Example extends Component {
-
-  render() {
-    return (
-      <div>
-        <ReactToPrint
-          trigger={() => <a href="#">Print this out!</a>}
-          content={() => this.componentRef}
-        />
-        <LabelCreator ref={el => (this.componentRef = el)} />
-      </div>
     );
   }
 }
