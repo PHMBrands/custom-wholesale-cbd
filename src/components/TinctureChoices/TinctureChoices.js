@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import LogoSelector from '../LogoSelector/LogoSelector';
+import PrintButton from '../PrintButton/PrintButton';
 
 class TinctureChoices extends Component {
   constructor() {
@@ -120,8 +121,9 @@ class TinctureChoices extends Component {
             setLogoChoice={ this.props.setLogoChoice }
           />
         </article>
-      case 5:
+      case 6:
         return <article>
+          <PrintButton />
           <p>Please complete all sections to build your brand</p>
         </article>
       default:
