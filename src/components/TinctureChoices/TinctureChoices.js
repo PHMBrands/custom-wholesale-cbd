@@ -31,6 +31,27 @@ class TinctureChoices extends Component {
     this.props.setLogoChoice(logo);
   }
 
+  finalTabRender = () => {
+    const { flavor, carrier, spectrum, potency, logo } = this.props.selections
+
+    if (flavor && carrier && spectrum && potency && logo) {
+      return <p>Everything is complete</p>
+    } else {
+      return <p>Fill out the form entirely you idiot</p>
+    }
+
+
+
+
+    this.props.tinctureCompletionCheck()
+
+    if (this.props.selectionsComplete) {
+      return <p>Everything is completed</p>
+    } else {
+      return <p>Please complete all sections to create your private label Tincture.</p>
+    }
+  }
+
   //updateDisplay argument must correspond with corresponding switch statement in TinctureChoices
   
   displayChoice = (status) => {
@@ -41,7 +62,7 @@ class TinctureChoices extends Component {
             <form className="company-form">
               <input 
                 type="number" 
-                placeholder="100"
+                // placeholder="100"
                 name="quantity"
                 value={ this.state.selectionValue}
                 onChange={ this.handleChange }
@@ -122,7 +143,7 @@ class TinctureChoices extends Component {
         </article>
       case 6:
         return <article>
-          <p>Please complete all sections to build your brand</p>
+          { this.finalTabRender() }
         </article>
       default:
         return <div>Something went wrong with the displayChoice switch statement</div>  
@@ -137,8 +158,6 @@ class TinctureChoices extends Component {
     } else {
       backButton = <button onClick={ this.props.backToCompanyInfo } className="back-button">BACK</button>
     }
-
-
 
     return (
       <section className="tincture-choices">

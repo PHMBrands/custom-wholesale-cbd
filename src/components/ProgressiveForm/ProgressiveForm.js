@@ -28,7 +28,7 @@ class ProgressiveForm extends Component {
       logoChoice: undefined,
       company: { companyEntered: false },
       stashedProduct: '',
-      progress: 'open'
+      progress: 'open',
     }
   }
 
@@ -67,9 +67,9 @@ class ProgressiveForm extends Component {
   }
 
   setLogoChoice = (logo) => {
-    console.log('setlogochoice test')
-    let company = {...this.state.company, logo }
-    this.setState({ logoChoice: logo, company, currentDisplay: 6 })
+    // console.log('setlogochoice test')
+    let selections = {...this.state.selections, logo }
+    this.setState({ logoChoice: logo, selections, currentDisplay: 6 })
   }
 
   startOver = () => {
@@ -113,6 +113,8 @@ class ProgressiveForm extends Component {
             updateSelectionsObject={ this.updateSelectionsObject }
             setLogoChoice={ this.setLogoChoice }
             regressDisplay={ this.regressDisplay }
+            selections={ this.state.selections }
+            selectionsComplete={ this.state.selectionsComplete }
           />
       case 'Softgels':
         return <SoftgelChoices
@@ -170,13 +172,15 @@ class ProgressiveForm extends Component {
           /> */}
         </section>
         {/* <section className="created-label"> */}
-          <LabelCreator 
-            currentSelections={ this.state.selections } 
-            logoChoice={ this.state.logoChoice }
-            productSelected={ this.state.productSelected }
-            company={ this.state.company }
-            updateDisplay={ this.updateDisplay}
-          />
+        <PrintButton 
+          productSelected={ this.state.productSelected }
+          currentSelections={ this.state.selections } 
+          logoChoice={ this.state.logoChoice }
+          productSelected={ this.state.productSelected }
+          company={ this.state.company }
+          updateDisplay={ this.updateDisplay}
+          currentDisplay={ this.state.currentDisplay }
+        />
         {/* </section> */}
         {/* <ProgressBar currentDisplay={ this.state.currentDisplay } /> */}
         {/* { startOverButton } */}
