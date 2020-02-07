@@ -13,7 +13,7 @@ class TinctureChoices extends Component {
 
   handleClick = (event) => {
     event.preventDefault();
-    this.props.updateSelectionsObject(this.state);
+    this.props.tinctureSelectionsObject(this.state);
     this.setState({ selectionName: 'not quantity' })
   }
 
@@ -27,31 +27,20 @@ class TinctureChoices extends Component {
     this.setState({ selectionName: name, selectionValue: value }, () => this.handleClick(event));
   }
 
-  logoHandler = (logo) => {
-    this.props.setLogoChoice(logo);
-  }
+  // logoHandler = (logo) => {
+  //   this.props.setLogoChoice(logo);
+  // }
 
-  finalTabRender = () => {
-    const { flavor, carrier, spectrum, potency, logo } = this.props.selections
+  // finalTabRender = () => {
+  //   const { flavor, carrier, spectrum, potency, logo } = this.props.selections
 
-    if (flavor && carrier && spectrum && potency && logo) {
-      return <p>Everything is complete</p>
-    } else {
-      return <p>Fill out the form entirely you idiot</p>
-    }
+  //   if (flavor && carrier && spectrum && potency && logo) {
+  //     this.props.setDisplayPrintButton()
+  //   } else {
+  //     return <p>Fill out the form entirely you idiot</p>
+  //   }
 
-
-
-
-    this.props.tinctureCompletionCheck()
-
-    if (this.props.selectionsComplete) {
-      return <p>Everything is completed</p>
-    } else {
-      return <p>Please complete all sections to create your private label Tincture.</p>
-    }
-  }
-
+  // }
   //updateDisplay argument must correspond with corresponding switch statement in TinctureChoices
   
   displayChoice = (status) => {
@@ -137,16 +126,14 @@ class TinctureChoices extends Component {
       case 5:
         return <article>
           <LogoSelector 
-            logoHandler={ this.logoHandler }
+            // logoHandler={ this.logoHandler }
             setLogoChoice={ this.props.setLogoChoice }
           />
         </article>
       case 6:
-        return <article>
-          { this.finalTabRender() }
-        </article>
+        return <p>Plese fill out the form entirely to print your private label brand.</p>
       default:
-        return <div>Something went wrong with the displayChoice switch statement</div>  
+        return <div>Something went wrong with the displayChoice switch statement in TinctureChoices component</div>  
     }
   }
 

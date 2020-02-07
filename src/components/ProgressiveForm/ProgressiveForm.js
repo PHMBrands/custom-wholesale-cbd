@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
 import TinctureChoices from '../TinctureChoices/TinctureChoices';
 import SelectionDisplay from '../SelectionDisplay/SelectionDisplay';
-import ProgressBar from '../ProgressBar/ProgressBar';
 import SoftgelChoices from '../SoftgelChoices/SoftgelChoices';  
 import TopicalsChoices from '../TopicalsChoices/TopicalsChoices';
-import LabelCreator from '../LabelCreator/LabelCreator';
+// import LabelCreator from '../LabelCreator/LabelCreator';
 import CompanyInfo from '../CompanyInfo/CompanyInfo';
 import TinctureChoice from '../../images/form-options/tincture-icon.jpg';
 import SoftgelChoice from '../../images/form-options/softgel-icon.jpg'
 import TopicalChoice from '../../images/form-options/topical-icon.jpg';
 import PrintButton from '../PrintButton/PrintButton';
-// import TestPrintComponent from '../TestPrintComponent/TestPrintComponent';
-// import ReactToPrint from 'react-to-print';
 
 
 
@@ -29,19 +26,61 @@ class ProgressiveForm extends Component {
       company: { companyEntered: false },
       stashedProduct: '',
       progress: 'open',
+      displayPrintButton: false
     }
   }
 
-  updateSelectionsObject = (selection) => {
-    let updatedSelections = { ...this.state.selections, [selection.selectionName]: selection.selectionValue }
+  tinctureSelectionsObject = (selection) => {
+    let remainingChoices = ['company', '']
+    const { selectionName, selectionValue } = selection
+    let updatedSelection = {...this.state.selections, [selectionName]: selectionValue }
+
+    this.setState({ selections: updatedSelection })
+
+
+
+    // this.setState({ selections: selection })
+
+    // {selectionName: "flavor", selectionValue: "Mojito"}
     
-    if (this.state.stashedDisplay) {
+  }
+
+  updateSelectionsObject = (selection) => {
+    console.log('selection', selection)
+    let updatedSelections = { ...this.state.selections, [selection.selectionName]: selection.selectionValue }
+
+    console.log('updatedSelections', updatedSelections)
+    
+    const { flavor, carrier, spectrum, potency, logo } = updatedSelections
+
+                    // update this if/else statement since it is now being called after setLogo
+
+    // if (flavor && carrier && spectrum && potency && logo) {
+    //   console.log('if statement')
+    //   this.setState({ displayPrintButton: true })
+    // } else {
+    //   console.log('else statement')
+    // }
+
+            // this if/else facilitates the SelectionDisplay returning the user to the unselected option
+    if (flavor && carrier && spectrum && potency && logo) {
+      console.log('selections complete test')
+      this.setState({ displayPrintButton: true, currentDisplay: 6 }) 
+    } else if (this.state.stashedDisplay) {
+      console.log('has stashed display test')
+
       let newDisplay = this.state.stashedDisplay
-      this.setState({ selections: updatedSelections, currentDisplay: newDisplay, stashedDisplay: undefined })
+      this.setState({ selections: updatedSelections, currentDisplay: newDisplay, stashedDisplay: undefined }, () => this.displayPrintButton())
     } else {
-      let newDisplay = this.state.currentDisplay + 1
-      this.setState({ selections: updatedSelections, currentDisplay: newDisplay  })
+      console.log('final else test')
+
+      // let newDisplay = this.state.currentDisplay + 1
+      // this.setState({ selections: updatedSelections, currentDisplay: newDisplay  }, () => this.displayPrintButton())
     }
+  }
+
+  displayPrintButton = () => {
+    this.setState({ displayPrintButton: true })
   }
 
   createCompany = (company) => {
@@ -67,9 +106,24 @@ class ProgressiveForm extends Component {
   }
 
   setLogoChoice = (logo) => {
-    // console.log('setlogochoice test')
-    let selections = {...this.state.selections, logo }
-    this.setState({ logoChoice: logo, selections, currentDisplay: 6 })
+
+    // this.setState({  })
+    let updatedSelections = {...this.state.selections, logo: logo }
+    console.log('updatedSelections', updatedSelections)
+
+    this.setState({ logoChoice: logo, selections: updatedSelections})
+    this.updateSelectionsObject({ selectionName: "logo", selectionValue: logo })
+    
+    // const { flavor, carrier, spectrum, potency, logo } = updatedSelections
+    
+    // if (flavor && carrier && spectrum && potency && logo) {
+      //   this.setState({ logoChoice: logo, selections: updatedSelections, currentDisplay: 6, displayPrintButton: true })
+      // } else {
+        // }
+        
+
+
+    // updateSelectionObject not being called here. Need something to progress selections and setting display may not be it.
   }
 
   startOver = () => {
@@ -78,6 +132,10 @@ class ProgressiveForm extends Component {
 
   backToCompanyInfo = () => {
     this.setState({ productSelected: 'company' })
+  }
+
+  setDisplayPrintButton = () => {
+    this.setState({ displayPrintButton: true })
   }
 
   // buildTheBrand = () => {
@@ -114,7 +172,9 @@ class ProgressiveForm extends Component {
             setLogoChoice={ this.setLogoChoice }
             regressDisplay={ this.regressDisplay }
             selections={ this.state.selections }
-            selectionsComplete={ this.state.selectionsComplete }
+            displayPrintButton={ this.state.displayPrintButton }
+            tinctureSelectionsObject={ this.tinctureSelectionsObject }
+            // setDisplayPrintButton={ this.setDisplayPrintButton }
           />
       case 'Softgels':
         return <SoftgelChoices
@@ -180,6 +240,7 @@ class ProgressiveForm extends Component {
           company={ this.state.company }
           updateDisplay={ this.updateDisplay}
           currentDisplay={ this.state.currentDisplay }
+          displayPrintButton={ this.state.displayPrintButton }
         />
         {/* </section> */}
         {/* <ProgressBar currentDisplay={ this.state.currentDisplay } /> */}

@@ -8,7 +8,7 @@ class PrintButton extends Component {
 
     let printLabel
 
-    if (this.props.currentDisplay === 6) {
+    if (this.props.displayPrintButton) {
       printLabel = <div>
           <ReactToPrint
             trigger={() => <a href="#">Print this out!</a>}
