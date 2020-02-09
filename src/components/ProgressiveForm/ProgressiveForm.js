@@ -35,7 +35,7 @@ class ProgressiveForm extends Component {
     const { selectionName, selectionValue } = selection
     let updatedSelection = {...this.state.selections, [selectionName]: selectionValue }
     let toDeleteIndex = this.state.choicesRemaining.indexOf(selectionName);
-    let remainingChoices = this.state.choicesRemaining.splice(toDeleteIndex, 1)
+    this.state.choicesRemaining.splice(toDeleteIndex, 1)
 
 
     if (this.state.choicesRemaining.length > 0) {
@@ -117,9 +117,9 @@ class ProgressiveForm extends Component {
             <h2>Create your own private label CBD products in less than three minutes</h2>
             <p>To get started select a product below:</p>
             <form>
-              <button onClick={ () => this.updateProductSelection('Tinctures') } className="product-button" ><img src={ TinctureChoice } className="product-choice-image" />Tinctures</button>
-              <button onClick={ () => this.updateProductSelection('Softgels') } className="product-button" ><img src={ SoftgelChoice } className="product-choice-image" />Softgels</button>
-              <button onClick={ () => this.updateProductSelection('Topicals') } className="product-button" ><img src={ TopicalChoice } className="product-choice-image" />Lotions</button>
+              <button onClick={ () => this.updateProductSelection('Tinctures') } className="product-button" ><img src={ TinctureChoice } alt="generic tincture" className="product-choice-image" />Tinctures</button>
+              <button onClick={ () => this.updateProductSelection('Softgels') } className="product-button" ><img src={ SoftgelChoice } alt="generic softgel" className="product-choice-image" />Softgels</button>
+              <button onClick={ () => this.updateProductSelection('Topicals') } className="product-button" ><img src={ TopicalChoice } alt="generic topical" className="product-choice-image" />Lotions</button>
             </form>
           </section>
       case 'Tinctures':
@@ -129,9 +129,6 @@ class ProgressiveForm extends Component {
             setLogoChoice={ this.setLogoChoice }
             regressDisplay={ this.regressDisplay }
             selections={ this.state.selections }
-            // displayPrintButton={ this.state.displayPrintButton }
-            updateSelectionsObject={ this.updateSelectionsObject }
-            // setDisplayPrintButton={ this.setDisplayPrintButton }
           />
       case 'Softgels':
         return <SoftgelChoices
@@ -156,7 +153,7 @@ class ProgressiveForm extends Component {
 
   render() {
     let resetButton
-    let progressiveForm
+    // let progressiveForm
     let productHeader
 
     if (this.state.productSelected !== 'products') {
@@ -216,7 +213,6 @@ class ProgressiveForm extends Component {
             productSelected={ this.state.productSelected }
             currentSelections={ this.state.selections } 
             logoChoice={ this.state.logoChoice }
-            productSelected={ this.state.productSelected }
             company={ this.state.company }
             updateDisplay={ this.updateDisplay}
             currentDisplay={ this.state.currentDisplay }

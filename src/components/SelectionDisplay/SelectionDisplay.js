@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 
 class SelectionDisplay extends Component {
-  constructor() {
-    super()
-  }
 
   renderSelections = (productSelected) => {
     switch (productSelected) {

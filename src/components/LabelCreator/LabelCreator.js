@@ -6,15 +6,12 @@ import Moon from '../../images/logo-selector/moon.svg';
 import Yoga from '../../images/logo-selector/yoga.svg';
 
 class LabelCreator extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   renderDefaultLabel = (status) => {
     switch (status) {
       case 'Tinctures':
         return <section className="tincture-label">
-            <img src={ defaultTinctureLabel } className="default-tincture-label" />
+            <img src={ defaultTinctureLabel } alt="Default Tincture label" className="default-tincture-label" />
             { this.props.company.companyName && 
               <button className="tincture-company-name-selection">{ this.props.company.companyName }</button> }
             { this.props.company.companyName && 
@@ -52,13 +49,13 @@ class LabelCreator extends Component {
   renderLogoImage = (status) => {
     switch (status) {
       case 'gym':
-        return <img src={ Gym } className="label-creator-logo" />;
+        return <img src={ Gym } alt="Gym icon" className="label-creator-logo" />;
       case 'hemp':
-        return <img src={ Hemp } className="label-creator-logo" />;
+        return <img src={ Hemp } alt="Hemp icon" className="label-creator-logo" />;
       case 'moon':
-        return <img src={ Moon } className="label-creator-logo" />;
+        return <img src={ Moon } alt="Moon icon" className="label-creator-logo" />;
       case 'yoga':
-        return <img src={ Yoga } className="label-creator-logo" />;  
+        return <img src={ Yoga } alt="Yoga icon" className="label-creator-logo" />;  
       default:
         return <div>The renderLogoImage switch statement went to default.</div>;
     }
