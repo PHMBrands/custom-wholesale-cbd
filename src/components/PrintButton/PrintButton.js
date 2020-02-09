@@ -35,9 +35,9 @@ class PrintButton extends Component {
     }
 
     return(
-      <div>
+      <section className="print-button">
         { printLabel }
-      </div>
+      </section>
     )
   }
 }

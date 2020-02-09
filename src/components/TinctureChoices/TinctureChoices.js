@@ -126,12 +126,11 @@ class TinctureChoices extends Component {
       case 'logo':
         return <article>
           <LogoSelector 
-            // logoHandler={ this.logoHandler }
             setLogoChoice={ this.props.setLogoChoice }
           />
         </article>
       case 6:
-        return <p>Plese fill out the form entirely to print your private label brand.(TinctureChoices switch statement 6)</p>
+        return <p>Verbiage here about creating brand (TinctureChoices switch statement case 6)</p>
       default:
         return <div>Something went wrong with the displayChoice switch statement in TinctureChoices component</div>  
     }

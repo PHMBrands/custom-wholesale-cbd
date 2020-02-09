@@ -37,41 +37,43 @@ class ProgressiveForm extends Component {
     let toDeleteIndex = this.state.choicesRemaining.indexOf(selectionName);
     let remainingChoices = this.state.choicesRemaining.splice(toDeleteIndex, 1)
 
-    console.log('this.state.choicesRemaining', this.state.choicesRemaining)
 
-    this.setState({ selections: updatedSelection, currentDisplay: this.state.choicesRemaining[0] })
-
-  }
-
-  updateSelectionsObject = (selection) => {
-    let updatedSelections = { ...this.state.selections, [selection.selectionName]: selection.selectionValue }
-    const { flavor, carrier, spectrum, potency, logo } = updatedSelections
-
-                    // update this if/else statement since it is now being called after setLogo
-
-    // if (flavor && carrier && spectrum && potency && logo) {
-    //   console.log('if statement')
-    //   this.setState({ displayPrintButton: true })
-    // } else {
-    //   console.log('else statement')
-    // }
-
-            // this if/else facilitates the SelectionDisplay returning the user to the unselected option
-    if (flavor && carrier && spectrum && potency && logo) {
-      console.log('selections complete test')
-      this.setState({ displayPrintButton: true, currentDisplay: 6 }) 
-    } else if (this.state.stashedDisplay) {
-      console.log('has stashed display test')
-
-      let newDisplay = this.state.stashedDisplay
-      this.setState({ selections: updatedSelections, currentDisplay: newDisplay, stashedDisplay: undefined }, () => this.displayPrintButton())
+    if (this.state.choicesRemaining.length > 0) {
+      this.setState({ selections: updatedSelection, currentDisplay: this.state.choicesRemaining[0] })
     } else {
-      console.log('final else test')
-
-      // let newDisplay = this.state.currentDisplay + 1
-      // this.setState({ selections: updatedSelections, currentDisplay: newDisplay  }, () => this.displayPrintButton())
+      this.setState({ currentDisplay: 6, displayPrintButton: true })
     }
   }
+
+  // updateSelectionsObject = (selection) => {
+  //   let updatedSelections = { ...this.state.selections, [selection.selectionName]: selection.selectionValue }
+  //   const { flavor, carrier, spectrum, potency, logo } = updatedSelections
+
+  //                   // update this if/else statement since it is now being called after setLogo
+
+  //   // if (flavor && carrier && spectrum && potency && logo) {
+  //   //   console.log('if statement')
+  //   //   this.setState({ displayPrintButton: true })
+  //   // } else {
+  //   //   console.log('else statement')
+  //   // }
+
+  //           // this if/else facilitates the SelectionDisplay returning the user to the unselected option
+  //   if (flavor && carrier && spectrum && potency && logo) {
+  //     console.log('selections complete test')
+  //     this.setState({ displayPrintButton: true, currentDisplay: 6 }) 
+  //   } else if (this.state.stashedDisplay) {
+  //     console.log('has stashed display test')
+
+  //     let newDisplay = this.state.stashedDisplay
+  //     this.setState({ selections: updatedSelections, currentDisplay: newDisplay, stashedDisplay: undefined }, () => this.displayPrintButton())
+  //   } else {
+  //     console.log('final else test')
+
+  //     // let newDisplay = this.state.currentDisplay + 1
+  //     // this.setState({ selections: updatedSelections, currentDisplay: newDisplay  }, () => this.displayPrintButton())
+  //   }
+  // }
 
   displayPrintButton = () => {
     this.setState({ displayPrintButton: true })
@@ -114,13 +116,14 @@ class ProgressiveForm extends Component {
   }
 
   setLogoChoice = (logo) => {
+    let updatedSelections = {...this.state.selections, logo: logo }
+    this.setState({ logoChoice: logo, selections: updatedSelections})
+    this.tinctureSelectionsObject('logo')
 
     // this.setState({  })
-    let updatedSelections = {...this.state.selections, logo: logo }
-    console.log('updatedSelections', updatedSelections)
+    // console.log('updatedSelections', updatedSelections)
 
-    this.setState({ logoChoice: logo, selections: updatedSelections})
-    this.updateSelectionsObject({ selectionName: "logo", selectionValue: logo })
+    // this.updateSelectionsObject({ selectionName: "logo", selectionValue: logo })
     
     // const { flavor, carrier, spectrum, potency, logo } = updatedSelections
     
@@ -180,7 +183,7 @@ class ProgressiveForm extends Component {
             setLogoChoice={ this.setLogoChoice }
             regressDisplay={ this.regressDisplay }
             selections={ this.state.selections }
-            displayPrintButton={ this.state.displayPrintButton }
+            // displayPrintButton={ this.state.displayPrintButton }
             tinctureSelectionsObject={ this.tinctureSelectionsObject }
             // setDisplayPrintButton={ this.setDisplayPrintButton }
           />
