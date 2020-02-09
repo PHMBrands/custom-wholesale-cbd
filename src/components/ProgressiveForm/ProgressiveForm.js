@@ -31,7 +31,7 @@ class ProgressiveForm extends Component {
     }
   }
 
-  tinctureSelectionsObject = (selection) => {
+  updateSelectionsObject = (selection) => {
     const { selectionName, selectionValue } = selection
     let updatedSelection = {...this.state.selections, [selectionName]: selectionValue }
     let toDeleteIndex = this.state.choicesRemaining.indexOf(selectionName);
@@ -85,7 +85,7 @@ class ProgressiveForm extends Component {
     let updatedSelections = {...this.state.selections, logo: logo }
 
     this.setState({ logoChoice: logo, selections: updatedSelections})
-    this.tinctureSelectionsObject('logo')
+    this.updateSelectionsObject('logo')
   }
 
   startOver = () => {
@@ -130,7 +130,7 @@ class ProgressiveForm extends Component {
             regressDisplay={ this.regressDisplay }
             selections={ this.state.selections }
             // displayPrintButton={ this.state.displayPrintButton }
-            tinctureSelectionsObject={ this.tinctureSelectionsObject }
+            updateSelectionsObject={ this.updateSelectionsObject }
             // setDisplayPrintButton={ this.setDisplayPrintButton }
           />
       case 'Softgels':

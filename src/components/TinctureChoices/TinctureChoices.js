@@ -13,8 +13,7 @@ class TinctureChoices extends Component {
 
   handleClick = (event) => {
     event.preventDefault();
-    this.props.tinctureSelectionsObject(this.state);
-    // this.setState({ selectionName: 'not quantity' })
+    this.props.updateSelectionsObject(this.state);
   }
 
   handleChange = (event) => {
@@ -27,20 +26,6 @@ class TinctureChoices extends Component {
     this.setState({ selectionName: name, selectionValue: value }, () => this.handleClick(event));
   }
 
-  // logoHandler = (logo) => {
-  //   this.props.setLogoChoice(logo);
-  // }
-
-  // finalTabRender = () => {
-  //   const { flavor, carrier, spectrum, potency, logo } = this.props.selections
-
-  //   if (flavor && carrier && spectrum && potency && logo) {
-  //     this.props.setDisplayPrintButton()
-  //   } else {
-  //     return <p>Fill out the form entirely you idiot</p>
-  //   }
-
-  // }
   //updateDisplay argument must correspond with corresponding switch statement in TinctureChoices
   
   displayChoice = (status) => {
@@ -51,7 +36,6 @@ class TinctureChoices extends Component {
             <form className="company-form">
               <input 
                 type="number" 
-                // placeholder="100"
                 name="quantity"
                 value={ this.state.selectionValue}
                 onChange={ this.handleChange }
@@ -59,7 +43,7 @@ class TinctureChoices extends Component {
               <button onClick={ this.handleClick }>SUBMIT</button>
             </form>
           </article>
-      // case 1:
+      // case 'container':
       //   return <article>
       //       <h4>Please select your container size:</h4>
       //       <form>
@@ -148,7 +132,6 @@ class TinctureChoices extends Component {
     return (
       <section className="tincture-choices">
         { backButton }
-        {/* <h3>Private Label Tinctures</h3> */}
         { this.displayChoice(this.props.currentDisplay) }
       </section>
     );

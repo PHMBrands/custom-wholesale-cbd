@@ -5,8 +5,6 @@ class SelectionDisplay extends Component {
     super()
   }
 
-
-
   renderSelections = (productSelected) => {
     switch (productSelected) {
       case 'Tinctures':
@@ -18,6 +16,7 @@ class SelectionDisplay extends Component {
               <button onClick={ this.props.backToCompanyInfo } className="selection-display-future">Company Info</button> } */}
             { (this.props.productSelected === 'company') && 
               <button onClick={ this.props.backToCompanyInfo } className="selection-display-current">Company Info</button> }
+
                                   {/* Quantity Button */}
             { (this.props.currentSelections.quantity && (this.props.currentDisplay !== 0)) && 
               <button onClick={() => this.props.updateDisplay('quantity') } className="selection-display-completed">Quantity: { this.props.currentSelections.quantity } </button> }
@@ -26,7 +25,7 @@ class SelectionDisplay extends Component {
             { (this.props.currentDisplay === 0) && 
               <button onClick={() => this.props.updateDisplay('quantity') } className="selection-display-current">Quantity: { this.props.currentSelections.quantity }</button> }
 
-                                  {/* Flavor Button */}
+                                    {/* Flavor Button */}
             { (this.props.currentSelections.flavor && (this.props.currentDisplay !== 1)) && 
               <button onClick={() => this.props.updateDisplay('flavor') } className="selection-display-completed">Flavor: { this.props.currentSelections.flavor } </button> }
             { ((this.props.currentSelections.flavor === undefined) && (this.props.currentDisplay !== 1)) && 
@@ -34,7 +33,7 @@ class SelectionDisplay extends Component {
             { (this.props.currentDisplay === 1) && 
               <button onClick={() => this.props.updateDisplay('flavor') } className="selection-display-current">Flavor: { this.props.currentSelections.flavor }</button> }
 
-                                  {/* Carrier Button */}
+                                    { /* Carrier Button */}
             { (this.props.currentSelections.carrier && (this.props.currentDisplay !== 2)) && 
               <button onClick={() => this.props.updateDisplay('carrier') } className="selection-display-completed">Carrier Oil: { this.props.currentSelections.carrier } </button> }
             { ((this.props.currentSelections.carrier === undefined) && (this.props.currentDisplay !== 2)) && 
@@ -50,33 +49,20 @@ class SelectionDisplay extends Component {
             { (this.props.currentDisplay === 3) && 
               <button onClick={() => this.props.updateDisplay('spectrum') } className="selection-display-current">Spectrum: { this.props.currentSelections.spectrum }</button> }
 
-
-            {/* <button onClick={ () => this.props.updateDisplay(0) }>Quantity: {this.props.currentSelections.quantity}</button> */}
-            {/* <button onClick={() => this.props.updateDisplay(1) }>Flavor: { this.props.currentSelections.flavor }</button> */}
-            {/* <button onClick={() => this.props.updateDisplay(2) }>Carrier Oil: { this.props.currentSelections.carrier }</button> */}
-            {/* <button onClick={() => this.props.updateDisplay(3) }>Spectrum: { this.props.currentSelections.spectrum }</button> */}
-                        {/* Potency Button */}
+                                    {/* Potency Button */}
             { (this.props.currentSelections.potency && (this.props.currentDisplay !== 4)) && 
               <button onClick={() => this.props.updateDisplay('potency') } className="selection-display-completed">Potency: { this.props.currentSelections.potency } </button> }
             { ((this.props.currentSelections.potency === undefined) && (this.props.currentDisplay !== 4)) && 
               <button onClick={() => this.props.updateDisplay('potency') } className="selection-display-future">Potency: { this.props.currentSelections.potency }</button> }
             { (this.props.currentDisplay === 4) && 
               <button onClick={() => this.props.updateDisplay('potency') } className="selection-display-current">Potency: { this.props.currentSelections.potency }</button> }
-                        {/* Logo Button */}
+                                    {/* Logo Button */}
             { (this.props.logoChoice && (this.props.currentDisplay !== 'logo')) && 
               <button onClick={() => this.props.updateDisplay('logo') } className="selection-display-completed">Logo</button> }
             { ((this.props.logoChoice === undefined) && (this.props.currentDisplay !== 'logo')) && 
               <button onClick={() => this.props.updateDisplay('logo') } className="selection-display-future">Logo</button> }
             { (this.props.currentDisplay === 'logo') && 
-              <button onClick={() => this.props.updateDisplay('logo') } className="selection-display-current">Logo</button> }
-
-            {/* { (this.props.currentSelections.potency && (this.props.currentDisplay !== 4)) && 
-              <button onClick={() => this.props.updateDisplay(4) } className="selection-display-completed">Logo</button> }
-            { ((this.props.currentSelections.potency === undefined) && (this.props.currentDisplay !== 4)) && 
-              <button onClick={() => this.props.updateDisplay(4) } className="selection-display-future">Logo</button> }
-            { (this.props.currentDisplay === 4) && 
-              <button onClick={() => this.props.updateDisplay(4) } className="selection-display-current">Logo</button> } */}
-            
+              <button onClick={() => this.props.updateDisplay('logo') } className="selection-display-current">Logo</button> }            
           </article>
       case 'Softgels':
         return <article>
@@ -87,7 +73,8 @@ class SelectionDisplay extends Component {
               <button onClick={ this.props.backToCompanyInfo } className="selection-display-future">Company Info</button> } */}
             { (this.props.productSelected === 'company') && 
               <button onClick={ this.props.backToCompanyInfo } className="selection-display-current">Company Info</button> }
-                        {/* Quantity Button */}
+
+                                  {/* Quantity Button */}
             { (this.props.currentSelections.quantity && (this.props.currentDisplay !== 0)) && 
               <button onClick={() => this.props.updateDisplay(0) } className="selection-display-completed">Quantity: { this.props.currentSelections.quantity } </button> }
             { ((this.props.currentSelections.quantity === undefined) && (this.props.currentDisplay !== 0)) && 
@@ -95,7 +82,7 @@ class SelectionDisplay extends Component {
             { (this.props.currentDisplay === 0) && 
               <button onClick={() => this.props.updateDisplay(0) } className="selection-display-current">Quantity: { this.props.currentSelections.quantity }</button> }
 
-                         {/* Quantity Button */}
+                                  {/* Quantity Button */}
             { (this.props.currentSelections.softgelSize && (this.props.currentDisplay !== 1)) && 
               <button onClick={() => this.props.updateDisplay(1) } className="selection-display-completed">Softgel Size: { this.props.currentSelections.softgelSize } </button> }
             { ((this.props.currentSelections.softgelSize === undefined) && (this.props.currentDisplay !== 1)) && 
@@ -134,15 +121,6 @@ class SelectionDisplay extends Component {
               <button onClick={() => this.props.updateDisplay(5) } className="selection-display-future">Softgels per Bottle: { this.props.currentSelections.softgelPerBottle }</button> }
             { (this.props.currentDisplay === 5) && 
               <button onClick={() => this.props.updateDisplay(5) } className="selection-display-current">Softgels per Bottle: { this.props.currentSelections.softgelPerBottle }</button> }
-
-
-
-            {/* <button onClick={ () => this.props.updateDisplay(0) }>Quantity: {this.props.currentSelections.quantity}</button> */}
-            {/* <button onClick={() => this.props.updateDisplay(1) }>Softgel Size: { this.props.currentSelections.softgelSize }</button>  */}
-            {/* <button onClick={() => this.props.updateDisplay(2) }>Carrier Oil: { this.props.currentSelections.carrier }</button> */}
-            {/* <button onClick={() => this.props.updateDisplay(3) }>Spectrum: { this.props.currentSelections.spectrum }</button> */}
-            {/* <button onClick={() => this.props.updateDisplay(4) }>Potency: { this.props.currentSelections.potency }</button> */}
-            {/* <button onClick={() => this.props.updateDisplay(5) }>Softgels per bottle: { this.props.currentSelections.softgelPerBottle }</button> */}
           </article>
       case 'Topicals':
         return <article>
@@ -153,6 +131,7 @@ class SelectionDisplay extends Component {
               <button onClick={ this.props.backToCompanyInfo } className="selection-display-future">Company Info</button> } */}
             { (this.props.productSelected === 'company') && 
               <button onClick={ this.props.backToCompanyInfo } className="selection-display-current">Company Info</button> }
+
                                   {/* Quantity Button */}
             { (this.props.currentSelections.quantity && (this.props.currentDisplay !== 0)) && 
               <button onClick={() => this.props.updateDisplay(0) } className="selection-display-completed">Quantity: { this.props.currentSelections.quantity } </button> }
@@ -184,13 +163,6 @@ class SelectionDisplay extends Component {
               <button onClick={() => this.props.updateDisplay(3) } className="selection-display-future">Potency: { this.props.currentSelections.potency }</button> }
             { (this.props.currentDisplay === 3) && 
               <button onClick={() => this.props.updateDisplay(3) } className="selection-display-current">Potency: { this.props.currentSelections.potency }</button> }
-
-
-
-            {/* <button onClick={ () => this.props.updateDisplay(0) }>Quantity: {this.props.currentSelections.quantity}</button> */}
-            {/* <button onClick={() => this.props.updateDisplay(1) }>Spectrum: { this.props.currentSelections.spectrum }</button> */}
-            {/* <button onClick={() => this.props.updateDisplay(2) }>Scent: { this.props.currentSelections.scent }</button> */}
-            {/* <button onClick={() => this.props.updateDisplay(3) }>Potency: { this.props.currentSelections.potency }</button> */}
           </article>
       case 'products':
         return <p></p> 
@@ -204,24 +176,8 @@ class SelectionDisplay extends Component {
 
   render() {
 
-    return <section className="selection-display">
-      {/* { (this.props.logoChoice && (this.props.currentDisplay !== 5)) && 
-        <button onClick={() => this.props.updateDisplay(5) } className="selection-display-completed">Logo</button> }
-      { ((this.props.logoChoice === undefined) && (this.props.currentDisplay !== 5)) && 
-        <button onClick={() => this.props.updateDisplay(5) } className="selection-display-future">Logo</button> }
-      { (this.props.currentDisplay === 5) && 
-        <button onClick={() => this.props.updateDisplay(5) } className="selection-display-current">Logo</button> } */}
-        
+    return <section className="selection-display">        
         { this.renderSelections(this.props.productSelected) }
-        {/* <button onClick={ () => this.props.updateDisplay(0) }>Quantity: {this.props.currentSelections.quantity}</button>
-        <button onClick={() => this.props.updateDisplay(1) }>Container Size: { this.props.currentSelections.container }</button> 
-        <button onClick={() => this.props.updateDisplay(1) }>Softgel Size: { this.props.currentSelections.softgelSize }</button> 
-        <button onClick={() => this.props.updateDisplay(1) }>Flavor: { this.props.currentSelections.flavor }</button>
-        <button onClick={() => this.props.updateDisplay(2) }>Carrier Oil: { this.props.currentSelections.carrier }</button>
-        <button onClick={() => this.props.updateDisplay(3) }>Spectrum: { this.props.currentSelections.spectrum }</button>
-        <button onClick={() => this.props.updateDisplay(4) }>Scent: { this.props.currentSelections.scent }</button>
-        <button onClick={() => this.props.updateDisplay(4) }>Potency: { this.props.currentSelections.potency }</button>
-        <button onClick={() => this.props.updateDisplay(5) }>Softgels per bottle: { this.props.currentSelections.softgelPerBottle }</button> */}
       </section>
   }
 
