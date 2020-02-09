@@ -48,9 +48,9 @@ class CompanyInfo extends Component {
     }
   }
 
-  // handleBlur = (field) => {
-  //   this.setState({ touched: { ...this.state.touched, [field]: true } })
-  // }
+  handleBlur = (field) => {
+    this.setState({ touched: { ...this.state.touched, [field]: true } })
+  }
   
   render() {
 

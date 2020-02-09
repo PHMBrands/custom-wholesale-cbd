@@ -34,34 +34,13 @@ class ProgressiveForm extends Component {
   tinctureSelectionsObject = (selection) => {
     const { selectionName, selectionValue } = selection
     let updatedSelection = {...this.state.selections, [selectionName]: selectionValue }
-
-    // let updatedChoices = this.state.choicesRemaining.map(choice => {
-    //   if (choice !== selectionName) {
-    //     return choice;
-    //   }
-    // })
-    // console.log('updatedChoices', updatedChoices)
-
-
     let toDeleteIndex = this.state.choicesRemaining.indexOf(selectionName);
     let remainingChoices = this.state.choicesRemaining.splice(toDeleteIndex, 1)
 
     console.log('this.state.choicesRemaining', this.state.choicesRemaining)
 
-
-    console.log('remainingChoices', remainingChoices)
-    console.log('this.state.choicesRemaining[0]', this.state.choicesRemaining[0])
-
-
-
     this.setState({ selections: updatedSelection, currentDisplay: this.state.choicesRemaining[0] })
 
-
-
-    // this.setState({ selections: selection })
-
-    // {selectionName: "flavor", selectionValue: "Mojito"}
-    
   }
 
   updateSelectionsObject = (selection) => {
@@ -121,7 +100,7 @@ class ProgressiveForm extends Component {
   }
 
   productSelectedChoicesRemaining = () => {
-    const tinctureChoicesRemaining = ['quantity', 'company', 'flavor', 'carrier', 'spectrum', 'potency', 'logo'];
+    const tinctureChoicesRemaining = ['quantity', 'flavor', 'carrier', 'spectrum', 'potency', 'logo'];
     const softgelChoicesRemaining = [];
     const topicalsChoicesRemaining = [];
 

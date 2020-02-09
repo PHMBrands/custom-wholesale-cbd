@@ -44,7 +44,6 @@ class TinctureChoices extends Component {
   //updateDisplay argument must correspond with corresponding switch statement in TinctureChoices
   
   displayChoice = (status) => {
-    console.log('selection in displayChoice', status)
     switch(status) {
       case 'quantity':
         return <article>

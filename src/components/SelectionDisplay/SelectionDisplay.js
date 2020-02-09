@@ -63,12 +63,12 @@ class SelectionDisplay extends Component {
             { (this.props.currentDisplay === 4) && 
               <button onClick={() => this.props.updateDisplay('potency') } className="selection-display-current">Potency: { this.props.currentSelections.potency }</button> }
                         {/* Logo Button */}
-            { (this.props.logoChoice && (this.props.currentDisplay !== 5)) && 
-              <button onClick={() => this.props.updateDisplay(5) } className="selection-display-completed">Logo</button> }
-            { ((this.props.logoChoice === undefined) && (this.props.currentDisplay !== 5)) && 
-              <button onClick={() => this.props.updateDisplay(5) } className="selection-display-future">Logo</button> }
-            { (this.props.currentDisplay === 5) && 
-              <button onClick={() => this.props.updateDisplay(5) } className="selection-display-current">Logo</button> }
+            { (this.props.logoChoice && (this.props.currentDisplay !== 'logo')) && 
+              <button onClick={() => this.props.updateDisplay('logo') } className="selection-display-completed">Logo</button> }
+            { ((this.props.logoChoice === undefined) && (this.props.currentDisplay !== 'logo')) && 
+              <button onClick={() => this.props.updateDisplay('logo') } className="selection-display-future">Logo</button> }
+            { (this.props.currentDisplay === 'logo') && 
+              <button onClick={() => this.props.updateDisplay('logo') } className="selection-display-current">Logo</button> }
 
             {/* { (this.props.currentSelections.potency && (this.props.currentDisplay !== 4)) && 
               <button onClick={() => this.props.updateDisplay(4) } className="selection-display-completed">Logo</button> }
