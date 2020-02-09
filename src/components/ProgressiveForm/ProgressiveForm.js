@@ -19,23 +19,42 @@ class ProgressiveForm extends Component {
     this.state = {
       selections: {},
       pricing: {},
-      currentDisplay: 0,
+      currentDisplay: 'company',
       stashedDisplay: undefined,
       productSelected: 'products',
       logoChoice: undefined,
       company: { companyEntered: false },
       stashedProduct: '',
       progress: 'open',
-      displayPrintButton: false
+      displayPrintButton: false,
+      choicesRemaining: []
     }
   }
 
   tinctureSelectionsObject = (selection) => {
-    let remainingChoices = ['company', '']
     const { selectionName, selectionValue } = selection
     let updatedSelection = {...this.state.selections, [selectionName]: selectionValue }
 
-    this.setState({ selections: updatedSelection })
+    // let updatedChoices = this.state.choicesRemaining.map(choice => {
+    //   if (choice !== selectionName) {
+    //     return choice;
+    //   }
+    // })
+    // console.log('updatedChoices', updatedChoices)
+
+
+    let toDeleteIndex = this.state.choicesRemaining.indexOf(selectionName);
+    let remainingChoices = this.state.choicesRemaining.splice(toDeleteIndex, 1)
+
+    console.log('this.state.choicesRemaining', this.state.choicesRemaining)
+
+
+    console.log('remainingChoices', remainingChoices)
+    console.log('this.state.choicesRemaining[0]', this.state.choicesRemaining[0])
+
+
+
+    this.setState({ selections: updatedSelection, currentDisplay: this.state.choicesRemaining[0] })
 
 
 
@@ -46,11 +65,7 @@ class ProgressiveForm extends Component {
   }
 
   updateSelectionsObject = (selection) => {
-    console.log('selection', selection)
     let updatedSelections = { ...this.state.selections, [selection.selectionName]: selection.selectionValue }
-
-    console.log('updatedSelections', updatedSelections)
-    
     const { flavor, carrier, spectrum, potency, logo } = updatedSelections
 
                     // update this if/else statement since it is now being called after setLogo
@@ -84,7 +99,7 @@ class ProgressiveForm extends Component {
   }
 
   createCompany = (company) => {
-    this.setState({ company, productSelected: this.state.stashedProduct });
+    this.setState({ company, productSelected: this.state.stashedProduct, currentDisplay: 'quantity' });
   }
 
   // progressDisplay = () => {
@@ -102,7 +117,21 @@ class ProgressiveForm extends Component {
   }
 
   updateProductSelection = (product) => {
-    this.setState({ productSelected: 'company', stashedProduct: product })
+    this.setState({ productSelected: 'company', stashedProduct: product }, () => this.productSelectedChoicesRemaining())
+  }
+
+  productSelectedChoicesRemaining = () => {
+    const tinctureChoicesRemaining = ['quantity', 'company', 'flavor', 'carrier', 'spectrum', 'potency', 'logo'];
+    const softgelChoicesRemaining = [];
+    const topicalsChoicesRemaining = [];
+
+    if (this.state.stashedProduct === 'Tinctures') {
+      this.setState({ choicesRemaining: tinctureChoicesRemaining })
+    } else if (this.state.stashedProduct === 'Softgels') {
+      this.setState({ choicesRemaining: softgelChoicesRemaining }) 
+    } else if (this.state.stashedProduct === 'Topicals') {
+      this.setState({ choicesRemaining: topicalsChoicesRemaining })
+    }
   }
 
   setLogoChoice = (logo) => {
