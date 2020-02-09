@@ -45,36 +45,6 @@ class ProgressiveForm extends Component {
     }
   }
 
-  // updateSelectionsObject = (selection) => {
-  //   let updatedSelections = { ...this.state.selections, [selection.selectionName]: selection.selectionValue }
-  //   const { flavor, carrier, spectrum, potency, logo } = updatedSelections
-
-  //                   // update this if/else statement since it is now being called after setLogo
-
-  //   // if (flavor && carrier && spectrum && potency && logo) {
-  //   //   console.log('if statement')
-  //   //   this.setState({ displayPrintButton: true })
-  //   // } else {
-  //   //   console.log('else statement')
-  //   // }
-
-  //           // this if/else facilitates the SelectionDisplay returning the user to the unselected option
-  //   if (flavor && carrier && spectrum && potency && logo) {
-  //     console.log('selections complete test')
-  //     this.setState({ displayPrintButton: true, currentDisplay: 6 }) 
-  //   } else if (this.state.stashedDisplay) {
-  //     console.log('has stashed display test')
-
-  //     let newDisplay = this.state.stashedDisplay
-  //     this.setState({ selections: updatedSelections, currentDisplay: newDisplay, stashedDisplay: undefined }, () => this.displayPrintButton())
-  //   } else {
-  //     console.log('final else test')
-
-  //     // let newDisplay = this.state.currentDisplay + 1
-  //     // this.setState({ selections: updatedSelections, currentDisplay: newDisplay  }, () => this.displayPrintButton())
-  //   }
-  // }
-
   displayPrintButton = () => {
     this.setState({ displayPrintButton: true })
   }
@@ -82,10 +52,6 @@ class ProgressiveForm extends Component {
   createCompany = (company) => {
     this.setState({ company, productSelected: this.state.stashedProduct, currentDisplay: 'quantity' });
   }
-
-  // progressDisplay = () => {
-  //   this.setState({ currentDisplay: this.state.currentDisplay++ })
-  // }
 
   updateDisplay = (display) => {
     let stashedDisplay = this.state.currentDisplay;
@@ -117,24 +83,9 @@ class ProgressiveForm extends Component {
 
   setLogoChoice = (logo) => {
     let updatedSelections = {...this.state.selections, logo: logo }
+
     this.setState({ logoChoice: logo, selections: updatedSelections})
     this.tinctureSelectionsObject('logo')
-
-    // this.setState({  })
-    // console.log('updatedSelections', updatedSelections)
-
-    // this.updateSelectionsObject({ selectionName: "logo", selectionValue: logo })
-    
-    // const { flavor, carrier, spectrum, potency, logo } = updatedSelections
-    
-    // if (flavor && carrier && spectrum && potency && logo) {
-      //   this.setState({ logoChoice: logo, selections: updatedSelections, currentDisplay: 6, displayPrintButton: true })
-      // } else {
-        // }
-        
-
-
-    // updateSelectionObject not being called here. Need something to progress selections and setting display may not be it.
   }
 
   startOver = () => {
@@ -148,11 +99,6 @@ class ProgressiveForm extends Component {
   setDisplayPrintButton = () => {
     this.setState({ displayPrintButton: true })
   }
-
-  // buildTheBrand = () => {
-  //   this.setState({ progress: 'close' })
-  //   console.log('test')
-  // }
 
   selectProduct = (selection) => {
     switch (selection) {
@@ -221,101 +167,62 @@ class ProgressiveForm extends Component {
       productHeader = <h2>Private Label {this.state.productSelected}</h2>
     }
 
-    if (this.state.progress === 'open') {
-      progressiveForm = <div>
-        
-        <section className="selection-area">
-          {/* <h2>Private Label {this.state.productSelected}</h2> */}
-          { productHeader }
-          <SelectionDisplay
-            currentSelections={ this.state.selections }
-            updateDisplay={ this.updateDisplay}
-            productSelected={ this.state.productSelected }
-            currentDisplay={ this.state.currentDisplay }
-            company={ this.state.company }
-            backToCompanyInfo={ this.backToCompanyInfo }
-            logoChoice={ this.state.logoChoice }
-          />
-          { this.selectProduct(this.state.productSelected) }
-          {/* <SelectionDisplay
-            currentSelections={ this.state.selections }
-            updateDisplay={ this.updateDisplay}
-          /> */}
-        </section>
-        {/* <section className="created-label"> */}
-        <PrintButton 
-          productSelected={ this.state.productSelected }
-          currentSelections={ this.state.selections } 
-          logoChoice={ this.state.logoChoice }
-          productSelected={ this.state.productSelected }
-          company={ this.state.company }
-          updateDisplay={ this.updateDisplay}
-          currentDisplay={ this.state.currentDisplay }
-          displayPrintButton={ this.state.displayPrintButton }
-        />
-        {/* </section> */}
-        {/* <ProgressBar currentDisplay={ this.state.currentDisplay } /> */}
-        {/* { startOverButton } */}
-        </div>
-    }
-    // } else if (this.state.progress === 'button') {
-    //   progressiveForm = <button onClick={ this.buildTheBrand }>BUILD MY BRAND</button>
-    // } else {
+    // if (this.state.progress === 'open') {
     //   progressiveForm = <div>
     //     <section className="selection-area">
-    //       {/* { this.selectProduct(this.state.productSelected) } */}
-    //       <h3>HERE IS YOUR FINISHED PRODUCT</h3>
-    //       {/* <SelectionDisplay
-    //         currentSelections={ this.state.selections }
-    //         updateDisplay={ this.updateDisplay}
-    //       /> */}
-    //     </section>
-    //     <section className="created-label">
-    //       <LabelCreator 
+    //         { productHeader }
+    //         <SelectionDisplay
+    //           currentSelections={ this.state.selections }
+    //           updateDisplay={ this.updateDisplay}
+    //           productSelected={ this.state.productSelected }
+    //           currentDisplay={ this.state.currentDisplay }
+    //           company={ this.state.company }
+    //           backToCompanyInfo={ this.backToCompanyInfo }
+    //           logoChoice={ this.state.logoChoice }
+    //           />
+    //         { this.selectProduct(this.state.productSelected) }
+    //       </section>
+    //       <PrintButton 
+    //         productSelected={ this.state.productSelected }
     //         currentSelections={ this.state.selections } 
     //         logoChoice={ this.state.logoChoice }
     //         productSelected={ this.state.productSelected }
     //         company={ this.state.company }
-    //       />
-    //     </section>
-    //     {/* <ProgressBar currentDisplay={ this.state.currentDisplay } /> */}
-    //     {/* { startOverButton } */}
+    //         updateDisplay={ this.updateDisplay}
+    //         currentDisplay={ this.state.currentDisplay }
+    //         displayPrintButton={ this.state.displayPrintButton }
+    //         />
     //     </div>
     // }
 
     return (
       <section className="progressive-form">
-
-
-                       {/* This is the working component */}
-        {/* <PrintButton 
-          productSelected={ this.state.productSelected }
-          currentSelections={ this.state.selections } 
-          logoChoice={ this.state.logoChoice }
-          productSelected={ this.state.productSelected }
-          company={ this.state.company }
-          updateDisplay={ this.updateDisplay}
-        /> */}
-
-
-        { progressiveForm }
-        {/* <section className="selection-area">
-          { this.selectProduct(this.state.productSelected) }
-          <SelectionDisplay
-            currentSelections={ this.state.selections }
-            updateDisplay={ this.updateDisplay}
-          />
-        </section>
-        <section className="created-label">
-          <LabelCreator 
+        {/* { progressiveForm } */}
+        <div>
+        <section className="selection-area">
+            { productHeader }
+            <SelectionDisplay
+              currentSelections={ this.state.selections }
+              updateDisplay={ this.updateDisplay}
+              productSelected={ this.state.productSelected }
+              currentDisplay={ this.state.currentDisplay }
+              company={ this.state.company }
+              backToCompanyInfo={ this.backToCompanyInfo }
+              logoChoice={ this.state.logoChoice }
+              />
+            { this.selectProduct(this.state.productSelected) }
+          </section>
+          <PrintButton 
+            productSelected={ this.state.productSelected }
             currentSelections={ this.state.selections } 
             logoChoice={ this.state.logoChoice }
             productSelected={ this.state.productSelected }
             company={ this.state.company }
-          />
-        </section>
-        <ProgressBar currentDisplay={ this.state.currentDisplay } />
-        { startOverButton } */}
+            updateDisplay={ this.updateDisplay}
+            currentDisplay={ this.state.currentDisplay }
+            displayPrintButton={ this.state.displayPrintButton }
+            />
+        </div>
         { resetButton }
       </section>
     );

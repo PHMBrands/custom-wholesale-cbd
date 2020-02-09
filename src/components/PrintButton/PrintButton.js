@@ -9,7 +9,7 @@ class PrintButton extends Component {
     let printLabel
 
     if (this.props.displayPrintButton) {
-      printLabel = <div>
+      printLabel = <section>
           <ReactToPrint
             trigger={() => <a href="#">Print this out!</a>}
             content={() => this.componentRef}
@@ -22,7 +22,7 @@ class PrintButton extends Component {
             company={ this.props.company }
             updateDisplay={ this.props.updateDisplay}
           />
-          </div>
+          </section>
     } else {
       printLabel = <LabelCreator 
         ref={el => (this.componentRef = el)}
@@ -35,7 +35,7 @@ class PrintButton extends Component {
     }
 
     return(
-      <section className="print-button">
+      <section>
         { printLabel }
       </section>
     )
