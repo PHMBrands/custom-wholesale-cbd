@@ -13,17 +13,18 @@ const LogoSelector = (props) => {
   return (
     <div>
       <p>Your logos goes here, in the meantime, select from one of these fun options.</p>
-      <button onClick={ () => props.setLogoChoice('gym') }>
-        <img src={ Gym } className="logo-sample" />
+      {/* <input type="button" className="logo-button" name="logo" value="gym"><img src={ Gym } className="logo-sample" /></input> */}
+      <button onClick={ () => props.setLogoChoice('gym') } className="logo-button">
+        <img src={ Gym } alt="Gym icon" className="logo-sample" />
       </button>
-      <button onClick={ () => props.setLogoChoice('hemp') }>
-        <img src={ Hemp } className="logo-sample" />
+      <button onClick={ () => props.setLogoChoice('hemp') } className="logo-button">
+        <img src={ Hemp } alt="Hemp icon" className="logo-sample" />
       </button>
-      <button onClick={ () => props.setLogoChoice('yoga') }>
-        <img src={ Yoga } className="logo-sample" />
+      <button onClick={ () => props.setLogoChoice('yoga') } className="logo-button">
+        <img src={ Yoga } alt="Yoga icon" className="logo-sample" />
       </button>
-      <button onClick={ () => props.setLogoChoice('moon') }>
-        <img src={ Moon } className="logo-sample" />
+      <button onClick={ () => props.setLogoChoice('moon') } className="logo-button">
+        <img src={ Moon } alt="Moon icon" className="logo-sample" />
       </button>
     </div>
   );

@@ -6,9 +6,15 @@ class CompanyInfo extends Component {
 
     this.state = {
       companyName: '',
-      address: '',
+      personsName: '',
+      email: '',
       phone: '',
-      companyEntered: false
+      companyEntered: false,
+      touched: {
+        personsName: false,
+        email: false,
+        phone: false
+      }
     }
   }
 
@@ -17,7 +23,8 @@ class CompanyInfo extends Component {
     if (this.props.company.companyEntered) {
       this.setState({ 
         companyName: existingCompany.companyName,
-        address: existingCompany.address,
+        personsName: existingCompany.personsName,
+        email: existingCompany.email,
         phone: existingCompany.phone
       })
     }
@@ -32,8 +39,32 @@ class CompanyInfo extends Component {
     event.preventDefault();
     this.setState({ companyEntered: true }, () => this.props.createCompany(this.state))
   }
+
+  validityCheck = (personsName, email, phone) => {
+    return {
+      personsName: personsName.length === 0,
+      email: email.length === 0,
+      phone: phone.length === 0
+    }
+  }
+
+  handleBlur = (field) => {
+    this.setState({ touched: { ...this.state.touched, [field]: true } })
+  }
   
   render() {
+
+    const errors = this.validityCheck(this.state.personsName, this.state.email, this.state.phone)
+    const isEnabled = !Object.keys(errors).some(input => errors[input])
+
+    const shouldMarkError = (field) => {
+      const hasError = errors[field]
+      const shouldShow = this.state.touched[field]
+
+      return hasError ? shouldShow : false;
+    }
+
+
     return <section className="company-info">
         <form className="company-form">
           <input 
@@ -46,25 +77,32 @@ class CompanyInfo extends Component {
           <input 
             type="text" 
             placeholder="Your Name"
-            name="address"
-            value={ this.state.address}
+            name="personsName"
+            value={ this.state.personsName}
             onChange={ this.handleChange }
+            onBlur={ () => this.handleBlur('personsName') }
+            className={ shouldMarkError('personsName') ? "error" : "" }
           />
           <input 
-            type="text" 
+            type="email" 
             placeholder="Email"
-            name="address"
-            value={ this.state.address}
+            name="email"
+            value={ this.state.email}
             onChange={ this.handleChange }
+            onBlur={ () => this.handleBlur('email') }
+            className={ shouldMarkError('email') ? "error" : "" }
           />
           <input 
-            type="text" 
+            type="tel" 
             placeholder="Phone"
             name="phone"
+            pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
             value={ this.state.phone}
             onChange={ this.handleChange }
+            onBlur={ () => this.handleBlur('phone') }
+            className={ shouldMarkError('phone') ? "error" : "" }
           /> 
-        <button onClick={ this.handleClick }>SUBMIT</button>
+          <button disabled={ !isEnabled } onClick={ this.handleClick }>SUBMIT</button>
         </form>
       </section>
   }

@@ -11,7 +11,7 @@ function App() {
   return (
     <section className="App">
       <header>
-        <img src={ ViobinLogo } className="viobin-logo" />
+        <img src={ ViobinLogo } alt="Viobin Logo" className="viobin-logo" />
         <p>Build a Brand Tool</p>
       </header>
       <ProgressiveForm />

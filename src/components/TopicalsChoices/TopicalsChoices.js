@@ -65,7 +65,7 @@ class TopicalsChoices extends Component {
         </article>
       case 2:
         return <article>
-          <h4>Please select your flavor:</h4>
+          <h4>Please select your scent:</h4>
           <form>
             <input type="radio" id="tea-tree" name="scent" value="Tea Tree Oil" onChange={this.handleChangeNoButton} />
             <label for="tea-tree">Tea Tree Oil</label>

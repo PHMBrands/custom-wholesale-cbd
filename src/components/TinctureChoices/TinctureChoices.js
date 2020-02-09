@@ -14,7 +14,6 @@ class TinctureChoices extends Component {
   handleClick = (event) => {
     event.preventDefault();
     this.props.updateSelectionsObject(this.state);
-    this.setState({ selectionName: 'test' })
   }
 
   handleChange = (event) => {
@@ -31,13 +30,12 @@ class TinctureChoices extends Component {
   
   displayChoice = (status) => {
     switch(status) {
-      case 0:
+      case 'quantity':
         return <article>
             <h4>Please select a quantity below:</h4>
             <form className="company-form">
               <input 
                 type="number" 
-                placeholder="100"
                 name="quantity"
                 value={ this.state.selectionValue}
                 onChange={ this.handleChange }
@@ -45,7 +43,7 @@ class TinctureChoices extends Component {
               <button onClick={ this.handleClick }>SUBMIT</button>
             </form>
           </article>
-      // case 1:
+      // case 'container':
       //   return <article>
       //       <h4>Please select your container size:</h4>
       //       <form>
@@ -55,7 +53,7 @@ class TinctureChoices extends Component {
       //           <label for="30ml">30mL</label>
       //       </form>
       //     </article>
-      case 1:
+      case 'flavor':
         return <article>
             <h4>Please select your flavor:</h4>
             <form>
@@ -75,7 +73,7 @@ class TinctureChoices extends Component {
                 <label for="unflavored">unflavored</label>
             </form>
           </article>
-      case 2:
+      case 'carrier':
         return <article>
             <h4>Please select your carrier oil:</h4>
             <form>
@@ -85,7 +83,7 @@ class TinctureChoices extends Component {
                 <label for="mct-oil">MCT Oil</label>
             </form>
           </article>
-      case 3:
+      case 'spectrum':
         return <article>
           <h4>Please select your spectrum:</h4>
           <form>
@@ -95,7 +93,7 @@ class TinctureChoices extends Component {
               <label for="broad-spectrum">Broad Spectrum</label>
           </form>
         </article>
-      case 4:
+      case 'potency':
         return <article>
             <h4>Please select your potency per serving:</h4>
             <form>
@@ -109,12 +107,16 @@ class TinctureChoices extends Component {
                 <label for="50mg">50 mg</label>
             </form>
           </article>
-      case 5:
+      case 'logo':
         return <article>
-          <LogoSelector setLogoChoice={ this.props.setLogoChoice } />
+          <LogoSelector 
+            setLogoChoice={ this.props.setLogoChoice }
+          />
         </article>
+      case 6:
+        return <p>Verbiage here about creating brand (TinctureChoices switch statement case 6)</p>
       default:
-        return <div>Something went wrong with the displayChoice switch statement</div>  
+        return <div>Something went wrong with the displayChoice switch statement in TinctureChoices component</div>  
     }
   }
 
@@ -130,7 +132,6 @@ class TinctureChoices extends Component {
     return (
       <section className="tincture-choices">
         { backButton }
-        <h3>Private Label Tinctures</h3>
         { this.displayChoice(this.props.currentDisplay) }
       </section>
     );

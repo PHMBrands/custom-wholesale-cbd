@@ -1,9 +1,13 @@
 .selection-display {
   width: 100vw;
-  color: purple;
-  display: flex;
-  grid-template-rows: auto;
   // align-content: space-between;
+  
+  button {
+    // border: 0px;
+    // background: lightpink;
+    width: auto;
+    margin: 0px 3px;
+  }
 }
 
 .selection-display-test {
@@ -12,5 +16,17 @@
     border: 0px;
     background: lightpink;
   }
+}
+
+.selection-display-future {
+  background: lightpink;
+}
+
+.selection-display-current {
+  background: yellow;
+}
+
+.selection-display-completed {
+  background: green;
 }
 

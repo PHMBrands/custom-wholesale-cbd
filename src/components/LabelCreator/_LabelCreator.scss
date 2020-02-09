@@ -1,5 +1,118 @@
+.label-display {
+  position: relative;
+  top: 20px;
+  width: auto;
+  display: inline-block;
+}
+
+.label-creator-logo {
+  height: 150px;
+}
+
 .default-tincture-label {
   height: 400px;
+}
+
+.tincture-company-name-selection {
+  font-family: 'Oswald', sans-serif;
+  transform: rotate(-90deg);
+  font-size: 5em;
+  border: none;
+  text-transform: uppercase;
+  position: absolute;
+  left: 135px;
+  bottom: 180px;
+  text-align: left;
+  line-height: 0px;
+  height: 75px;
+  padding: 0px;
+}
+
+.tincture-company-info-selection {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.8em;
+  border: none;
+  text-transform: uppercase;
+  position: absolute;
+  left: 25px;
+  bottom: 91px;
+  text-align: left;
+  line-height: 1px;
+
+  .manufactured-for {
+    font-size: 1.2em;
+    font-weight: 600;
+  }
+}
+
+.tincture-flavor-selection {
+  font-family: 'Oswald', sans-serif;
+  position: absolute;
+  left: 355px;
+  top: 6px;
+  font-size: 1.6em;
+  border: none;
+  text-transform: uppercase;
+  padding: 0px;
+  text-align: right;
+  width: 206px;
+}
+
+.tincture-carrier-selection {
+  font-family: 'Open Sans', sans-serif;
+  position: absolute;
+  right: 26px;
+  top: 267px;
+  font-size: 0.9em;
+  border: none;
+  padding: 0px;
+  text-align: left;
+  line-height: 0px;
+  height: 13px;
+  width: 117px
+}
+
+.tincture-potency-selection {
+  font-family: 'Oswald', sans-serif;
+  position: absolute;
+  right: 288px;
+  top: 50px;
+  font-size: 1.8em;
+  border: none;
+  text-transform: uppercase;
+  padding: 0px;
+  text-align: right;
+  line-height: 18px;
+
+  span {
+    color: purple;
+    font-size: 0.6em;
+  }
+}
+.tincture-spectrum-selection {
+  font-family: 'Oswald', sans-serif;
+  position: absolute;
+  left: 355px;
+  bottom: 90px;
+  font-size: 1.8em;
+  border: none;
+  text-transform: uppercase;
+  padding: 0px;
+  text-align: right;
+  width: 206px;
+  line-height: 26px;
+
+  span {
+    font-weight: 300;
+    font-size: .7em;
+  }
+}
+
+.tincture-logo-selection {
+  position: absolute;
+  top: 110px;
+  right: 310px;
+
 }
 
 // .flavor-selection {
