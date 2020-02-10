@@ -138,6 +138,7 @@ class ProgressiveForm extends Component {
             setLogoChoice={ this.setLogoChoice }
             regressDisplay={ this.regressDisplay }
             backToCompanyInfo={ this.backToCompanyInfo }
+            startOver={ this.startOver }
           />
       case 'Topicals':
         return <TopicalsChoices

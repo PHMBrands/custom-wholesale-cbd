@@ -29,21 +29,21 @@ class SoftgelChoices extends Component {
 
   displayChoice = (status) => {
     switch (status) {
-      case 0:
+      case 'quantity':
         return <article>
           <h4>Please select the number of bottles you're interested in:</h4>
-          <form>
+          <form className="company-form">
             <input
               type="number"
               placeholder="100"
               name="quantity"
-              value={this.state.selectionValue}
-              onChange={this.handleChange}
+              value={ this.state.selectionValue }
+              onChange={ this.handleChange }
             />
-            <button onClick={this.handleClick}>SUBMIT</button>
+            <button onClick={ this.handleClick }>SUBMIT</button>
           </form>
         </article>
-      case 1:
+      case 'softgelSize':
         return <article>
             <h4>Please select your softgel size:</h4>
             <form>
@@ -53,7 +53,7 @@ class SoftgelChoices extends Component {
               <label for="25mg">25mg</label>
             </form>
           </article>
-      case 2:
+      case 'carrier':
         return <article>
             <h4>Please select your carrier oil:</h4>
             <form>
@@ -63,7 +63,7 @@ class SoftgelChoices extends Component {
               <label for="mct-oil">MCT Oil</label>
             </form>
           </article>
-      case 3:
+      case 'spectrum':
         return <article>
             <h4>Please select your spectrum:</h4>
             <form>
@@ -73,7 +73,7 @@ class SoftgelChoices extends Component {
               <label for="broad-spectrum">Broad Spectrum</label>
             </form>
           </article>
-      case 4:
+      case 'potency':
         return <article>
             <h4>Please select your potency per serving:</h4>
             <form>
@@ -83,7 +83,7 @@ class SoftgelChoices extends Component {
               <label for="25mg">25 mg</label>
             </form>
           </article>
-      case 5:
+      case 'softgelPerBottle':
         return <article>
             <h4>Please select the number of softgels per bottle:</h4>
             <form>
@@ -93,7 +93,7 @@ class SoftgelChoices extends Component {
               <label for="60-softgels">60 softgels per bottle</label>
             </form>  
           </article> 
-      case 6:
+      case 'logo':
         return <article>
             <LogoSelector setLogoChoice={ this.props.setLogoChoice } />
           </article>
@@ -103,17 +103,17 @@ class SoftgelChoices extends Component {
   }
 
   render() {
-    let backButton
+    // let backButton
 
-    if (this.state.selectionName !== 'quantity') {
-      backButton = <button onClick={ this.props.regressDisplay }>Previous Option</button>
-    } else {
-      backButton = <button onClick={ this.props.backToCompanyInfo }>BACK</button>
-    }
+    // if (this.state.selectionName !== 'quantity') {
+    //   backButton = <button onClick={ this.props.regressDisplay }>Previous Option</button>
+    // } else {
+    //   backButton = <button onClick={ this.props.backToCompanyInfo }>BACK</button>
+    // }
 
-    return <section>
+    return <section className="softgel-choices">
         <h3>Private Label Softgels</h3>
-        { backButton }
+        <button className="back-button" onClick={ this.props.startOver }>PRODUCTS</button>
         { this.displayChoice(this.props.currentDisplay) }
       </section>
   }

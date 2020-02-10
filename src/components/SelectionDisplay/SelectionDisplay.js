@@ -73,19 +73,19 @@ class SelectionDisplay extends Component {
 
                                   {/* Quantity Button */}
             { (this.props.currentSelections.quantity && (this.props.currentDisplay !== 0)) && 
-              <button onClick={() => this.props.updateDisplay(0) } className="selection-display-completed">Quantity: { this.props.currentSelections.quantity } </button> }
+              <button onClick={() => this.props.updateDisplay('quantity') } className="selection-display-completed">Quantity: { this.props.currentSelections.quantity } </button> }
             { ((this.props.currentSelections.quantity === undefined) && (this.props.currentDisplay !== 0)) && 
-              <button onClick={() => this.props.updateDisplay(0) } className="selection-display-future">Quantity: { this.props.currentSelections.quantity }</button> }
+              <button onClick={() => this.props.updateDisplay('quantity') } className="selection-display-future">Quantity: { this.props.currentSelections.quantity }</button> }
             { (this.props.currentDisplay === 0) && 
-              <button onClick={() => this.props.updateDisplay(0) } className="selection-display-current">Quantity: { this.props.currentSelections.quantity }</button> }
+              <button onClick={() => this.props.updateDisplay('quantity') } className="selection-display-current">Quantity: { this.props.currentSelections.quantity }</button> }
 
                                   {/* Quantity Button */}
             { (this.props.currentSelections.softgelSize && (this.props.currentDisplay !== 1)) && 
-              <button onClick={() => this.props.updateDisplay(1) } className="selection-display-completed">Softgel Size: { this.props.currentSelections.softgelSize } </button> }
+              <button onClick={() => this.props.updateDisplay('softgelSize') } className="selection-display-completed">Softgel Size: { this.props.currentSelections.softgelSize } </button> }
             { ((this.props.currentSelections.softgelSize === undefined) && (this.props.currentDisplay !== 1)) && 
-              <button onClick={() => this.props.updateDisplay(1) } className="selection-display-future">Softgel Size: { this.props.currentSelections.softgelSize }</button> }
+              <button onClick={() => this.props.updateDisplay('softgelSize') } className="selection-display-future">Softgel Size: { this.props.currentSelections.softgelSize }</button> }
             { (this.props.currentDisplay === 1) && 
-              <button onClick={() => this.props.updateDisplay(1) } className="selection-display-current">Softgel Size: { this.props.currentSelections.softgelSize }</button> }
+              <button onClick={() => this.props.updateDisplay('softgelSize') } className="selection-display-current">Softgel Size: { this.props.currentSelections.softgelSize }</button> }
 
                                   {/* Carrier Button */}
             { (this.props.currentSelections.carrier && (this.props.currentDisplay !== 2)) && 
