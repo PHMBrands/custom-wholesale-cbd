@@ -22,8 +22,12 @@ class TinctureChoices extends Component {
   }
 
   handleChangeNoButton = (event) => {
+    event.preventDefault();
     const { name, value } = event.target;
-    this.setState({ selectionName: name, selectionValue: value }, () => this.handleClick(event));
+    console.log(event.target)
+    console.log('name', name)
+    console.log('value', value)
+    this.setState({ selectionName: name, selectionValue: value }, () => this.props.updateSelectionsObject(this.state));
   }
 
   //updateDisplay argument must correspond with corresponding switch statement in TinctureChoices
@@ -87,25 +91,51 @@ class TinctureChoices extends Component {
         return <article>
           <h4>Please select your spectrum:</h4>
           <form>
-            <input type="radio" id="full-spectrum" name="spectrum" value="Full Spectrum" onChange={this.handleChangeNoButton} />
+            <button name="spectrum" value="Full Spectrum" onClick={ this.handleChangeNoButton }>Full Spectrum</button>
+            <button name="spectrum" value="Broad Spectrum" onClick={ this.handleChangeNoButton }>Broad Spectrum</button>
+
+
+            {/* <input type="radio" id="full-spectrum" name="spectrum" value="Full Spectrum" onChange={this.handleChangeNoButton} />
               <label htmlFor="full-spectrum">Full Spectrum</label>
             <input type="radio" id="broad-spectrum" name="spectrum" value="Broad Spectrum" onChange={this.handleChangeNoButton} />
-              <label htmlFor="broad-spectrum">Broad Spectrum</label>
+              <label htmlFor="broad-spectrum">Broad Spectrum</label> */}
           </form>
         </article>
       case 'potency':
-        return <article>
+        return <article className="potency-choices">
             <h4>Please select your potency per serving:</h4>
             <form>
+              <button name="potency" value="10 mg" onClick={ this.handleChangeNoButton }>
+                <p><span className="potency-big-number">10</span>mg</p>
+                <p className="potency-per-bottle">300mg per bottle</p>
+              </button>
+              <button name="potency" value="20 mg" onClick={ this.handleChangeNoButton }>
+                <p><span name="potency" value="20 mg" className="potency-big-number">20</span>mg</p>
+                <p className="potency-per-bottle">600mg per bottle</p>
+              </button>
+              <button name="potency" value="30 mg" onClick={ this.handleChangeNoButton }>
+                <p><span className="potency-big-number">30</span>mg</p>
+                <p className="potency-per-bottle">900mg per bottle</p>
+              </button>
+              <button name="potency" value="50 mg" onClick={ this.handleChangeNoButton }>
+                <p><span className="potency-big-number">50</span>mg</p>
+                <p className="potency-per-bottle">1500mg per bottle</p>
+              </button>
+            </form>
+
+            {/* <form>
               <input type="radio" id="10mg" name="potency" value="10 mg" onChange={this.handleChangeNoButton} />
-                <label htmlFor="10mg">10 mg</label>
+                <label htmlFor="10mg">
+                  <p><span className="mg-per-serving">10</span>mg</p>
+                  <p><span className="mg-per-bottle">300mg per bottle</span></p>
+                </label>
               <input type="radio" id="20mg" name="potency" value="20 mg" onChange={this.handleChangeNoButton} />
                 <label htmlFor="20mg">20 mg</label>
               <input type="radio" id="30mg" name="potency" value="30 mg" onChange={this.handleChangeNoButton} />
                 <label htmlFor="30mg">30 mg</label>
               <input type="radio" id="50mg" name="potency" value="50 mg" onChange={this.handleChangeNoButton} />
                 <label htmlFor="50mg">50 mg</label>
-            </form>
+            </form> */}
           </article>
       case 'logo':
         return <article>
