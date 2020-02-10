@@ -24,9 +24,6 @@ class TinctureChoices extends Component {
   handleChangeNoButton = (event) => {
     event.preventDefault();
     const { name, value } = event.target;
-    console.log(event.target)
-    console.log('name', name)
-    console.log('value', value)
     this.setState({ selectionName: name, selectionValue: value }, () => this.props.updateSelectionsObject(this.state));
   }
 
@@ -41,7 +38,7 @@ class TinctureChoices extends Component {
               <input 
                 type="number" 
                 name="quantity"
-                value={ this.state.selectionValue}
+                value={ this.state.selectionValue }
                 onChange={ this.handleChange }
               />
               <button onClick={ this.handleClick }>SUBMIT</button>
@@ -61,7 +58,16 @@ class TinctureChoices extends Component {
         return <article>
             <h4>Please select your flavor:</h4>
             <form>
-              <input type="radio" id="guava-lime" name="flavor" value="Guava Lime" onChange={this.handleChangeNoButton} />
+              <button name="flavor" value="Guava Lime" onClick={ this.handleChangeNoButton } >Guava Lime</button>
+              <button name="flavor" value="Mocha" onClick={ this.handleChangeNoButton } >Mocha</button>
+              <button name="flavor" value="Mojito" onClick={ this.handleChangeNoButton } >Mojito</button>
+              <button name="flavor" value="Orange Creamsicle" onClick={ this.handleChangeNoButton } >Orange Creamsicle</button>
+              <button name="flavor" value="Peppermint" onClick={ this.handleChangeNoButton } >Peppermint</button>
+              <button name="flavor" value="Mint Chocolate" onClick={ this.handleChangeNoButton } >Mint Chocolate</button>
+              <button name="flavor" value="Unflavored" onClick={ this.handleChangeNoButton } >Unflavored</button>
+
+
+              {/* <input type="radio" id="guava-lime" name="flavor" value="Guava Lime" onChange={this.handleChangeNoButton} />
                 <label htmlFor="guava-lime">Guava Lime</label>
               <input type="radio" id="mocha" name="flavor" value="Mocha" onChange={this.handleChangeNoButton} />
                 <label htmlFor="mocha">Mocha</label>
@@ -74,17 +80,20 @@ class TinctureChoices extends Component {
               <input type="radio" id="mint-chocolate" name="flavor" value="Mint Chocolate" onChange={this.handleChangeNoButton} />
                 <label htmlFor="mint-chocolate">Mint Chocolate</label>
               <input type="radio" id="unflavored" name="flavor" value="unflavored" onChange={this.handleChangeNoButton} />
-                <label htmlFor="unflavored">unflavored</label>
+                <label htmlFor="unflavored">unflavored</label> */}
             </form>
           </article>
       case 'carrier':
         return <article>
             <h4>Please select your carrier oil:</h4>
             <form>
-              <input type="radio" id="wheat-germ-oil" name="carrier" value="Wheat Germ Oil" onChange={this.handleChangeNoButton} />
+              <button name="carrier" value="Wheat Germ Oil" onClick={ this.handleChangeNoButton }>Wheat Germ Oil</button>
+              <button name="carrier" value="MCT Oil" onClick={ this.handleChangeNoButton }>MCT Oil</button>
+
+              {/* <input type="radio" id="wheat-germ-oil" name="carrier" value="Wheat Germ Oil" onChange={this.handleChangeNoButton} />
                 <label htmlFor="wheat-germ-oil">Wheat Germ Oil</label>
               <input type="radio" id="mct-oil" name="carrier" value="MCT Oil" onChange={this.handleChangeNoButton} />
-                <label htmlFor="mct-oil">MCT Oil</label>
+                <label htmlFor="mct-oil">MCT Oil</label> */}
             </form>
           </article>
       case 'spectrum':
@@ -151,17 +160,17 @@ class TinctureChoices extends Component {
   }
 
   render () { 
-    let backButton
+    // let backButton
 
-    if (this.state.selectionName !== 'quantity') {
-      backButton = <button onClick={ this.props.regressDisplay } className="back-button">Previous Option</button>
-    } else {
-      backButton = <button onClick={ this.props.backToCompanyInfo } className="back-button">BACK</button>
-    }
+    // if (this.state.selectionName !== 'quantity') {
+    //   backButton = <button onClick={ this.props.regressDisplay } className="back-button">Previous Option</button>
+    // } else {
+    //   backButton = <button onClick={ this.props.backToCompanyInfo } className="back-button">BACK</button>
+    // }
 
     return (
       <section className="tincture-choices">
-        { backButton }
+        <button className="back-button" onClick={ this.props.startOver }>PRODUCTS</button>
         { this.displayChoice(this.props.currentDisplay) }
       </section>
     );

@@ -12,9 +12,9 @@ class LabelCreator extends Component {
       case 'Tinctures':
         return <section className="tincture-label">
             <img src={ defaultTinctureLabel } alt="Default Tincture label" className="default-tincture-label" />
-            { this.props.company.companyName && 
+            { this.props.company.personsName && 
               <button className="tincture-company-name-selection">{ this.props.company.companyName }</button> }
-            { this.props.company.companyName && 
+            { this.props.company.personsName && 
               <button className="tincture-company-info-selection">
                 <p className="manufactured-for">Manufactured For:</p>
                 <p className="company-name"></p>{ this.props.company.companyName }
@@ -23,15 +23,15 @@ class LabelCreator extends Component {
                 <p className="company-phone">{ this.props.company.phone }</p>
               </button> }
             { this.props.currentSelections.flavor &&
-              <button className="tincture-flavor-selection" onClick={ () => this.props.updateDisplay(1) }> { this.props.currentSelections.flavor }</button> }
+              <button className="tincture-flavor-selection" onClick={ () => this.props.updateDisplay('flavor') }> { this.props.currentSelections.flavor }</button> }
             { this.props.currentSelections.carrier && 
-              <button className="tincture-carrier-selection" onClick={ () => this.props.updateDisplay(2) }>{ this.props.currentSelections.carrier },</button> }
+              <button className="tincture-carrier-selection" onClick={ () => this.props.updateDisplay('carrier') }>{ this.props.currentSelections.carrier },</button> }
             { this.props.currentSelections.spectrum && 
-              <button className="tincture-spectrum-selection" onClick={ () => this.props.updateDisplay(3) }>{ this.props.currentSelections.spectrum }<br/><span>CBD Oil Supplement</span></button> }
+              <button className="tincture-spectrum-selection" onClick={ () => this.props.updateDisplay('spectrum') }>{ this.props.currentSelections.spectrum }<br/><span>CBD Oil Supplement</span></button> }
             { this.props.currentSelections.potency && 
-              <button className="tincture-potency-selection" onClick={ () => this.props.updateDisplay(4) }>{ this.props.currentSelections.potency }<br /><span>CBD per serving</span></button> }
+              <button className="tincture-potency-selection" onClick={ () => this.props.updateDisplay('potency') }>{ this.props.currentSelections.potency }<br /><span>CBD per serving</span></button> }
             { this.props.logoChoice && 
-              <div className="tincture-logo-selection">{this.renderLogoImage(this.props.logoChoice)}</div> }
+              <button className="tincture-logo-selection" onClick={ () => this.props.updateDisplay('logo') }>{this.renderLogoImage(this.props.logoChoice)}</button> }
           </section>;
       case 'Softgels':
         return <div>Default softgel label needed</div>;
