@@ -11,6 +11,7 @@ class LabelCreator extends Component {
     switch (status) {
       case 'Tinctures':
         return <section className="tincture-label">
+          <section className="margin-creator"></section>
             <img src={ defaultTinctureLabel } alt="Default Tincture label" className="default-tincture-label" />
             { this.props.company.personsName && 
               <button className="tincture-company-name-selection">{ this.props.company.companyName }</button> }
@@ -32,6 +33,7 @@ class LabelCreator extends Component {
               <button className="tincture-potency-selection" onClick={ () => this.props.updateDisplay('potency') }>{ this.props.currentSelections.potency }<br /><span>CBD per serving</span></button> }
             { this.props.logoChoice && 
               <button className="tincture-logo-selection" onClick={ () => this.props.updateDisplay('logo') }>{this.renderLogoImage(this.props.logoChoice)}</button> }
+              <section className="margin-creator"></section>
           </section>;
       case 'Softgels':
         return <div>Default softgel label needed</div>;
