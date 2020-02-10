@@ -129,6 +129,7 @@ class ProgressiveForm extends Component {
             setLogoChoice={ this.setLogoChoice }
             regressDisplay={ this.regressDisplay }
             selections={ this.state.selections }
+            startOver={ this.startOver }
           />
       case 'Softgels':
         return <SoftgelChoices
@@ -137,6 +138,7 @@ class ProgressiveForm extends Component {
             setLogoChoice={ this.setLogoChoice }
             regressDisplay={ this.regressDisplay }
             backToCompanyInfo={ this.backToCompanyInfo }
+            startOver={ this.startOver }
           />
       case 'Topicals':
         return <TopicalsChoices
@@ -219,7 +221,7 @@ class ProgressiveForm extends Component {
             displayPrintButton={ this.state.displayPrintButton }
             />
         </div>
-        { resetButton }
+        {/* { resetButton } */}
       </section>
     );
   }

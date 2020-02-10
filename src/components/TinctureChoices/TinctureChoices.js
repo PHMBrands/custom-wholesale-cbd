@@ -22,8 +22,9 @@ class TinctureChoices extends Component {
   }
 
   handleChangeNoButton = (event) => {
+    event.preventDefault();
     const { name, value } = event.target;
-    this.setState({ selectionName: name, selectionValue: value }, () => this.handleClick(event));
+    this.setState({ selectionName: name, selectionValue: value }, () => this.props.updateSelectionsObject(this.state));
   }
 
   //updateDisplay argument must correspond with corresponding switch statement in TinctureChoices
@@ -37,7 +38,7 @@ class TinctureChoices extends Component {
               <input 
                 type="number" 
                 name="quantity"
-                value={ this.state.selectionValue}
+                value={ this.state.selectionValue }
                 onChange={ this.handleChange }
               />
               <button onClick={ this.handleClick }>SUBMIT</button>
@@ -57,55 +58,93 @@ class TinctureChoices extends Component {
         return <article>
             <h4>Please select your flavor:</h4>
             <form>
-              <input type="radio" id="guava-lime" name="flavor" value="Guava Lime" onChange={this.handleChangeNoButton} />
-                <label for="guava-lime">Guava Lime</label>
+              <button name="flavor" value="Guava Lime" onClick={ this.handleChangeNoButton } >Guava Lime</button>
+              <button name="flavor" value="Mocha" onClick={ this.handleChangeNoButton } >Mocha</button>
+              <button name="flavor" value="Mojito" onClick={ this.handleChangeNoButton } >Mojito</button>
+              <button name="flavor" value="Orange Creamsicle" onClick={ this.handleChangeNoButton } >Orange Creamsicle</button>
+              <button name="flavor" value="Peppermint" onClick={ this.handleChangeNoButton } >Peppermint</button>
+              <button name="flavor" value="Mint Chocolate" onClick={ this.handleChangeNoButton } >Mint Chocolate</button>
+              <button name="flavor" value="Unflavored" onClick={ this.handleChangeNoButton } >Unflavored</button>
+
+
+              {/* <input type="radio" id="guava-lime" name="flavor" value="Guava Lime" onChange={this.handleChangeNoButton} />
+                <label htmlFor="guava-lime">Guava Lime</label>
               <input type="radio" id="mocha" name="flavor" value="Mocha" onChange={this.handleChangeNoButton} />
-                <label for="mocha">Mocha</label>
+                <label htmlFor="mocha">Mocha</label>
               <input type="radio" id="mojito" name="flavor" value="Mojito" onChange={this.handleChangeNoButton} />
-                <label for="mojito">Mojito</label>
+                <label htmlFor="mojito">Mojito</label>
               <input type="radio" id="orange-creamsicle" name="flavor" value="Orange Creamsicle" onChange={this.handleChangeNoButton} />
-                <label for="orange-creamsicle">Orange Creamsicle</label>
+                <label htmlFor="orange-creamsicle">Orange Creamsicle</label>
               <input type="radio" id="peppermint" name="flavor" value="Peppermint" onChange={this.handleChangeNoButton} />
-                <label for="peppermint">Peppermint</label>
+                <label htmlFor="peppermint">Peppermint</label>
               <input type="radio" id="mint-chocolate" name="flavor" value="Mint Chocolate" onChange={this.handleChangeNoButton} />
-                <label for="mint-chocolate">Mint Chocolate</label>
+                <label htmlFor="mint-chocolate">Mint Chocolate</label>
               <input type="radio" id="unflavored" name="flavor" value="unflavored" onChange={this.handleChangeNoButton} />
-                <label for="unflavored">unflavored</label>
+                <label htmlFor="unflavored">unflavored</label> */}
             </form>
           </article>
       case 'carrier':
         return <article>
             <h4>Please select your carrier oil:</h4>
             <form>
-              <input type="radio" id="wheat-germ-oil" name="carrier" value="Wheat Germ Oil" onChange={this.handleChangeNoButton} />
-                <label for="wheat-germ-oil">Wheat Germ Oil</label>
+              <button name="carrier" value="Wheat Germ Oil" onClick={ this.handleChangeNoButton }>Wheat Germ Oil</button>
+              <button name="carrier" value="MCT Oil" onClick={ this.handleChangeNoButton }>MCT Oil</button>
+
+              {/* <input type="radio" id="wheat-germ-oil" name="carrier" value="Wheat Germ Oil" onChange={this.handleChangeNoButton} />
+                <label htmlFor="wheat-germ-oil">Wheat Germ Oil</label>
               <input type="radio" id="mct-oil" name="carrier" value="MCT Oil" onChange={this.handleChangeNoButton} />
-                <label for="mct-oil">MCT Oil</label>
+                <label htmlFor="mct-oil">MCT Oil</label> */}
             </form>
           </article>
       case 'spectrum':
         return <article>
           <h4>Please select your spectrum:</h4>
           <form>
-            <input type="radio" id="full-spectrum" name="spectrum" value="Full Spectrum" onChange={this.handleChangeNoButton} />
-              <label for="full-spectrum">Full Spectrum</label>
+            <button name="spectrum" value="Full Spectrum" onClick={ this.handleChangeNoButton }>Full Spectrum</button>
+            <button name="spectrum" value="Broad Spectrum" onClick={ this.handleChangeNoButton }>Broad Spectrum</button>
+
+
+            {/* <input type="radio" id="full-spectrum" name="spectrum" value="Full Spectrum" onChange={this.handleChangeNoButton} />
+              <label htmlFor="full-spectrum">Full Spectrum</label>
             <input type="radio" id="broad-spectrum" name="spectrum" value="Broad Spectrum" onChange={this.handleChangeNoButton} />
-              <label for="broad-spectrum">Broad Spectrum</label>
+              <label htmlFor="broad-spectrum">Broad Spectrum</label> */}
           </form>
         </article>
       case 'potency':
-        return <article>
+        return <article className="potency-choices">
             <h4>Please select your potency per serving:</h4>
             <form>
-              <input type="radio" id="10mg" name="potency" value="10 mg" onChange={this.handleChangeNoButton} />
-                <label for="10mg">10 mg</label>
-              <input type="radio" id="20mg" name="potency" value="20 mg" onChange={this.handleChangeNoButton} />
-                <label for="20mg">20 mg</label>
-              <input type="radio" id="30mg" name="potency" value="30 mg" onChange={this.handleChangeNoButton} />
-                <label for="30mg">30 mg</label>
-              <input type="radio" id="50mg" name="potency" value="50 mg" onChange={this.handleChangeNoButton} />
-                <label for="50mg">50 mg</label>
+              <button name="potency" value="10 mg" onClick={ this.handleChangeNoButton }>
+                <p><span className="potency-big-number">10</span>mg</p>
+                <p className="potency-per-bottle">300mg per bottle</p>
+              </button>
+              <button name="potency" value="20 mg" onClick={ this.handleChangeNoButton }>
+                <p><span name="potency" value="20 mg" className="potency-big-number">20</span>mg</p>
+                <p className="potency-per-bottle">600mg per bottle</p>
+              </button>
+              <button name="potency" value="30 mg" onClick={ this.handleChangeNoButton }>
+                <p><span className="potency-big-number">30</span>mg</p>
+                <p className="potency-per-bottle">900mg per bottle</p>
+              </button>
+              <button name="potency" value="50 mg" onClick={ this.handleChangeNoButton }>
+                <p><span className="potency-big-number">50</span>mg</p>
+                <p className="potency-per-bottle">1500mg per bottle</p>
+              </button>
             </form>
+
+            {/* <form>
+              <input type="radio" id="10mg" name="potency" value="10 mg" onChange={this.handleChangeNoButton} />
+                <label htmlFor="10mg">
+                  <p><span className="mg-per-serving">10</span>mg</p>
+                  <p><span className="mg-per-bottle">300mg per bottle</span></p>
+                </label>
+              <input type="radio" id="20mg" name="potency" value="20 mg" onChange={this.handleChangeNoButton} />
+                <label htmlFor="20mg">20 mg</label>
+              <input type="radio" id="30mg" name="potency" value="30 mg" onChange={this.handleChangeNoButton} />
+                <label htmlFor="30mg">30 mg</label>
+              <input type="radio" id="50mg" name="potency" value="50 mg" onChange={this.handleChangeNoButton} />
+                <label htmlFor="50mg">50 mg</label>
+            </form> */}
           </article>
       case 'logo':
         return <article>
@@ -121,17 +160,17 @@ class TinctureChoices extends Component {
   }
 
   render () { 
-    let backButton
+    // let backButton
 
-    if (this.state.selectionName !== 'quantity') {
-      backButton = <button onClick={ this.props.regressDisplay } className="back-button">Previous Option</button>
-    } else {
-      backButton = <button onClick={ this.props.backToCompanyInfo } className="back-button">BACK</button>
-    }
+    // if (this.state.selectionName !== 'quantity') {
+    //   backButton = <button onClick={ this.props.regressDisplay } className="back-button">Previous Option</button>
+    // } else {
+    //   backButton = <button onClick={ this.props.backToCompanyInfo } className="back-button">BACK</button>
+    // }
 
     return (
       <section className="tincture-choices">
-        { backButton }
+        <button className="back-button" onClick={ this.props.startOver }>PRODUCTS</button>
         { this.displayChoice(this.props.currentDisplay) }
       </section>
     );

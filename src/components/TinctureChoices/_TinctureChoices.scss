@@ -6,9 +6,41 @@
   align-items: center;
 }
 
-// .tincture-mock-label {
-//   height
-// }
+.potency-choices {
+  // font-size: .8em;
+
+  p {
+    margin: 0px;
+  }
+
+  // .potency-big-number {
+  //   font-size: 1.5em;
+  // }
+
+  button > * {
+    pointer-events: none;
+  }
+  
+  button {
+    border: 1px solid #FFFFFF;
+    margin: 0px 25px;
+    height: auto;
+  }
+
+  button:hover {
+    border: 1px solid gray;
+  }
+
+}
+
+.potency-big-number {
+  font-size: 3em;
+}
+
+.potency-per-bottle {
+  font-size: .8em;
+  margin:0px;
+}
 
 button {
   font-size: 1.3em;
