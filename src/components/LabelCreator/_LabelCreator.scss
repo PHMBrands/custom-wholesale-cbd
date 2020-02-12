@@ -9,7 +9,7 @@
 
 .margin-creator {
   border: 1px solid black;
-  width: 60px;
+  width: 100px;
 }
 
 .tincture-label {
@@ -17,7 +17,7 @@
 }
 
 .label-creator-logo {
-  height: 150px;
+  height: 125px;
 }
 
 .default-tincture-label {
@@ -26,26 +26,28 @@
 
 .tincture-company-name-selection {
   font-family: 'Oswald', sans-serif;
-  transform: rotate(-90deg);
-  font-size: 5em;
+  font-size: 3em;
   border: none;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   position: absolute;
-  left: 135px;
-  bottom: 180px;
-  text-align: left;
+  left: 457px;
+  /* bottom: 208px; */
+  text-align: right;
   line-height: 0px;
-  height: 75px;
+  height: 50px;
   padding: 0px;
+  top: 6px;
+  width: 500;
+  width: 282px;
 }
 
 .tincture-company-info-selection {
   font-family: 'Open Sans', sans-serif;
-  font-size: 0.8em;
+  font-size: 1em;
   border: none;
   text-transform: uppercase;
   position: absolute;
-  left: 25px;
+  left: 206px;
   bottom: 91px;
   text-align: left;
   line-height: 1px;
@@ -53,15 +55,24 @@
   .manufactured-for {
     font-size: 1.2em;
     font-weight: 600;
+    //underline?
+  }
+
+  .company-email {
+    font-size: 0.8em;
+  }
+
+  .company-phone {
+    font-size: 0.8em;
   }
 }
 
 .tincture-flavor-selection {
   font-family: 'Oswald', sans-serif;
   position: absolute;
-  left: 355px;
-  top: 6px;
-  font-size: 1.6em;
+  left: 530px;
+  top: 66px;
+  font-size: 1.4em;
   border: none;
   text-transform: uppercase;
   padding: 0px;
@@ -72,7 +83,7 @@
 .tincture-carrier-selection {
   font-family: 'Open Sans', sans-serif;
   position: absolute;
-  right: 26px;
+  right: 208px;
   top: 267px;
   font-size: 0.9em;
   border: none;
@@ -83,28 +94,11 @@
   width: 117px
 }
 
-.tincture-potency-selection {
-  font-family: 'Oswald', sans-serif;
-  position: absolute;
-  right: 288px;
-  top: 50px;
-  font-size: 1.8em;
-  border: none;
-  text-transform: uppercase;
-  padding: 0px;
-  text-align: right;
-  line-height: 18px;
-
-  span {
-    color: purple;
-    font-size: 0.6em;
-  }
-}
 .tincture-spectrum-selection {
   font-family: 'Oswald', sans-serif;
   position: absolute;
-  left: 355px;
-  bottom: 90px;
+  left: 531px;
+  bottom: 80px;
   font-size: 1.8em;
   border: none;
   text-transform: uppercase;
@@ -119,42 +113,30 @@
   }
 }
 
-.tincture-logo-selection {
+.tincture-potency-selection {
+  font-family: 'Oswald', sans-serif;
   position: absolute;
-  top: 110px;
-  right: 310px;
+  right: 475px;
+  top: 99px;
+  font-size: 1.8em;
   border: none;
+  text-transform: uppercase;
+  padding: 0px;
+  text-align: right;
+  line-height: 18px;
+
+  span {
+    // color: purple;
+    font-size: 0.6em;
+  }
 }
 
-// .flavor-selection {
-//   position: absolute;
-//   top: 213px;
-//   left: 500px;
-// }
-
-// .spectrum-selection {
-//   position: absolute;
-//   top: 649px;
-//   left: 496px;
-// }
-
-// .potency-selection {
-//   position: absolute;
-//   top: 614px;
-//   left: 497px;
-// }
-
-// .per-bottle-selection {
-//   position: absolute;
-//   top: 267px;
-//   left: 507px;
-// }
-
-// .logo-selection {
-//   position: absolute;
-//   top: 356px;
-//   left: 509px;
-// }
+.tincture-logo-selection {
+  position: absolute;
+  top: 147px;
+  right: 498px;
+  border: none;
+}
 
 .logo {
   height: 250px;

@@ -115,11 +115,11 @@ class ProgressiveForm extends Component {
       case 'products':
         return <section className="intro-page">
             <h2>Create your own private label CBD products in less than three minutes</h2>
-            <p>To get started select a product below:</p>
+            <p>To get started click below:</p>
             <form>
               <button onClick={ () => this.updateProductSelection('Tinctures') } className="product-button" ><img src={ TinctureChoice } alt="generic tincture" className="product-choice-image" />Tinctures</button>
-              <button onClick={ () => this.updateProductSelection('Softgels') } className="product-button" ><img src={ SoftgelChoice } alt="generic softgel" className="product-choice-image" />Softgels</button>
-              <button onClick={ () => this.updateProductSelection('Topicals') } className="product-button" ><img src={ TopicalChoice } alt="generic topical" className="product-choice-image" />Lotions</button>
+              {/* <button onClick={ () => this.updateProductSelection('Softgels') } className="product-button" ><img src={ SoftgelChoice } alt="generic softgel" className="product-choice-image" />Softgels</button> */}
+              {/* <button onClick={ () => this.updateProductSelection('Topicals') } className="product-button" ><img src={ TopicalChoice } alt="generic topical" className="product-choice-image" />Lotions</button> */}
             </form>
           </section>
       case 'Tinctures':
