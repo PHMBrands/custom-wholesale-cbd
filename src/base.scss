@@ -58,8 +58,11 @@ footer {
   width: 100vw;
   position: fixed;
   bottom: 0px;
-  // position: absolute;
-  // bottom: 150px;
+
+  p {
+    margin-left: 50px;
+    margin-top: 25px;
+  }
 }
 
 .back-button {
@@ -67,8 +70,8 @@ footer {
   top: 95px;
   left: 50px;
   border: 1px solid #37A9BA;
-  padding: 12px 40px;
-  font-size: .8em;
+  padding: 7px 30px;
+  font-size: 1em;
   cursor: pointer;
   color: #37A9BA;
 }

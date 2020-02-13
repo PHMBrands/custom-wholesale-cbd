@@ -57,7 +57,7 @@ class TinctureChoices extends Component {
       case 'flavor':
         return <article>
             <h4>Please select your flavor:</h4>
-            <form>
+            <form className="tincture-flavors">
               <button name="flavor" value="Guava Lime" onClick={ this.handleChangeNoButton } >Guava Lime</button>
               <button name="flavor" value="Mocha" onClick={ this.handleChangeNoButton } >Mocha</button>
               <button name="flavor" value="Mojito" onClick={ this.handleChangeNoButton } >Mojito</button>
@@ -86,7 +86,7 @@ class TinctureChoices extends Component {
       case 'carrier':
         return <article>
             <h4>Please select your carrier oil:</h4>
-            <form>
+            <form className="tincture-carrier-oil">
               <button name="carrier" value="Wheat Germ Oil" onClick={ this.handleChangeNoButton }>Wheat Germ Oil</button>
               <button name="carrier" value="MCT Oil" onClick={ this.handleChangeNoButton }>MCT Oil</button>
 
@@ -99,7 +99,7 @@ class TinctureChoices extends Component {
       case 'spectrum':
         return <article>
           <h4>Please select your spectrum:</h4>
-          <form>
+          <form className="tincture-spectrum">
             <button name="spectrum" value="Full Spectrum" onClick={ this.handleChangeNoButton }>Full Spectrum</button>
             <button name="spectrum" value="Broad Spectrum" onClick={ this.handleChangeNoButton }>Broad Spectrum</button>
 
@@ -153,7 +153,11 @@ class TinctureChoices extends Component {
           />
         </article>
       case 6:
-        return <p>Verbiage here about creating brand (TinctureChoices switch statement case 6)</p>
+        return <article>
+          <h3>Congratulations!!!!</h3>
+          <p>You've just created your brand. </p>
+          <p>Click below to print out your label.</p>
+          </article>
       default:
         return <div>Something went wrong with the displayChoice switch statement in TinctureChoices component</div>  
     }

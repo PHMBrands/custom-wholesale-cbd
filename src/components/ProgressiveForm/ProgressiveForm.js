@@ -33,10 +33,12 @@ class ProgressiveForm extends Component {
 
   updateSelectionsObject = (selection) => {
     const { selectionName, selectionValue } = selection
+    console.log('selection', selection)
     let updatedSelection = {...this.state.selections, [selectionName]: selectionValue }
     let toDeleteIndex = this.state.choicesRemaining.indexOf(selectionName);
     this.state.choicesRemaining.splice(toDeleteIndex, 1)
 
+    
 
     if (this.state.choicesRemaining.length > 0) {
       this.setState({ selections: updatedSelection, currentDisplay: this.state.choicesRemaining[0] })

@@ -16,7 +16,7 @@ function App() {
       </header>
       <ProgressiveForm />
       <footer>
-        <p>Copyright VIOBIN</p>
+        <p>© Copyright VIOBIN</p>
       </footer>
     </section>
   );
