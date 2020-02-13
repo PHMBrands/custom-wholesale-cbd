@@ -33,15 +33,11 @@ class ProgressiveForm extends Component {
 
   updateSelectionsObject = (selection) => {
     const { selectionName, selectionValue } = selection
-    console.log('selection', selection)
     let updatedSelection = {...this.state.selections, [selectionName]: selectionValue }
-    let toDeleteIndex = this.state.choicesRemaining.indexOf(selectionName);
-    this.state.choicesRemaining.splice(toDeleteIndex, 1)
+    let updatedChoicesRemaining = this.state.choicesRemaining.filter(choice => choice !== selectionName)
 
-    
-
-    if (this.state.choicesRemaining.length > 0) {
-      this.setState({ selections: updatedSelection, currentDisplay: this.state.choicesRemaining[0] })
+    if (updatedChoicesRemaining.length > 0) {
+      this.setState({ selections: updatedSelection, choicesRemaining: updatedChoicesRemaining, currentDisplay: updatedChoicesRemaining[0] })
     } else {
       this.setState({ currentDisplay: 6, displayPrintButton: true })
     }
@@ -84,10 +80,11 @@ class ProgressiveForm extends Component {
   }
 
   setLogoChoice = (logo) => {
-    let updatedSelections = {...this.state.selections, logo: logo }
+    // let updatedSelections = {...this.state.selections, logo: logo }
+    let logoChoice = {selectionName: "logo", selectionValue: logo}
 
-    this.setState({ logoChoice: logo, selections: updatedSelections})
-    this.updateSelectionsObject('logo')
+    this.setState({ logoChoice: logo })
+    this.updateSelectionsObject(logoChoice)
   }
 
   startOver = () => {
