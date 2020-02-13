@@ -32,9 +32,9 @@ class ProgressiveForm extends Component {
   }
 
   updateSelectionsObject = (selection) => {
-    const { selectionName, selectionValue } = selection
-    let updatedSelection = {...this.state.selections, [selectionName]: selectionValue }
-    let updatedChoicesRemaining = this.state.choicesRemaining.filter(choice => choice !== selectionName)
+    const { selectionName, selectionValue } = selection;
+    let updatedSelection = {...this.state.selections, [selectionName]: selectionValue };
+    let updatedChoicesRemaining = this.state.choicesRemaining.filter(choice => choice !== selectionName);
 
     if (updatedChoicesRemaining.length > 0) {
       this.setState({ selections: updatedSelection, choicesRemaining: updatedChoicesRemaining, currentDisplay: updatedChoicesRemaining[0] })
@@ -44,7 +44,7 @@ class ProgressiveForm extends Component {
   }
 
   displayPrintButton = () => {
-    this.setState({ displayPrintButton: true })
+    this.setState({ displayPrintButton: true });
   }
 
   createCompany = (company) => {
@@ -53,7 +53,7 @@ class ProgressiveForm extends Component {
 
   updateDisplay = (display) => {
     let stashedDisplay = this.state.currentDisplay;
-    this.setState({ currentDisplay: display, stashedDisplay })
+    this.setState({ currentDisplay: display, stashedDisplay });
   }
 
   regressDisplay = () => {
@@ -88,7 +88,7 @@ class ProgressiveForm extends Component {
   }
 
   startOver = () => {
-    this.setState({ selections: {}, currentDisplay: 0, productSelected: 'products', logoChoice: undefined })
+    this.setState({ selections: {}, currentDisplay: 0, productSelected: 'products', logoChoice: undefined, displayPrintButton: false })
   }
 
   backToCompanyInfo = () => {
