@@ -7,7 +7,8 @@ import Mint from '../../images/choice-button-icons/mint.svg';
 import Mojito from '../../images/choice-button-icons/mojito.svg';
 import Peppermint from '../../images/choice-button-icons/peppermint.svg';
 import Popsicle from '../../images/choice-button-icons/popsicle.svg';
-import Mocha from '../../images/choice-button-icons/mocha.svg';
+// import Mocha from '../../images/choice-button-icons/mocha.svg';
+import Mocha from '../../images/choice-button-icons/coffee-bean.svg';
 import Hemp from '../../images/choice-button-icons/hemp.svg';
 import Wheat from '../../images/choice-button-icons/wheat.svg';
 import Coconut from '../../images/choice-button-icons/coconut.svg';
@@ -44,7 +45,7 @@ class TinctureChoices extends Component {
     switch(status) {
       case 'quantity':
         return <article>
-            <h4>Please select a quantity below:</h4>
+            <h2>Choose your quantity:</h2>
             <form className="company-form">
               <input 
                 type="number" 
@@ -67,7 +68,7 @@ class TinctureChoices extends Component {
       //     </article>
       case 'flavor':
         return <article>
-            <h4>Please select your flavor:</h4>
+            <h2>Choose your flavor:</h2>
             <form className="tincture-flavors">
               <button name="flavor" value="Guava Lime" onClick={ this.handleChangeNoButton } >
                 <img src={ Guava } className="tincture-flavor-button-icons" />
@@ -117,7 +118,7 @@ class TinctureChoices extends Component {
           </article>
       case 'carrier':
         return <article className="tincture-carrier">
-            <h4>Please select your carrier oil:</h4>
+            <h2>Choose your carrier oil:</h2>
             <form className="tincture-carrier-oil">
               <button name="carrier" value="Wheat Germ Oil" onClick={ this.handleChangeNoButton }>
                 <img src={ Wheat } className="carrier-button-logos" />
@@ -136,7 +137,7 @@ class TinctureChoices extends Component {
           </article>
       case 'spectrum':
         return <article>
-          <h4>Please select your spectrum:</h4>
+          <h2>Choose your spectrum:</h2>
           <form className="tincture-spectrum">
             <button name="spectrum" value="Full Spectrum" onClick={ this.handleChangeNoButton }>
               <img src={ FullSpectrum } className="spectrum-button-logos" />
@@ -156,7 +157,7 @@ class TinctureChoices extends Component {
         </article>
       case 'potency':
         return <article className="tincture-potency">
-            <h4>Please select your potency per serving:</h4>
+            <h2>Choose your potency per serving:</h2>
             <form>
               <button name="potency" value="10 mg" onClick={ this.handleChangeNoButton }>
                 <p><span className="potency-big-number">10</span>mg</p>
@@ -197,10 +198,9 @@ class TinctureChoices extends Component {
           />
         </article>
       case 6:
-        return <article>
-          <h3>Congratulations!!!!</h3>
+        return <article className="tincture-congratulation-screen">
+          <h2>Congratulations!</h2>
           <p>You've just created your brand.</p>
-
           </article>
       default:
         return <div>Something went wrong with the displayChoice switch statement in TinctureChoices component</div>  

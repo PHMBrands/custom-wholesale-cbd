@@ -30,7 +30,7 @@ class SelectionDisplay extends Component {
             { (this.props.currentDisplay === 'flavor') && 
               <button onClick={() => this.props.updateDisplay('flavor') } className="selection-display-current">Flavor: { this.props.currentSelections.flavor }</button> }
 
-                                    { /* Carrier Button */}
+                                    {/* Carrier Button */}
             { (this.props.currentSelections.carrier && (this.props.currentDisplay !== 'carrier')) && 
               <button onClick={() => this.props.updateDisplay('carrier') } className="selection-display-completed">Carrier Oil: { this.props.currentSelections.carrier } </button> }
             { ((this.props.currentSelections.carrier === undefined) && (this.props.currentDisplay !== 'carrier')) && 
