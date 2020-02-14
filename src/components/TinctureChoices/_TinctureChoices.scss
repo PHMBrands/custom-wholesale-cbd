@@ -6,37 +6,38 @@
   align-items: center;
 }
 
-.potency-choices {
-  // font-size: .8em;
-
-  p {
-    margin: 0px;
-  }
-
-  // .potency-big-number {
-  //   font-size: 1.5em;
-  // }
+.tincture-carrier {
 
   button > * {
     pointer-events: none;
   }
   
   button {
-    border: 1px solid #FFFFFF;
-    margin: 0px 25px;
-    height: auto;
+    margin: auto 5px;
+    border: none;
+    width: 140px;
   }
 
-  button:hover {
-    border: 1px solid gray;
+  .carrier-button-logos {
+    height: 80px;
   }
 
 }
 
 .tincture-flavors {
 
+  button > * {
+    pointer-events: none;
+  }
+  
   button {
     margin: auto 5px;
+    border: none;
+    width: 140px;
+  }
+
+  .tincture-flavor-button-icons {
+    height: 80px;
   }
 }
 
@@ -49,9 +50,41 @@
 
 .tincture-spectrum {
 
+  button > * {
+    pointer-events: none;
+  }
+  
   button {
     margin: auto 5px;
+    border: none;
   }
+
+  .spectrum-button-logos {
+    height: 80px;
+  }
+}
+
+.tincture-potency {
+  // font-size: .8em;
+
+  p {
+    margin: 0px;
+  }
+
+  button > * {
+    pointer-events: none;
+  }
+  
+  button {
+    border: 1px solid #FFFFFF;
+    margin: 0px 15px;
+    height: auto;
+  }
+
+  button:hover {
+    border: 1px solid gray;
+  }
+
 }
 
 .potency-big-number {
@@ -69,5 +102,13 @@ button {
   border: 1px solid #BFBFBF;
   height: 34px;
   cursor: pointer;
+}
+
+.tincture-congratulation-screen {
+
+  h2 {
+    font-size: 3em;
+    margin: 10px auto;
+  }
 }
 

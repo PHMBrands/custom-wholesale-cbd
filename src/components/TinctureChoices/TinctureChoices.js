@@ -1,5 +1,17 @@
 import React, { Component } from 'react';
 import LogoSelector from '../LogoSelector/LogoSelector';
+import FullSpectrum from '../../images/choice-button-icons/full-spectrum.svg';
+import BroadSpectrum from '../../images/choice-button-icons/no-thc.svg'
+import Guava from '../../images/choice-button-icons/guava.svg';
+import Mint from '../../images/choice-button-icons/mint.svg';
+import Mojito from '../../images/choice-button-icons/mojito.svg';
+import Peppermint from '../../images/choice-button-icons/peppermint.svg';
+import Popsicle from '../../images/choice-button-icons/popsicle.svg';
+// import Mocha from '../../images/choice-button-icons/mocha.svg';
+import Mocha from '../../images/choice-button-icons/coffee-bean.svg';
+import Hemp from '../../images/choice-button-icons/hemp.svg';
+import Wheat from '../../images/choice-button-icons/wheat.svg';
+import Coconut from '../../images/choice-button-icons/coconut.svg';
 
 class TinctureChoices extends Component {
   constructor() {
@@ -33,7 +45,7 @@ class TinctureChoices extends Component {
     switch(status) {
       case 'quantity':
         return <article>
-            <h4>Please select a quantity below:</h4>
+            <h2>Choose your quantity:</h2>
             <form className="company-form">
               <input 
                 type="number" 
@@ -56,15 +68,36 @@ class TinctureChoices extends Component {
       //     </article>
       case 'flavor':
         return <article>
-            <h4>Please select your flavor:</h4>
+            <h2>Choose your flavor:</h2>
             <form className="tincture-flavors">
-              <button name="flavor" value="Guava Lime" onClick={ this.handleChangeNoButton } >Guava Lime</button>
-              <button name="flavor" value="Mocha" onClick={ this.handleChangeNoButton } >Mocha</button>
-              <button name="flavor" value="Mojito" onClick={ this.handleChangeNoButton } >Mojito</button>
-              <button name="flavor" value="Orange Creamsicle" onClick={ this.handleChangeNoButton } >Orange Creamsicle</button>
-              <button name="flavor" value="Peppermint" onClick={ this.handleChangeNoButton } >Peppermint</button>
-              <button name="flavor" value="Mint Chocolate" onClick={ this.handleChangeNoButton } >Mint Chocolate</button>
-              <button name="flavor" value="Unflavored" onClick={ this.handleChangeNoButton } >Unflavored</button>
+              <button name="flavor" value="Guava Lime" onClick={ this.handleChangeNoButton } >
+                <img src={ Guava } className="tincture-flavor-button-icons" />
+                <p>Guava Lime</p>
+              </button>
+              <button name="flavor" value="Mocha" onClick={ this.handleChangeNoButton } >
+                <img src={ Mocha } className="tincture-flavor-button-icons" />
+                <p>Mocha</p>
+              </button>
+              <button name="flavor" value="Mojito" onClick={ this.handleChangeNoButton } >
+                <img src={ Mojito } className="tincture-flavor-button-icons" />
+                <p>Mojito</p>
+              </button>
+              <button name="flavor" value="Orange Creamsicle" onClick={ this.handleChangeNoButton } >
+                <img src={ Popsicle } className="tincture-flavor-button-icons" />
+                <p>Orange Creamsicle</p>
+              </button>
+              <button name="flavor" value="Peppermint" onClick={ this.handleChangeNoButton } >
+                <img src={ Peppermint } className="tincture-flavor-button-icons" />
+                <p>Peppermint</p>
+              </button>
+              <button name="flavor" value="Mint Chocolate" onClick={ this.handleChangeNoButton } >
+                <img src={ Mint } className="tincture-flavor-button-icons" />
+                <p>Mint Chocolate</p>
+              </button>
+              <button name="flavor" value="Unflavored" onClick={ this.handleChangeNoButton } >
+                <img src={ Hemp } className="tincture-flavor-button-icons" />
+                <p>Unflavored</p>
+              </button>
 
 
               {/* <input type="radio" id="guava-lime" name="flavor" value="Guava Lime" onChange={this.handleChangeNoButton} />
@@ -84,11 +117,17 @@ class TinctureChoices extends Component {
             </form>
           </article>
       case 'carrier':
-        return <article>
-            <h4>Please select your carrier oil:</h4>
+        return <article className="tincture-carrier">
+            <h2>Choose your carrier oil:</h2>
             <form className="tincture-carrier-oil">
-              <button name="carrier" value="Wheat Germ Oil" onClick={ this.handleChangeNoButton }>Wheat Germ Oil</button>
-              <button name="carrier" value="MCT Oil" onClick={ this.handleChangeNoButton }>MCT Oil</button>
+              <button name="carrier" value="Wheat Germ Oil" onClick={ this.handleChangeNoButton }>
+                <img src={ Wheat } className="carrier-button-logos" />
+                <p>Wheat Germ Oil</p>
+              </button>
+              <button name="carrier" value="MCT Oil" onClick={ this.handleChangeNoButton }>
+                <img src={ Coconut } className="carrier-button-logos" />
+                <p>MCT Oil</p>
+              </button>
 
               {/* <input type="radio" id="wheat-germ-oil" name="carrier" value="Wheat Germ Oil" onChange={this.handleChangeNoButton} />
                 <label htmlFor="wheat-germ-oil">Wheat Germ Oil</label>
@@ -98,10 +137,16 @@ class TinctureChoices extends Component {
           </article>
       case 'spectrum':
         return <article>
-          <h4>Please select your spectrum:</h4>
+          <h2>Choose your spectrum:</h2>
           <form className="tincture-spectrum">
-            <button name="spectrum" value="Full Spectrum" onClick={ this.handleChangeNoButton }>Full Spectrum</button>
-            <button name="spectrum" value="Broad Spectrum" onClick={ this.handleChangeNoButton }>Broad Spectrum</button>
+            <button name="spectrum" value="Full Spectrum" onClick={ this.handleChangeNoButton }>
+              <img src={ FullSpectrum } className="spectrum-button-logos" />
+              <p>Full Spectrum</p>
+            </button>
+            <button name="spectrum" value="Broad Spectrum" onClick={ this.handleChangeNoButton }>
+              <img src={ BroadSpectrum } className="spectrum-button-logos" />
+              <p>Broad Spectrum</p>
+            </button>
 
 
             {/* <input type="radio" id="full-spectrum" name="spectrum" value="Full Spectrum" onChange={this.handleChangeNoButton} />
@@ -111,8 +156,8 @@ class TinctureChoices extends Component {
           </form>
         </article>
       case 'potency':
-        return <article className="potency-choices">
-            <h4>Please select your potency per serving:</h4>
+        return <article className="tincture-potency">
+            <h2>Choose your potency per serving:</h2>
             <form>
               <button name="potency" value="10 mg" onClick={ this.handleChangeNoButton }>
                 <p><span className="potency-big-number">10</span>mg</p>
@@ -153,10 +198,9 @@ class TinctureChoices extends Component {
           />
         </article>
       case 6:
-        return <article>
-          <h3>Congratulations!!!!</h3>
-          <p>You've just created your brand. </p>
-          <p>Click below to print out your label.</p>
+        return <article className="tincture-congratulation-screen">
+          <h2>Congratulations!</h2>
+          <p>You've just created your brand.</p>
           </article>
       default:
         return <div>Something went wrong with the displayChoice switch statement in TinctureChoices component</div>  
