@@ -1,10 +1,15 @@
+.print-label-and-button {
+  margin-top: 60px;
+}
+
 .print-button {
   display: flex;
   flex-direction: column;
 }
 
-// .actual-print-button {
-//   position: absolute;
-//   top: 333px;
-//   left: 609px;
-// }
+.actual-print-button {
+  display: flex;
+  // position: absolute;
+  // top: 333px;
+  // left: 609px;
+}

@@ -155,8 +155,8 @@ class TinctureChoices extends Component {
       case 6:
         return <article>
           <h3>Congratulations!!!!</h3>
-          <p>You've just created your brand. </p>
-          <p>Click below to print out your label.</p>
+          <p>You've just created your brand.</p>
+
           </article>
       default:
         return <div>Something went wrong with the displayChoice switch statement in TinctureChoices component</div>  

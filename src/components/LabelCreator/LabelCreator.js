@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import defaultTinctureLabel from '../../images/label-parts/tincture-template-update-two.jpg';
-import Gym from '../../images/logo-selector/gym.svg';
-import Hemp from '../../images/logo-selector/hemp.svg'
-import Moon from '../../images/logo-selector/moon.svg';
-import Yoga from '../../images/logo-selector/yoga.svg';
+// import Gym from '../../images/logo-selector/gym.svg';
+// import Hemp from '../../images/logo-selector/hemp.svg'
+// import Moon from '../../images/logo-selector/moon.svg';
+// import Yoga from '../../images/logo-selector/yoga.svg';
+import GreenCross from '../../images/logo-selector/green-health-icon.png';
+import Mortar from '../../images/logo-selector/hemp-mortar.png';
+import LeafLogo from '../../images/logo-selector/leaf-logo-icon.png';
+import LeafPremium from '../../images/logo-selector/leaf-premium.png';
+import PremiumLeaf from '../../images/logo-selector/premium-leaf.png';
 
 class LabelCreator extends Component {
 
@@ -50,14 +55,16 @@ class LabelCreator extends Component {
   
   renderLogoImage = (status) => {
     switch (status) {
-      case 'gym':
-        return <img src={ Gym } alt="Gym icon" className="label-creator-logo" />;
-      case 'hemp':
-        return <img src={ Hemp } alt="Hemp icon" className="label-creator-logo" />;
-      case 'moon':
-        return <img src={ Moon } alt="Moon icon" className="label-creator-logo" />;
-      case 'yoga':
-        return <img src={ Yoga } alt="Yoga icon" className="label-creator-logo" />;  
+      case 'green cross':
+        return <img src={ GreenCross } alt="Gym icon" className="label-creator-logo" />;
+      case 'leaf premium':
+        return <img src={ LeafPremium } alt="Hemp icon" className="label-creator-logo" />;
+      case 'premium leaf':
+        return <img src={ PremiumLeaf } alt="Moon icon" className="label-creator-logo" />;
+      case 'mortar':
+        return <img src={ Mortar } alt="Yoga icon" className="label-creator-logo" />;
+      case 'leaf logo':
+        return <img src={ LeafLogo } alt="Yoga icon" className="label-creator-logo" />;  
       default:
         return <div>The renderLogoImage switch statement went to default.</div>;
     }
