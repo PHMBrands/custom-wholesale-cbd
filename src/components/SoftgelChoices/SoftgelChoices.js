@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import LogoSelector from '../LogoSelector/LogoSelector';
+import Wheat from '../../images/choice-button-icons/wheat.svg';
+import Coconut from '../../images/choice-button-icons/coconut.svg';
 
 
 class SoftgelChoices extends Component {
@@ -78,11 +80,19 @@ class SoftgelChoices extends Component {
         return <article>
             <h4>Please select your carrier oil:</h4>
             <form>
-              
+              <button name="carrier" value="Wheat Germ Oil" onClick={ this.handleChangeNoButton }>
+                <img src={ Wheat } className="carrier-button-logos" />
+                <p>Wheat Germ Oil</p>
+              </button>
+              <button name="carrier" value="MCT Oil" onClick={ this.handleChangeNoButton }>
+                <img src={ Coconut } className="carrier-button-logos" />
+                <p>MCT Oil</p>
+              </button> 
+{/*               
               <input type="radio" id="wheat-germ-oil" name="carrier" value="Wheat Germ Oil" onChange={ this.handleChangeNoButton } />
               <label for="wheat-germ-oil">Wheat Germ Oil</label>
               <input type="radio" id="mct-oil" name="carrier" value="MCT Oil" onChange={ this.handleChangeNoButton } />
-              <label for="mct-oil">MCT Oil</label>
+              <label for="mct-oil">MCT Oil</label> */}
             </form>
           </article>
       case 'spectrum':
