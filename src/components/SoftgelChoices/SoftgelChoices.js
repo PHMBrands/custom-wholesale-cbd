@@ -23,40 +23,62 @@ class SoftgelChoices extends Component {
   }
 
   handleChangeNoButton = (event) => {
-    const { name, value } = event.target
-    this.setState({ selectionName: name, selectionValue: value }, () => this.handleClick(event))
+    event.preventDefault();
+    const { name, value } = event.target;
+    this.setState({ selectionName: name, selectionValue: value }, () => this.props.updateSelectionsObject(this.state));
   }
 
   displayChoice = (status) => {
     switch (status) {
       case 'quantity':
         return <article>
-          <h4>Please select the number of bottles you're interested in:</h4>
-          <form className="company-form">
-            <input
-              type="number"
-              placeholder="100"
-              name="quantity"
-              value={ this.state.selectionValue }
-              onChange={ this.handleChange }
-            />
-            <button onClick={ this.handleClick }>SUBMIT</button>
-          </form>
-        </article>
+            <h2>Choose your quantity:</h2>
+            <form className="company-form">
+              <input 
+                type="number" 
+                name="quantity"
+                value={ this.state.selectionValue }
+                onChange={ this.handleChange }
+              />
+              <button onClick={ this.handleClick }>SUBMIT</button>
+            </form>
+          </article>
+        // return <article>
+        //   <h4>Please select the number of bottles you're interested in:</h4>
+        //   <form className="company-form">
+        //     <input
+        //       type="number"
+        //       placeholder="100"
+        //       name="quantity"
+        //       value={ this.state.selectionValue }
+        //       onChange={ this.handleChange }
+        //     />
+        //     <button onClick={ this.handleClick }>SUBMIT</button>
+        //   </form>
+        // </article>
       case 'softgelSize':
         return <article>
-            <h4>Please select your softgel size:</h4>
+            <h2>Please select your softgel size:</h2>
             <form>
-              <input type="radio" id="15mg" name="softgelSize" value="15mg" onChange={this.handleChangeNoButton} />
+              <button name="softgelSize" value="15mg" onClick={ this.handleChangeNoButton } >
+                {/* <img src={ Guava } className="tincture-flavor-button-icons" /> */}
+                <p>15mg</p>
+              </button>
+              <button name="softgelSize" value="25mg" onClick={ this.handleChangeNoButton } >
+                {/* <img src={ Guava } className="tincture-flavor-button-icons" /> */}
+                <p>25mg</p>
+              </button>
+              {/* <input type="radio" id="15mg" name="softgelSize" value="15mg" onChange={this.handleChangeNoButton} />
               <label for="15mg">15mg</label>
               <input type="radio" id="25mg" name="softgelSize" value="25mg" onChange={this.handleChangeNoButton} />
-              <label for="25mg">25mg</label>
+              <label for="25mg">25mg</label> */}
             </form>
           </article>
       case 'carrier':
         return <article>
             <h4>Please select your carrier oil:</h4>
             <form>
+              
               <input type="radio" id="wheat-germ-oil" name="carrier" value="Wheat Germ Oil" onChange={ this.handleChangeNoButton } />
               <label for="wheat-germ-oil">Wheat Germ Oil</label>
               <input type="radio" id="mct-oil" name="carrier" value="MCT Oil" onChange={ this.handleChangeNoButton } />

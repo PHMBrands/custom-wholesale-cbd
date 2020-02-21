@@ -67,7 +67,7 @@ class ProgressiveForm extends Component {
 
   productSelectedChoicesRemaining = () => {
     const tinctureChoicesRemaining = ['quantity', 'flavor', 'carrier', 'spectrum', 'potency', 'logo'];
-    const softgelChoicesRemaining = [];
+    const softgelChoicesRemaining = ['quantity', 'softgelSize', 'carrier', 'spectrum', 'potency', 'softgelPerBottle', 'logo'];
     const topicalsChoicesRemaining = [];
 
     if (this.state.stashedProduct === 'Tinctures') {
@@ -117,7 +117,7 @@ class ProgressiveForm extends Component {
             <p>To get started click below:</p>
             <form>
               <button onClick={ () => this.updateProductSelection('Tinctures') } className="product-button" ><img src={ TinctureChoice } alt="generic tincture" className="product-choice-image" />Tinctures</button>
-              {/* <button onClick={ () => this.updateProductSelection('Softgels') } className="product-button" ><img src={ SoftgelChoice } alt="generic softgel" className="product-choice-image" />Softgels</button> */}
+              <button onClick={ () => this.updateProductSelection('Softgels') } className="product-button" ><img src={ SoftgelChoice } alt="generic softgel" className="product-choice-image" />Softgels</button>
               {/* <button onClick={ () => this.updateProductSelection('Topicals') } className="product-button" ><img src={ TopicalChoice } alt="generic topical" className="product-choice-image" />Lotions</button> */}
             </form>
           </section>

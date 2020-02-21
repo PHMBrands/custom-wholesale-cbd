@@ -39,8 +39,6 @@ class TinctureChoices extends Component {
     this.setState({ selectionName: name, selectionValue: value }, () => this.props.updateSelectionsObject(this.state));
   }
 
-  //updateDisplay argument must correspond with corresponding switch statement in TinctureChoices
-  
   displayChoice = (status) => {
     switch(status) {
       case 'quantity':
