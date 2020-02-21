@@ -197,7 +197,7 @@ class ProgressiveForm extends Component {
       <section className="progressive-form">
         {/* { progressiveForm } */}
         <div>
-        <section className="selection-area">
+          <section className="selection-area">
             { productHeader }
             <SelectionDisplay
               currentSelections={ this.state.selections }
