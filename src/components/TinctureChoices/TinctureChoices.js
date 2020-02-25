@@ -12,6 +12,8 @@ import Mocha from '../../images/choice-button-icons/coffee-bean.svg';
 import Hemp from '../../images/choice-button-icons/hemp.svg';
 import Wheat from '../../images/choice-button-icons/wheat.svg';
 import Coconut from '../../images/choice-button-icons/coconut.svg';
+import TinctureChoice from '../../images/form-options/tincture-icon.jpg';
+
 
 class TinctureChoices extends Component {
   constructor() {
@@ -43,7 +45,8 @@ class TinctureChoices extends Component {
     switch(status) {
       case 'quantity':
         return <article>
-            <h2>Choose your quantity:</h2>
+            <h3>Step 2: Number of tinctures</h3>
+            <h4>Minimum 250 Tinctures</h4>
             <form className="company-form">
               <input 
                 type="number" 
@@ -216,11 +219,16 @@ class TinctureChoices extends Component {
 
     return (
       <section className="tincture-choices">
-        <button className="back-button" onClick={ this.props.startOver }>PRODUCTS</button>
         { this.displayChoice(this.props.currentDisplay) }
+        <img src={ TinctureChoice } className="product-choice-image" />
+            <p>30ML amber glass bottle with dropper</p>
+        <section className="tims-buttons"> 
+          <button className="tim-back-button" onClick={ this.props.startOver }>BACK</button>
+          <button className="tim-forward-button" onClick={ this.props.startOver }>NEXT</button>
+        </section>
       </section>
     );
-  }
+  }b
 }
 
 export default TinctureChoices;

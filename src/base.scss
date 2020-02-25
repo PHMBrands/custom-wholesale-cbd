@@ -10,6 +10,7 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,800&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Oswald:300,400&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&display=swap');
 
 
 body {
@@ -20,13 +21,26 @@ body {
   // -webkit-font-smoothing: antialiased;
   // -moz-osx-font-smoothing: grayscale;
   // text-align: center;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Raleway', ;
 }
 
 .App {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+h1 {
+  color: #00B1AF;
+  text-transform: uppercase;
+  font-size: 3em;
+  font-weight: 800;
+  letter-spacing: 4px;
+}
+
+h2 {
+  color: #00B1AF;
+  text-transform: uppercase;
 }
 
 header {

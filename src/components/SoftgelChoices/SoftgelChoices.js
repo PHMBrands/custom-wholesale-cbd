@@ -144,7 +144,7 @@ class SoftgelChoices extends Component {
     // }
 
     return <section className="softgel-choices">
-        <h3>Private Label Softgels</h3>
+        {/* <h3>Private Label Softgels</h3> */}
         <button className="back-button" onClick={ this.props.startOver }>PRODUCTS</button>
         { this.displayChoice(this.props.currentDisplay) }
       </section>
