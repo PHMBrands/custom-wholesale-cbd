@@ -103,20 +103,24 @@ class ProgressiveForm extends Component {
     switch (selection) {
       case 'company':
         return <section>
-            <button onClick={ this.startOver } className="back-button">BACK</button>
+            {/* <button onClick={ this.startOver } className="back-button">BACK</button> */}
             <p>Your company name will appear on the label, and the contact info below that.</p>
             <p>Enter your information below</p>
             <CompanyInfo 
               createCompany={ this.createCompany } 
               company={ this.state.company }
             />
+            {/* <section className="tims-buttons"> 
+              <button className="tim-back-button" onClick={ this.props.startOver }>BACK</button>
+              <button className="tim-forward-button" onClick={ this.props.startOver }>NEXT</button>
+            </section> */}
           </section> 
       case 'products':
         return <section className="intro-page">
             <h1>Private label</h1>
             <h2>& White label made easy!</h2>
-            <p>Are you looking for CBD products with your label on it? No problem! You can choose which of our preformulated products you want and order it right here. If you want to talk to a sales representative you can.... or you can simply use our CBD stock products builder and pay online today. NO BULL! Do it all online! Transpartent pricing and easy to use.</p>
-            <h2>STEP 1: Choose your product</h2>
+            <p className="intro-graph">Are you looking for CBD products with your label on it? No problem! You can choose which of our preformulated products you want and order it right here. If you want to talk to a sales representative you can.... or you can simply use our CBD stock products builder and pay online today. NO BULL! Do it all online! Transpartent pricing and easy to use.</p>
+            <p className="step-explanation"><span className="step-number">STEP 1: </span>Choose your product</p>
             {/* <p>To get started click below:</p> */}
             <form>
               <button onClick={ () => this.updateProductSelection('Softgels') } className="product-button" ><img src={ SoftgelChoice } alt="generic softgel" className="product-choice-image" />Softgels</button>

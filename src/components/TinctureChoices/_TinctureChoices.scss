@@ -8,6 +8,33 @@
 
 .product-photo-and-choices {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 1000px;
+}
+
+.product-sidecar-photo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-sidecar-photo-description {
+  color: $viobin;
+  width: 140px;
+  position: relative;
+  bottom: 35px;
+  text-transform: uppercase;
+}
+
+.product-sidecar-choices {
+  width: 700px;
+}
+
+.company-form-article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .tims-buttons {

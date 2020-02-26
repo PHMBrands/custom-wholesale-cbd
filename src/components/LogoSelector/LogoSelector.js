@@ -17,7 +17,7 @@ const LogoSelector = (props) => {
 
   return (
     <div>
-      <h2>Your logo goes here, in the meantime, select from one of these fun options:</h2>
+      <p>Your logo goes here, in the meantime, select from one of these fun options:</p>
       {/* <input type="button" className="logo-button" name="logo" value="gym"><img src={ Gym } className="logo-sample" /></input> */}
       <button onClick={ () => props.setLogoChoice('green cross') } className="logo-button">
         <img src={ GreenCross } alt="Gym icon" className="logo-sample" />

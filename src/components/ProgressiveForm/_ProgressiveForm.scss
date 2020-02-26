@@ -7,9 +7,21 @@
   bottom: 0px;
 }
 
-// .selection-area {
-//   height: 150px;
-// }
+.intro-graph {
+  width: 70vw;
+  text-align: left;
+  margin: 40px auto;
+}
+
+.step-explanation {
+  color: $viobin;
+  font-size: 2em;
+  font-weight: 300;
+}
+
+.step-number {
+  font-weight: 700;
+}
 
 .product-choice-image {
   height: 320px;
@@ -35,7 +47,7 @@
 }
 
 // .selection-area {
-//   height: 250px;
+//   width: 2000px;
 // }
 
 .created-label {
