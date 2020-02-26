@@ -113,6 +113,9 @@ class ProgressiveForm extends Component {
           </section> 
       case 'products':
         return <section className="intro-page">
+            <h1>Private label</h1>
+            <h2>& White label made easy!</h2>
+            <p>Are you looking for CBD products with your label on it? No problem! You can choose which of our preformulated products you want and order it right here. If you want to talk to a sales representative you can.... or you can simply use our CBD stock products builder and pay online today. NO BULL! Do it all online! Transpartent pricing and easy to use.</p>
             <h2>STEP 1: Choose your product</h2>
             {/* <p>To get started click below:</p> */}
             <form>
@@ -150,6 +153,11 @@ class ProgressiveForm extends Component {
       default:
         return <p>Something went wrong with the selectProduct switch statement.</p>
     }
+  }
+
+  testMethod = (event) => {
+    event.preventDefault()
+    this.updateProductSelection('Tinctures')
   }
 
   render() {
@@ -209,6 +217,8 @@ class ProgressiveForm extends Component {
               logoChoice={ this.state.logoChoice }
               /> */}
             { this.selectProduct(this.state.productSelected) }
+            {/* <button onClick={ this.testMethod }>CLICK TO START</button> */}
+            {/* this.updateProductSelection('Tinctures') */}
           </section>
           <PrintButton 
             productSelected={ this.state.productSelected }

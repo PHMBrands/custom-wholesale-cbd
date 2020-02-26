@@ -219,16 +219,20 @@ class TinctureChoices extends Component {
 
     return (
       <section className="tincture-choices">
-        { this.displayChoice(this.props.currentDisplay) }
-        <img src={ TinctureChoice } className="product-choice-image" />
+        <section className="product-photo-and-choices">
+          <section>
+            <img src={ TinctureChoice } className="product-choice-image" />
             <p>30ML amber glass bottle with dropper</p>
+          </section>
+          { this.displayChoice(this.props.currentDisplay) }
+        </section>            
         <section className="tims-buttons"> 
           <button className="tim-back-button" onClick={ this.props.startOver }>BACK</button>
           <button className="tim-forward-button" onClick={ this.props.startOver }>NEXT</button>
         </section>
       </section>
     );
-  }b
+  }
 }
 
 export default TinctureChoices;

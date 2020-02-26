@@ -12,6 +12,7 @@
     "react-scripts": "3.3.0",
     "react-to-print": "^2.5.1"
   },
+  "homepage": "http://tacky-milk.surge.sh/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

@@ -6,6 +6,10 @@
   align-items: center;
 }
 
+.product-photo-and-choices {
+  display: flex;
+}
+
 .tims-buttons {
   display: flex;
   justify-content: space-between;
@@ -35,6 +39,16 @@
   font-size: 1.8em;
   box-shadow: 0px 19px 30px -3px #808080;
 }
+
+.tim-back-button:hover {
+  color: white;
+}
+
+.tim-forward-button:hover {
+  color: white;
+}
+
+
 
 .tincture-carrier {
 
