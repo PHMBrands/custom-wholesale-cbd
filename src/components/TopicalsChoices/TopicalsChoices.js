@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import LogoSelector from '../LogoSelector/LogoSelector';
+import TopicalChoice from '../../images/form-options/topical-icon.jpg';
+import FullSpectrum from '../../images/choice-button-icons/full-spectrum.svg';
+import BroadSpectrum from '../../images/choice-button-icons/no-thc.svg'
 
 
 class TopicalsChoices extends Component {
@@ -23,68 +26,83 @@ class TopicalsChoices extends Component {
   }
 
   handleChangeNoButton = (event) => {
+    event.preventDefault()
     const { name, value } = event.target;
-    this.setState({ selectionName: name, selectionValue: value }, () => this.handleClick(event))
+    this.setState({ selectionName: name, selectionValue: value }, () => this.props.updateSelectionsObject(this.state));
+  }
+
+  displayStep = (status) => {
+    switch(status) {
+      case 'quantity':
+        return <p className="step-explanation"><span className="step-number">Step 3: </span>Number of lotion containers</p>
+      case 'spectrum':
+        return <p className="step-explanation"><span className="step-number">Step 6: </span>Choose your spectrum</p>
+      case 'scent':
+        return <p className="step-explanation"><span className="step-number">Step 4: </span>Choose your scent</p>
+      case 'potency':
+        return <p className="step-explanation"><span className="step-number">Step 7: </span>Choose your potency per serving</p>
+      case 'logo':
+        return <p className="step-explanation"><span className="step-number">Step 8: </span>Choose your potency per serving</p>
+      default:
+        return <div>Something went wrong with the displayStep switch statement in TinctureChoices component</div>  
+    }
   }
 
   displayChoice = (status) => {
     switch (status) {
-      case 0:
+      case 'quantity':
         return <article>
-            <h4>Please select the number of bottles you're interested in:</h4>
-            <form>
-              <input
-                type="number"
-                placeholder="100"
-                name="quantity"
-                value={this.state.selectionValue}
-                onChange={this.handleChange}
-              />
-              <button onClick={this.handleClick}>SUBMIT</button>
+            <select id="quantity-dropdown" name="quantity" onChange={ this.handleChangeNoButton }>
+                <option value="less than 250">less than 250</option>
+                <option value="250 to 500<">250 to 500</option>
+                <option value="500 to 1000">500-1,000</option>
+                <option value="more than 1,000">more than 1,000</option>
+              </select>
+          </article>
+      case 'spectrum':
+        return <article>
+            <form className="tincture-spectrum">
+              <button name="spectrum" value="Full Spectrum" onClick={ this.handleChangeNoButton }>
+                <img src={ FullSpectrum } className="spectrum-button-logos" />
+                <p>Full Spectrum</p>
+              </button>
+              <button name="spectrum" value="Broad Spectrum" onClick={ this.handleChangeNoButton }>
+                <img src={ BroadSpectrum } className="spectrum-button-logos" />
+                <p>Broad Spectrum</p>
+              </button>
             </form>
           </article>
-      // case 1:
-      //   return <article>
-      //     <h4>Please select your container size:</h4>
-      //     <form>
-      //       <input type="radio" id="size-one" name="container" value="Lotion Size One" onChange={this.handleChangeNoButton} />
-      //         <label for="size-one">Lotion Size One</label>
-      //       <input type="radio" id="size-two" name="container" value="Lotion Size Two" onChange={this.handleChangeNoButton} />
-      //         <label for="size-two">Lotion Size Two</label>
-      //     </form>
-      //   </article>
-      case 1:
+      case 'scent':
         return <article>
-          <h4>Please select your spectrum:</h4>
-          <form>
-            <input type="radio" id="full-spectrum" name="spectrum" value="Full Spectrum" onChange={this.handleChangeNoButton} />
-            <label for="full-spectrum">Full Spectrum</label>
-            <input type="radio" id="broad-spectrum" name="spectrum" value="Broad Spectrum" onChange={this.handleChangeNoButton} />
-            <label for="broad-spectrum">Broad Spectrum</label>
-          </form>
-        </article>
-      case 2:
-        return <article>
-          <h4>Please select your scent:</h4>
-          <form>
-            <input type="radio" id="tea-tree" name="scent" value="Tea Tree Oil" onChange={this.handleChangeNoButton} />
-            <label for="tea-tree">Tea Tree Oil</label>
-            <input type="radio" id="unscented" name="scent" value="Unscented" onChange={this.handleChangeNoButton} />
-            <label for="unscented">Unscented</label>
-
-          </form>
-        </article>
-      case 3:
-        return <article>
-          <h4>Please select your potency per serving:</h4>
-          <form>
-            <input type="radio" id="15mg" name="potency" value="15 mg" onChange={this.handleChangeNoButton} />
-            <label for="15mg">15 mg</label>
-            <input type="radio" id="25mg" name="potency" value="25 mg" onChange={this.handleChangeNoButton} />
-            <label for="25mg">25 mg</label>
-          </form>
-        </article>
-      case 4:
+            <form className="tincture-spectrum">
+              <button name="spectrum" value="Full Spectrum" onClick={ this.handleChangeNoButton }>
+                <img src={ FullSpectrum } className="spectrum-button-logos" />
+                <p>Cooling</p>
+              </button>
+              <button name="spectrum" value="Broad Spectrum" onClick={ this.handleChangeNoButton }>
+                <img src={ BroadSpectrum } className="spectrum-button-logos" />
+                <p>Tea Tree</p>
+              </button>
+              <button name="spectrum" value="Broad Spectrum" onClick={ this.handleChangeNoButton }>
+                <img src={ BroadSpectrum } className="spectrum-button-logos" />
+                <p>Unscented</p>
+              </button>
+            </form>
+          </article>
+      case 'potency':
+        return <article className="tincture-potency">
+            <form>
+              <button name="potency" value="10 mg" onClick={ this.handleChangeNoButton }>
+                <p><span className="potency-big-number">10</span>mg</p>
+                <p className="potency-per-bottle">per softgel</p>
+              </button>
+              <button name="potency" value="25 mg" onClick={ this.handleChangeNoButton }>
+                <p><span name="potency" className="potency-big-number">25</span>mg</p>
+                <p className="potency-per-bottle">per softgel</p>
+              </button>
+            </form>
+          </article>
+      case 'logo':
         return <article>
             <LogoSelector setLogoChoice={ this.props.setLogoChoice } />
           </article>
@@ -94,19 +112,36 @@ class TopicalsChoices extends Component {
   }
 
   render() {
-    let backButton
 
-    if (this.state.selectionName !== 'quantity') {
-      backButton = <button onClick={ this.props.regressDisplay } className="back-button">Previous Option</button>
-    } else {
-      backButton = <button onClick={ this.props.backToCompanyInfo } className="back-button">BACK</button>
+    const displayTimButtons = () => {
+      if (this.props.currentDisplay === 'logo') {
+        return "no-tim-button"
+      } else {
+        return "tim-forward-button"
+      }
+
+      // return (this.props.currentDisplay === 'logo' ? "tim-forward-button" : "no-tim-button")
     }
 
-    return <section>
-        <h3>Private Label Topicals</h3>
-        { backButton }
-        { this.displayChoice(this.props.currentDisplay) }
+    return (
+        <section className="tincture-choices">
+        { this.displayStep(this.props.currentDisplay) }
+        <section className="product-photo-and-choices">
+          <section className="product-sidecar-photo">
+            <img src={ TopicalChoice } className="product-choice-image" />
+            <p className="product-sidecar-photo-description">This is Lotion, you rub it</p>
+          </section>
+          <section className="product-sidecar-choices">
+            { this.displayChoice(this.props.currentDisplay) }
+          </section>
+        </section>            
+        <section className="tims-buttons"> 
+          <button className="tim-back-button" onClick={ this.props.regressDisplay }>←BACK</button>
+          <button className={ displayTimButtons() } onClick={ this.props.progressDisplay }>NEXT→</button>
+          {/* <button className="tim-forward-button" onClick={ this.props.progressDisplay }>NEXT→</button> */}
+        </section>
       </section>
+    );
   }
 }
 

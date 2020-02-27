@@ -11,7 +11,6 @@ import TopicalChoice from '../../images/form-options/topical-icon.jpg';
 import PrintButton from '../PrintButton/PrintButton';
 
 
-
 class ProgressiveForm extends Component {
   constructor() {
     super()
@@ -27,6 +26,7 @@ class ProgressiveForm extends Component {
       stashedProduct: '',
       progress: 'open',
       displayPrintButton: false,
+      choices: [],
       choicesRemaining: []
     }
   }
@@ -34,13 +34,17 @@ class ProgressiveForm extends Component {
   updateSelectionsObject = (selection) => {
     const { selectionName, selectionValue } = selection;
     let updatedSelection = {...this.state.selections, [selectionName]: selectionValue };
-    let updatedChoicesRemaining = this.state.choicesRemaining.filter(choice => choice !== selectionName);
+    this.setState({ selections: updatedSelection });
+    this.progressDisplay()
 
-    if (updatedChoicesRemaining.length > 0) {
-      this.setState({ selections: updatedSelection, choicesRemaining: updatedChoicesRemaining, currentDisplay: updatedChoicesRemaining[0] })
-    } else {
-      this.setState({ currentDisplay: 6, displayPrintButton: true })
-    }
+    //This logic is for site version (prevents user from continuing without completing all options)
+    // let updatedChoicesRemaining = this.state.choicesRemaining.filter(choice => choice !== selectionName);
+
+    // if (updatedChoicesRemaining.length > 0) {
+    //   this.setState({ selections: updatedSelection, choicesRemaining: updatedChoicesRemaining, currentDisplay: updatedChoicesRemaining[0] })
+    // } else {
+    //   this.setState({ currentDisplay: 6, displayPrintButton: true })
+    // }
   }
 
   displayPrintButton = () => {
@@ -56,9 +60,28 @@ class ProgressiveForm extends Component {
     this.setState({ currentDisplay: display, stashedDisplay });
   }
 
+  progressDisplay = () => {
+    let testNum = this.state.choices.indexOf(this.state.currentDisplay) + 1
+
+    if (testNum !== this.state.choices.length) {
+      this.setState({ currentDisplay: this.state.choices[testNum] }, () => this.checkPrintButton())
+    }
+  }
+
   regressDisplay = () => {
-    let newDisplay = this.state.currentDisplay - 1;
-    this.setState({ currentDisplay: newDisplay })
+    let testNum = this.state.choices.indexOf(this.state.currentDisplay) - 1
+
+    if (testNum > 0) {
+      this.setState({ currentDisplay: this.state.choices[testNum], displayPrintButton: false })
+    } else if (testNum === 0) {
+      this.setState({ productSelected: 'company' })
+    }
+  }
+
+  checkPrintButton = () => {
+    if (this.state.currentDisplay === 'logo') {
+      this.setState({ displayPrintButton: true });
+    }
   }
 
   updateProductSelection = (product) => {
@@ -67,15 +90,18 @@ class ProgressiveForm extends Component {
 
   productSelectedChoicesRemaining = () => {
     const tinctureChoicesRemaining = ['quantity', 'flavor', 'carrier', 'spectrum', 'potency', 'logo'];
-    const softgelChoicesRemaining = [];
-    const topicalsChoicesRemaining = [];
+    const softgelChoicesRemaining = ['quantity', 'softgelSize', 'potency', 'carrier', 'spectrum', 'softgelPerBottle', 'logo'];
+    const topicalsChoicesRemaining = ['quantity', 'spectrum', 'scent', 'potency', 'logo'];
+    const tincturesComplete = ['company', 'quantity', 'flavor', 'carrier', 'spectrum', 'potency', 'logo']  
+    const softgelComplete = ['company', 'quantity', 'softgelSize', 'potency', 'carrier', 'spectrum', 'softgelPerBottle', 'logo']
+    const topicalsComplete = ['company', 'quantity', 'spectrum', 'scent', 'potency', 'logo']
 
     if (this.state.stashedProduct === 'Tinctures') {
-      this.setState({ choicesRemaining: tinctureChoicesRemaining })
+      this.setState({ choices: tincturesComplete, choicesRemaining: tinctureChoicesRemaining})
     } else if (this.state.stashedProduct === 'Softgels') {
-      this.setState({ choicesRemaining: softgelChoicesRemaining }) 
+      this.setState({ choices: softgelComplete, choicesRemaining: softgelChoicesRemaining }) 
     } else if (this.state.stashedProduct === 'Topicals') {
-      this.setState({ choicesRemaining: topicalsChoicesRemaining })
+      this.setState({ choices: topicalsComplete,choicesRemaining: topicalsChoicesRemaining })
     }
   }
 
@@ -87,38 +113,45 @@ class ProgressiveForm extends Component {
     this.updateSelectionsObject(logoChoice)
   }
 
-  startOver = () => {
-    this.setState({ selections: {}, currentDisplay: 0, productSelected: 'products', logoChoice: undefined, displayPrintButton: false })
-  }
+  // startOver = () => {
+  //   this.setState({ selections: {}, currentDisplay: 0, productSelected: 'products', logoChoice: undefined, displayPrintButton: false })
+  // }
 
   backToCompanyInfo = () => {
     this.setState({ productSelected: 'company' })
   }
 
-  setDisplayPrintButton = () => {
-    this.setState({ displayPrintButton: true })
+  backToProductSelection = () => {
+    this.setState({ productSelected: 'products' })
   }
+
+  // setDisplayPrintButton = () => {
+  //   this.setState({ displayPrintButton: true })
+  // }
 
   selectProduct = (selection) => {
     switch (selection) {
       case 'company':
         return <section>
-            <button onClick={ this.startOver } className="back-button">BACK</button>
-            <p>Your company name will appear on the label, and the contact info below that.</p>
-            <p>Enter your information below</p>
+            {/* <button onClick={ this.startOver } className="back-button">BACK</button> */}
+            <p className="step-explanation" id="company-step-descriptor"><span className="step-number">Step 2: </span>Enter your information</p>
             <CompanyInfo 
               createCompany={ this.createCompany } 
               company={ this.state.company }
+              backToProductSelection={ this.backToProductSelection }
             />
           </section> 
       case 'products':
         return <section className="intro-page">
-            <h2>Create your own private label CBD products in less than three minutes</h2>
-            <p>To get started click below:</p>
+            <h1>Private label</h1>
+            <h2>& White label made easy!</h2>
+            <p className="intro-graph">Are you looking for CBD products with your label on it? No problem! You can choose which of our preformulated products you want and order it right here. If you want to talk to a sales representative you can.... or you can simply use our CBD stock products builder and pay online today. NO BULL! Do it all online! Transpartent pricing and easy to use.</p>
+            <p className="step-explanation"><span className="step-number">STEP 1: </span>Choose your product</p>
+            {/* <p>To get started click below:</p> */}
             <form>
+              <button onClick={ () => this.updateProductSelection('Softgels') } className="product-button" ><img src={ SoftgelChoice } alt="generic softgel" className="product-choice-image" />Softgels</button>
+              <button onClick={ () => this.updateProductSelection('Topicals') } className="product-button" ><img src={ TopicalChoice } alt="generic topical" className="product-choice-image" />Lotion</button>
               <button onClick={ () => this.updateProductSelection('Tinctures') } className="product-button" ><img src={ TinctureChoice } alt="generic tincture" className="product-choice-image" />Tinctures</button>
-              {/* <button onClick={ () => this.updateProductSelection('Softgels') } className="product-button" ><img src={ SoftgelChoice } alt="generic softgel" className="product-choice-image" />Softgels</button> */}
-              {/* <button onClick={ () => this.updateProductSelection('Topicals') } className="product-button" ><img src={ TopicalChoice } alt="generic topical" className="product-choice-image" />Lotions</button> */}
             </form>
           </section>
       case 'Tinctures':
@@ -126,26 +159,30 @@ class ProgressiveForm extends Component {
             currentDisplay={ this.state.currentDisplay } 
             updateSelectionsObject={ this.updateSelectionsObject }
             setLogoChoice={ this.setLogoChoice }
+            progressDisplay={ this.progressDisplay }
             regressDisplay={ this.regressDisplay }
             selections={ this.state.selections }
-            startOver={ this.startOver }
+            // startOver={ this.startOver }
           />
       case 'Softgels':
         return <SoftgelChoices
             currentDisplay={this.state.currentDisplay}
             updateSelectionsObject={this.updateSelectionsObject}
             setLogoChoice={ this.setLogoChoice }
+            progressDisplay={ this.progressDisplay }
             regressDisplay={ this.regressDisplay }
-            backToCompanyInfo={ this.backToCompanyInfo }
-            startOver={ this.startOver }
+            selections={ this.state.selections }
+            // startOver={ this.startOver }
           />
       case 'Topicals':
         return <TopicalsChoices
             currentDisplay={ this.state.currentDisplay }
             updateSelectionsObject={ this.updateSelectionsObject }
             setLogoChoice={ this.setLogoChoice }
+            progressDisplay={ this.progressDisplay }
             regressDisplay={ this.regressDisplay }
-            backToCompanyInfo={ this.backToCompanyInfo }
+            selections={ this.state.selections }
+            // startOver={ this.startOver }
           />
       default:
         return <p>Something went wrong with the selectProduct switch statement.</p>
@@ -153,17 +190,17 @@ class ProgressiveForm extends Component {
   }
 
   render() {
-    let resetButton
+    // let resetButton
     // let progressiveForm
-    let productHeader
+    // let productHeader
 
-    if (this.state.productSelected !== 'products') {
-      resetButton = <button onClick={ this.startOver } className="reset-button">RESET</button>
-    }
+    // if (this.state.productSelected !== 'products') {
+    //   resetButton = <button onClick={ this.startOver } className="reset-button">RESET</button>
+    // }
 
-    if(this.state.productSelected !== 'products' && this.state.productSelected !== 'company') {
-      productHeader = <h2>Private Label {this.state.productSelected}</h2>
-    }
+    // if(this.state.productSelected !== 'products' && this.state.productSelected !== 'company') {
+    //   productHeader = <h2>Private Label {this.state.productSelected}</h2>
+    // }
 
     // if (this.state.progress === 'open') {
     //   progressiveForm = <div>
@@ -197,9 +234,9 @@ class ProgressiveForm extends Component {
       <section className="progressive-form">
         {/* { progressiveForm } */}
         <div>
-        <section className="selection-area">
-            { productHeader }
-            <SelectionDisplay
+          <section className="selection-area">
+            {/* { productHeader } */}
+            {/* <SelectionDisplay
               currentSelections={ this.state.selections }
               updateDisplay={ this.updateDisplay}
               productSelected={ this.state.productSelected }
@@ -207,8 +244,10 @@ class ProgressiveForm extends Component {
               company={ this.state.company }
               backToCompanyInfo={ this.backToCompanyInfo }
               logoChoice={ this.state.logoChoice }
-              />
+              /> */}
             { this.selectProduct(this.state.productSelected) }
+            {/* <button onClick={ this.testMethod }>CLICK TO START</button> */}
+            {/* this.updateProductSelection('Tinctures') */}
           </section>
           <PrintButton 
             productSelected={ this.state.productSelected }

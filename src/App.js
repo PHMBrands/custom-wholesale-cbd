@@ -10,14 +10,14 @@ function App() {
 
   return (
     <section className="App">
-      <header>
+      {/* <header>
         <img src={ ViobinLogo } alt="Viobin Logo" className="viobin-logo" />
         <p>Build a Brand Tool</p>
-      </header>
+      </header> */}
       <ProgressiveForm />
-      <footer>
+      {/* <footer>
         <p>© Copyright VIOBIN</p>
-      </footer>
+      </footer> */}
     </section>
   );
 }

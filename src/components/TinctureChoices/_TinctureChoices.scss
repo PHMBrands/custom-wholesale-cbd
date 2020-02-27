@@ -2,9 +2,98 @@
   display:flex;
   flex-direction: column;
   margin: 10px;
-  height: 400px;
+  // height: 400px;
   align-items: center;
 }
+
+.product-photo-and-choices {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 1000px;
+}
+
+.product-sidecar-photo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-sidecar-photo-description {
+  color: $viobin;
+  width: 140px;
+  position: relative;
+  bottom: 35px;
+  text-transform: uppercase;
+}
+
+.product-sidecar-choices {
+  width: 700px;
+}
+
+.company-form-article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tims-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100vh;
+}
+
+.tim-back-button {
+  color: #339BA4;
+  background-color: #00B1AF;
+  font-weight: 600;
+  padding: 15px 90px;
+  border: 0px;
+  border-radius: 3px;
+  padding-bottom: 51px;
+  font-size: 1.8em;
+  box-shadow: 0px 19px 30px -3px #808080;
+}
+
+.tim-forward-button {
+  color: #e08428;
+  background-color: #F7A01D;
+  font-weight: 600;
+  padding: 15px 90px;
+  border: 0px;
+  border-radius: 4px;
+  padding-bottom: 51px;
+  font-size: 1.8em;
+  box-shadow: 0px 19px 30px -3px #808080;
+}
+
+.tim-back-button:hover {
+  color: white;
+}
+
+.tim-forward-button:hover {
+  color: white;
+}
+
+.no-tim-button {
+  display: none;
+}
+
+#quantity-dropdown {
+  border: 1px solid $viobin;
+  border-radius: 5px;
+  height: 60px;
+  width: 200px;
+  font-size: 1.3em;
+  font-weight: 200;
+  color: $viobin;
+  padding: 0px 30px;
+  // -webkit-appearance: none;
+  // -moz-appearance: none;
+  // -webkit-border-radius: 0px;
+  // background: url('../../up-and-down.svg')  no-repeat;
+}
+
 
 .tincture-carrier {
 
@@ -34,6 +123,7 @@
     margin: auto 5px;
     border: none;
     width: 140px;
+    height: 160px;
   }
 
   .tincture-flavor-button-icons {
@@ -45,6 +135,7 @@
 
   button {
     margin: auto 5px;
+    height: 160px;
   }
 }
 
@@ -57,6 +148,7 @@
   button {
     margin: auto 5px;
     border: none;
+    height: 160px;
   }
 
   .spectrum-button-logos {
@@ -79,6 +171,7 @@
     border: 1px solid #FFFFFF;
     margin: 0px 15px;
     height: auto;
+    height: 120px;
   }
 
   button:hover {
@@ -86,6 +179,8 @@
   }
 
 }
+
+
 
 .potency-big-number {
   font-size: 3em;

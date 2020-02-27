@@ -10,11 +10,11 @@ class PrintButton extends Component {
 
     if (this.props.displayPrintButton) {
       printLabel = <section>
-          <article className="actual-print-button">
-            <ReactToPrint
-              trigger={() => <button>Build my Brand</button>}
-              content={() => this.componentRef}
-            />
+          <article>
+              <ReactToPrint
+                trigger={() => <button className="actual-print-button">PRINT→</button>}
+                content={() => this.componentRef}
+              />
           </article>
           <LabelCreator 
             ref={el => (this.componentRef = el)}

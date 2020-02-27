@@ -7,20 +7,30 @@
   bottom: 0px;
 }
 
-.selection-area {
-  height: 150px;
+.intro-graph {
+  width: 70vw;
+  text-align: left;
+  margin: 40px auto;
+}
+
+.step-explanation {
+  color: $viobin;
+  font-size: 2em;
+  font-weight: 300;
+}
+
+.step-number {
+  font-weight: 700;
 }
 
 .product-choice-image {
-  height: 200px;
+  height: 320px;
 }
 
 // .build-my-brand-button {
 //   height: 100%;
 //   width: 100%;
 // }
-
-
 
 .product-button {
   color: #37A9BA;
@@ -36,9 +46,9 @@
   height: 500px;
 }
 
-.selection-area {
-  height: 250px;
-}
+// .selection-area {
+//   width: 2000px;
+// }
 
 .created-label {
   margin: 50px;

@@ -5,10 +5,10 @@ class CompanyInfo extends Component {
     super(props)
 
     this.state = {
-      companyName: '',
-      personsName: '',
-      email: '',
-      phone: '',
+      companyName: 'Test Co.',
+      personsName: 'Example Person',
+      email: 'testing@test.com',
+      phone: '970-405-8080',
       companyEntered: false,
       touched: {
         personsName: false,
@@ -53,7 +53,6 @@ class CompanyInfo extends Component {
   }
   
   render() {
-
     const errors = this.validityCheck(this.state.personsName, this.state.email, this.state.phone)
     const isEnabled = !Object.keys(errors).some(input => errors[input])
 
@@ -64,45 +63,49 @@ class CompanyInfo extends Component {
       return hasError ? shouldShow : false;
     }
 
-
     return <section className="company-info">
         <form className="company-form">
-          <input 
-            type="text" 
-            placeholder="Company"
-            name="companyName"
-            value={ this.state.companyName}
-            onChange={ this.handleChange }
-          />
-          <input 
-            type="text" 
-            placeholder="Your Name"
-            name="personsName"
-            value={ this.state.personsName}
-            onChange={ this.handleChange }
-            onBlur={ () => this.handleBlur('personsName') }
-            className={ shouldMarkError('personsName') ? "error" : "" }
-          />
-          <input 
-            type="email" 
-            placeholder="Email"
-            name="email"
-            value={ this.state.email}
-            onChange={ this.handleChange }
-            onBlur={ () => this.handleBlur('email') }
-            className={ shouldMarkError('email') ? "error" : "" }
-          />
-          <input 
-            type="tel" 
-            placeholder="Phone"
-            name="phone"
-            pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
-            value={ this.state.phone}
-            onChange={ this.handleChange }
-            onBlur={ () => this.handleBlur('phone') }
-            className={ shouldMarkError('phone') ? "error" : "" }
-          /> 
-          <button disabled={ !isEnabled } onClick={ this.handleClick }>SUBMIT</button>
+            <input 
+              type="text" 
+              placeholder="Company"
+              name="companyName"
+              value={ this.state.companyName}
+              onChange={ this.handleChange }
+            />
+            <input 
+              type="text" 
+              placeholder="Your Name"
+              name="personsName"
+              value={ this.state.personsName}
+              onChange={ this.handleChange }
+              onBlur={ () => this.handleBlur('personsName') }
+              className={ shouldMarkError('personsName') ? "error" : "" }
+            />
+            <input 
+              type="email" 
+              placeholder="Email"
+              name="email"
+              value={ this.state.email}
+              onChange={ this.handleChange }
+              onBlur={ () => this.handleBlur('email') }
+              className={ shouldMarkError('email') ? "error" : "" }
+            />
+            <input 
+              type="tel" 
+              placeholder="Phone"
+              name="phone"
+              pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+              value={ this.state.phone}
+              onChange={ this.handleChange }
+              onBlur={ () => this.handleBlur('phone') }
+              className={ shouldMarkError('phone') ? "error" : "" }
+              id="telephone-spacer"
+            />
+          {/* <button disabled={ !isEnabled } onClick={ this.handleClick }>SUBMIT</button> */}
+          <section className="tims-buttons"> 
+            <button className="tim-back-button" onClick={ this.props.backToProductSelection }>←BACK</button>
+            <button disabled={ !isEnabled } className="tim-forward-button" onClick={ this.handleClick }>NEXT→</button>
+          </section>
         </form>
       </section>
   }
