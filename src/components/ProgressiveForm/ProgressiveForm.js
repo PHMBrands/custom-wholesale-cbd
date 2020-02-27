@@ -62,9 +62,7 @@ class ProgressiveForm extends Component {
 
     if (testNum !== this.state.choices.length) {
       this.setState({ currentDisplay: this.state.choices[testNum] })
-    } else {
-      (console.log('else sucess'))
-    }
+    } 
   }
 
   regressDisplay = () => {
@@ -86,10 +84,6 @@ class ProgressiveForm extends Component {
     const softgelChoicesRemaining = ['quantity', 'softgelSize', 'carrier', 'spectrum', 'potency', 'softgelPerBottle', 'logo'];
     const topicalsChoicesRemaining = [];
     const tincturesComplete = ['company', 'quantity', 'flavor', 'carrier', 'spectrum', 'potency', 'logo']  
-
-    //setState with an array of choices which can not be manipulated
-    //setState with current display, which is a number
-    //use index of the array as means to manipulate switch statement within the productForms
 
     if (this.state.stashedProduct === 'Tinctures') {
       this.setState({ choices: tincturesComplete, choicesRemaining: tinctureChoicesRemaining})
@@ -116,6 +110,10 @@ class ProgressiveForm extends Component {
     this.setState({ productSelected: 'company' })
   }
 
+  backToProductSelection = () => {
+    this.setState({ productSelected: 'products' })
+  }
+
   setDisplayPrintButton = () => {
     this.setState({ displayPrintButton: true })
   }
@@ -130,11 +128,8 @@ class ProgressiveForm extends Component {
             <CompanyInfo 
               createCompany={ this.createCompany } 
               company={ this.state.company }
+              backToProductSelection={ this.backToProductSelection }
             />
-            {/* <section className="tims-buttons"> 
-              <button className="tim-back-button" onClick={ this.props.startOver }>BACK</button>
-              <button className="tim-forward-button" onClick={ this.props.startOver }>NEXT</button>
-            </section> */}
           </section> 
       case 'products':
         return <section className="intro-page">

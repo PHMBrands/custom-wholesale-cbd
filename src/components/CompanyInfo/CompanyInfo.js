@@ -63,7 +63,14 @@ class CompanyInfo extends Component {
 
       return hasError ? shouldShow : false;
     }
-
+    
+    // const displayTimButtons = () => {
+    //   if (this.props.currentDisplay === 'logo') {
+    //     return "no-tim-button"
+    //   } else {
+    //     return "tim-forward-button"
+    //   }
+    // }
 
     return <section className="company-info">
         <form className="company-form">
@@ -102,7 +109,11 @@ class CompanyInfo extends Component {
             onBlur={ () => this.handleBlur('phone') }
             className={ shouldMarkError('phone') ? "error" : "" }
           /> 
-          <button disabled={ !isEnabled } onClick={ this.handleClick }>SUBMIT</button>
+          {/* <button disabled={ !isEnabled } onClick={ this.handleClick }>SUBMIT</button> */}
+          <section className="tims-buttons"> 
+              <button className="tim-back-button" onClick={ this.props.backToProductSelection }>←BACK</button>
+              <button disabled={ !isEnabled } className="tim-forward-button" onClick={ this.handleClick }>NEXT→</button>
+          </section>
         </form>
       </section>
   }
