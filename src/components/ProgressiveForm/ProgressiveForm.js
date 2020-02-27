@@ -65,8 +65,8 @@ class ProgressiveForm extends Component {
     let testNum = this.state.choices.indexOf(this.state.currentDisplay) + 1
 
     if (testNum !== this.state.choices.length) {
-      this.setState({ currentDisplay: this.state.choices[testNum] })
-    } 
+      this.setState({ currentDisplay: this.state.choices[testNum] }, () => this.checkPrintButton())
+    }
   }
 
   regressDisplay = () => {
@@ -76,6 +76,14 @@ class ProgressiveForm extends Component {
       this.setState({ currentDisplay: this.state.choices[testNum] })
     } else if (testNum === 0) {
       this.setState({ productSelected: 'company' })
+    }
+  }
+
+  checkPrintButton = () => {
+    console.log('checkPrintButton fire')
+    if (this.state.currentDisplay === 'logo') {
+      console.log('checkPrintButton if')
+      this.setState({ displayPrintButton: true });
     }
   }
 
@@ -118,9 +126,9 @@ class ProgressiveForm extends Component {
     this.setState({ productSelected: 'products' })
   }
 
-  setDisplayPrintButton = () => {
-    this.setState({ displayPrintButton: true })
-  }
+  // setDisplayPrintButton = () => {
+  //   this.setState({ displayPrintButton: true })
+  // }
 
   selectProduct = (selection) => {
     switch (selection) {
@@ -180,19 +188,14 @@ class ProgressiveForm extends Component {
     }
   }
 
-  testMethod = (event) => {
-    event.preventDefault()
-    this.updateProductSelection('Tinctures')
-  }
-
   render() {
-    let resetButton
+    // let resetButton
     // let progressiveForm
     // let productHeader
 
-    if (this.state.productSelected !== 'products') {
-      resetButton = <button onClick={ this.startOver } className="reset-button">RESET</button>
-    }
+    // if (this.state.productSelected !== 'products') {
+    //   resetButton = <button onClick={ this.startOver } className="reset-button">RESET</button>
+    // }
 
     // if(this.state.productSelected !== 'products' && this.state.productSelected !== 'company') {
     //   productHeader = <h2>Private Label {this.state.productSelected}</h2>

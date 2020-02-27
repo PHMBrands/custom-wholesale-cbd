@@ -212,7 +212,8 @@ class TinctureChoices extends Component {
         </section>            
         <section className="tims-buttons"> 
           <button className="tim-back-button" onClick={ this.props.regressDisplay }>←BACK</button>
-          <button className={ displayTimButtons() } onClick={ this.props.progressDisplay }>NEXT→</button>
+          {/* <button className={ displayTimButtons() } onClick={ this.props.progressDisplay }>NEXT→</button> */}
+          <button className="tim-forward-button" onClick={ this.props.progressDisplay }>NEXT→</button>
         </section>
       </section>
     );
