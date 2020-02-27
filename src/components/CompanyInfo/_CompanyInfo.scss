@@ -4,10 +4,15 @@
   justify-content: center;
 }
 
+#company-step-descriptor {
+  margin-top: 42px;
+}
+
 .company-form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 48px;
   // width: 300px;
 
   input {
@@ -37,5 +42,6 @@
 }
 
 #telephone-spacer {
-  margin-bottom: 240px;
+  margin-bottom: 190px;
 }
+

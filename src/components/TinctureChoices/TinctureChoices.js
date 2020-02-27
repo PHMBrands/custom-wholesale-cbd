@@ -44,17 +44,17 @@ class TinctureChoices extends Component {
   displayStep = (status) => {
     switch(status) {
       case 'quantity':
-        return <p className="step-explanation"><span className="step-number">Step 2: </span>Number of tinctures</p>
+        return <p className="step-explanation"><span className="step-number">Step 3: </span>Number of tinctures</p>
       case 'flavor':
-        return <p className="step-explanation"><span className="step-number">Step 3: </span>Choose your flavor</p>
+        return <p className="step-explanation"><span className="step-number">Step 4: </span>Choose your flavor</p>
       case 'carrier':
-        return <p className="step-explanation"><span className="step-number">Step 4: </span>Choose your carrier oil</p>
+        return <p className="step-explanation"><span className="step-number">Step 5: </span>Choose your carrier oil</p>
       case 'spectrum':
-        return <p className="step-explanation"><span className="step-number">Step 5: </span>Choose your spectrum</p>
+        return <p className="step-explanation"><span className="step-number">Step 6: </span>Choose your spectrum</p>
       case 'potency':
-        return <p className="step-explanation"><span className="step-number">Step 6: </span>Choose your potency per serving</p>
-      case 'logo':
         return <p className="step-explanation"><span className="step-number">Step 7: </span>Choose your potency per serving</p>
+      case 'logo':
+        return <p className="step-explanation"><span className="step-number">Step 8: </span>Choose your potency per serving</p>
       default:
         return <div>Something went wrong with the displayStep switch statement in TinctureChoices component</div>  
     }
@@ -212,8 +212,8 @@ class TinctureChoices extends Component {
         </section>            
         <section className="tims-buttons"> 
           <button className="tim-back-button" onClick={ this.props.regressDisplay }>←BACK</button>
-          {/* <button className={ displayTimButtons() } onClick={ this.props.progressDisplay }>NEXT→</button> */}
-          <button className="tim-forward-button" onClick={ this.props.progressDisplay }>NEXT→</button>
+          <button className={ displayTimButtons() } onClick={ this.props.progressDisplay }>NEXT→</button>
+          {/* <button className="tim-forward-button" onClick={ this.props.progressDisplay }>NEXT→</button> */}
         </section>
       </section>
     );

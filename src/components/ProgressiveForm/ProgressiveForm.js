@@ -73,7 +73,7 @@ class ProgressiveForm extends Component {
     let testNum = this.state.choices.indexOf(this.state.currentDisplay) - 1
 
     if (testNum > 0) {
-      this.setState({ currentDisplay: this.state.choices[testNum] })
+      this.setState({ currentDisplay: this.state.choices[testNum], displayPrintButton: false })
     } else if (testNum === 0) {
       this.setState({ productSelected: 'company' })
     }
@@ -135,8 +135,7 @@ class ProgressiveForm extends Component {
       case 'company':
         return <section>
             {/* <button onClick={ this.startOver } className="back-button">BACK</button> */}
-            <p>Your company name will appear on the label, and the contact info below that.</p>
-            <p>Enter your information below</p>
+            <p className="step-explanation" id="company-step-descriptor"><span className="step-number">Step 2: </span>Enter your information</p>
             <CompanyInfo 
               createCompany={ this.createCompany } 
               company={ this.state.company }

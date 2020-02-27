@@ -5,10 +5,10 @@ class CompanyInfo extends Component {
     super(props)
 
     this.state = {
-      companyName: 'CBD Good',
-      personsName: 'Mark',
-      email: 'mark@test.com',
-      phone: '970-405',
+      companyName: 'Test Co.',
+      personsName: 'Example Person',
+      email: 'testing@test.com',
+      phone: '970-405-8080',
       companyEntered: false,
       touched: {
         personsName: false,
