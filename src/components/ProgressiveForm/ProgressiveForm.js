@@ -27,6 +27,7 @@ class ProgressiveForm extends Component {
       stashedProduct: '',
       progress: 'open',
       displayPrintButton: false,
+      choices: [],
       choicesRemaining: []
     }
   }
@@ -56,9 +57,18 @@ class ProgressiveForm extends Component {
     this.setState({ currentDisplay: display, stashedDisplay });
   }
 
+  progressDisplay = () => {
+    console.log('test')
+
+    let testNum = this.state.choices.indexOf(this.state.currentDisplay) + 1
+    console.log('testNum', testNum)
+    this.setState({ currentDisplay: this.state.choices[testNum] })
+  }
+
   regressDisplay = () => {
-    let newDisplay = this.state.currentDisplay - 1;
-    this.setState({ currentDisplay: newDisplay })
+    let testNum = this.state.choices.indexOf(this.state.currentDisplay) - 1
+    console.log('testNum', testNum)
+    this.setState({ currentDisplay: this.state.choices[testNum] })
   }
 
   updateProductSelection = (product) => {
@@ -69,9 +79,14 @@ class ProgressiveForm extends Component {
     const tinctureChoicesRemaining = ['quantity', 'flavor', 'carrier', 'spectrum', 'potency', 'logo'];
     const softgelChoicesRemaining = ['quantity', 'softgelSize', 'carrier', 'spectrum', 'potency', 'softgelPerBottle', 'logo'];
     const topicalsChoicesRemaining = [];
+    const tincturesComplete = ['company', 'quantity', 'flavor', 'carrier', 'spectrum', 'potency', 'logo']  
+
+    //setState with an array of choices which can not be manipulated
+    //setState with current display, which is a number
+    //use index of the array as means to manipulate switch statement within the productForms
 
     if (this.state.stashedProduct === 'Tinctures') {
-      this.setState({ choicesRemaining: tinctureChoicesRemaining })
+      this.setState({ choices: tincturesComplete, choicesRemaining: tinctureChoicesRemaining})
     } else if (this.state.stashedProduct === 'Softgels') {
       this.setState({ choicesRemaining: softgelChoicesRemaining }) 
     } else if (this.state.stashedProduct === 'Topicals') {
@@ -133,6 +148,7 @@ class ProgressiveForm extends Component {
             currentDisplay={ this.state.currentDisplay } 
             updateSelectionsObject={ this.updateSelectionsObject }
             setLogoChoice={ this.setLogoChoice }
+            progressDisplay={ this.progressDisplay }
             regressDisplay={ this.regressDisplay }
             selections={ this.state.selections }
             startOver={ this.startOver }
