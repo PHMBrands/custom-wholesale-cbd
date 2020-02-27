@@ -11,7 +11,6 @@ import TopicalChoice from '../../images/form-options/topical-icon.jpg';
 import PrintButton from '../PrintButton/PrintButton';
 
 
-
 class ProgressiveForm extends Component {
   constructor() {
     super()

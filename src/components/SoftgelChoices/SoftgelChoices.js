@@ -230,7 +230,7 @@ class SoftgelChoices extends Component {
         <section className="product-photo-and-choices">
           <section className="product-sidecar-photo">
             <img src={ SoftgelChoice } className="product-choice-image" />
-            <p className="product-sidecar-photo-description">30ML amber glass bottle with dropper</p>
+            <p className="product-sidecar-photo-description">This is a softgel bottle</p>
           </section>
           <section className="product-sidecar-choices">
             { this.displayChoice(this.props.currentDisplay) }

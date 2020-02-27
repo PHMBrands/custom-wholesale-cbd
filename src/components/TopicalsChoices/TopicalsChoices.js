@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import LogoSelector from '../LogoSelector/LogoSelector';
+import TopicalChoice from '../../images/form-options/topical-icon.jpg';
 
 
 class TopicalsChoices extends Component {
@@ -94,19 +95,36 @@ class TopicalsChoices extends Component {
   }
 
   render() {
-    let backButton
 
-    if (this.state.selectionName !== 'quantity') {
-      backButton = <button onClick={ this.props.regressDisplay } className="back-button">Previous Option</button>
-    } else {
-      backButton = <button onClick={ this.props.backToCompanyInfo } className="back-button">BACK</button>
+    const displayTimButtons = () => {
+      if (this.props.currentDisplay === 'logo') {
+        return "no-tim-button"
+      } else {
+        return "tim-forward-button"
+      }
+
+      // return (this.props.currentDisplay === 'logo' ? "tim-forward-button" : "no-tim-button")
     }
 
-    return <section>
-        <h3>Private Label Topicals</h3>
-        { backButton }
-        { this.displayChoice(this.props.currentDisplay) }
+    return (
+        <section className="tincture-choices">
+        { this.displayStep(this.props.currentDisplay) }
+        <section className="product-photo-and-choices">
+          <section className="product-sidecar-photo">
+            <img src={ TopicalChoice } className="product-choice-image" />
+            <p className="product-sidecar-photo-description">This is a softgel bottle</p>
+          </section>
+          <section className="product-sidecar-choices">
+            { this.displayChoice(this.props.currentDisplay) }
+          </section>
+        </section>            
+        <section className="tims-buttons"> 
+          <button className="tim-back-button" onClick={ this.props.regressDisplay }>←BACK</button>
+          <button className={ displayTimButtons() } onClick={ this.props.progressDisplay }>NEXT→</button>
+          {/* <button className="tim-forward-button" onClick={ this.props.progressDisplay }>NEXT→</button> */}
+        </section>
       </section>
+    );
   }
 }
 
