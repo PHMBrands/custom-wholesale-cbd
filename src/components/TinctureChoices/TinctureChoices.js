@@ -20,7 +20,8 @@ class TinctureChoices extends Component {
 
     this.state = {
       selectionName: 'quantity',
-      selectionValue: 100
+      selectionValue: 100,
+      testNum: undefined
     }
   }
 
@@ -84,33 +85,33 @@ class TinctureChoices extends Component {
       case 'flavor':
         return <article>
             <form className="tincture-flavors">
-              <button name="flavor" value="Guava Lime" onClick={ this.handleChangeNoButton } >
+              <button name="flavor" value="Guava Strawberry" onClick={ this.handleChangeNoButton } >
                 <img src={ Guava } className="tincture-flavor-button-icons" />
-                <p>Guava Lime</p>
+                <p>Guava Strawberry</p>
               </button>
-              <button name="flavor" value="Mocha" onClick={ this.handleChangeNoButton } >
+              {/* <button name="flavor" value="Mocha" onClick={ this.handleChangeNoButton } >
                 <img src={ Mocha } className="tincture-flavor-button-icons" />
                 <p>Mocha</p>
-              </button>
-              <button name="flavor" value="Mojito" onClick={ this.handleChangeNoButton } >
+              </button> */}
+              {/* <button name="flavor" value="Mojito" onClick={ this.handleChangeNoButton } >
                 <img src={ Mojito } className="tincture-flavor-button-icons" />
                 <p>Mojito</p>
-              </button>
+              </button> */}
               <button name="flavor" value="Peppermint" onClick={ this.handleChangeNoButton } >
                 <img src={ Peppermint } className="tincture-flavor-button-icons" />
                 <p>Peppermint</p>
               </button>
-              <button name="flavor" value="Orange Creamsicle" onClick={ this.handleChangeNoButton } >
+              <button name="flavor" value="Orange Creme" onClick={ this.handleChangeNoButton } >
                 <img src={ Popsicle } className="tincture-flavor-button-icons" />
-                <p>Orange Creamsicle</p>
+                <p>Orange Creme</p>
               </button>
-              <button name="flavor" value="Mint Chocolate" onClick={ this.handleChangeNoButton } >
+              <button name="flavor" value="Mint" onClick={ this.handleChangeNoButton } >
                 <img src={ Mint } className="tincture-flavor-button-icons" />
-                <p>Mint Chocolate</p>
+                <p>Mint</p>
               </button>
-              <button name="flavor" value="Unflavored" onClick={ this.handleChangeNoButton } >
+              <button name="flavor" value="Natural" onClick={ this.handleChangeNoButton } >
                 <img src={ Hemp } className="tincture-flavor-button-icons" />
-                <p>Unflavored</p>
+                <p>Natural</p>
               </button>
             </form>
           </article>
@@ -187,8 +188,15 @@ class TinctureChoices extends Component {
     // }
 
     const displayTimButtons = () => {
-      
+      if (this.props.currentDisplay === 'logo') {
+        return "no-tim-button"
+      } else {
+        return "tim-forward-button"
+      }
+
+      // return (this.props.currentDisplay === 'logo' ? "tim-forward-button" : "no-tim-button")
     }
+  
 
     return (
       <section className="tincture-choices">
@@ -204,7 +212,7 @@ class TinctureChoices extends Component {
         </section>            
         <section className="tims-buttons"> 
           <button className="tim-back-button" onClick={ this.props.regressDisplay }>←BACK</button>
-          <button className={ displayTimButtons() ? "tim-back-button" : "no-tim-button" } onClick={ this.props.progressDisplay }>NEXT→</button>
+          <button className={ displayTimButtons() } onClick={ this.props.progressDisplay }>NEXT→</button>
         </section>
       </section>
     );
