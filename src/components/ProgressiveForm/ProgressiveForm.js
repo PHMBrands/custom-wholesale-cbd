@@ -58,16 +58,12 @@ class ProgressiveForm extends Component {
   }
 
   progressDisplay = () => {
-    console.log('test')
-
     let testNum = this.state.choices.indexOf(this.state.currentDisplay) + 1
-    console.log('testNum', testNum)
     this.setState({ currentDisplay: this.state.choices[testNum] })
   }
 
   regressDisplay = () => {
     let testNum = this.state.choices.indexOf(this.state.currentDisplay) - 1
-    console.log('testNum', testNum)
     this.setState({ currentDisplay: this.state.choices[testNum] })
   }
 
