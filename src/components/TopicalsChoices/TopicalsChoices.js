@@ -29,7 +29,7 @@ class TopicalsChoices extends Component {
 
   displayChoice = (status) => {
     switch (status) {
-      case 0:
+      case 'quantity':
         return <article>
             <h4>Please select the number of bottles you're interested in:</h4>
             <form>
@@ -53,7 +53,7 @@ class TopicalsChoices extends Component {
       //         <label for="size-two">Lotion Size Two</label>
       //     </form>
       //   </article>
-      case 1:
+      case 'spectrum':
         return <article>
           <h4>Please select your spectrum:</h4>
           <form>
@@ -63,7 +63,7 @@ class TopicalsChoices extends Component {
             <label for="broad-spectrum">Broad Spectrum</label>
           </form>
         </article>
-      case 2:
+      case 'scent':
         return <article>
           <h4>Please select your scent:</h4>
           <form>
@@ -74,7 +74,7 @@ class TopicalsChoices extends Component {
 
           </form>
         </article>
-      case 3:
+      case 'potency':
         return <article>
           <h4>Please select your potency per serving:</h4>
           <form>
@@ -84,7 +84,7 @@ class TopicalsChoices extends Component {
             <label for="25mg">25 mg</label>
           </form>
         </article>
-      case 4:
+      case 'logo':
         return <article>
             <LogoSelector setLogoChoice={ this.props.setLogoChoice } />
           </article>

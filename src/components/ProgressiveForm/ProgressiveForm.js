@@ -80,9 +80,7 @@ class ProgressiveForm extends Component {
   }
 
   checkPrintButton = () => {
-    console.log('checkPrintButton fire')
     if (this.state.currentDisplay === 'logo') {
-      console.log('checkPrintButton if')
       this.setState({ displayPrintButton: true });
     }
   }
@@ -94,15 +92,17 @@ class ProgressiveForm extends Component {
   productSelectedChoicesRemaining = () => {
     const tinctureChoicesRemaining = ['quantity', 'flavor', 'carrier', 'spectrum', 'potency', 'logo'];
     const softgelChoicesRemaining = ['quantity', 'softgelSize', 'carrier', 'spectrum', 'potency', 'softgelPerBottle', 'logo'];
-    const topicalsChoicesRemaining = [];
+    const topicalsChoicesRemaining = ['quantity', 'spectrum', 'scent', 'potency', 'logo'];
     const tincturesComplete = ['company', 'quantity', 'flavor', 'carrier', 'spectrum', 'potency', 'logo']  
+    const softgelComplete = ['company', 'quantity', 'softgelSize', 'carrier', 'spectrum', 'potency', 'softgelPerBottle', 'logo']
+    const topicalsComplete = ['company', 'quantity', 'spectrum', 'scent', 'potency', 'logo']
 
     if (this.state.stashedProduct === 'Tinctures') {
       this.setState({ choices: tincturesComplete, choicesRemaining: tinctureChoicesRemaining})
     } else if (this.state.stashedProduct === 'Softgels') {
-      this.setState({ choicesRemaining: softgelChoicesRemaining }) 
+      this.setState({ choices: softgelComplete, choicesRemaining: softgelChoicesRemaining }) 
     } else if (this.state.stashedProduct === 'Topicals') {
-      this.setState({ choicesRemaining: topicalsChoicesRemaining })
+      this.setState({ choices: topicalsComplete,choicesRemaining: topicalsChoicesRemaining })
     }
   }
 
@@ -170,8 +170,9 @@ class ProgressiveForm extends Component {
             currentDisplay={this.state.currentDisplay}
             updateSelectionsObject={this.updateSelectionsObject}
             setLogoChoice={ this.setLogoChoice }
+            progressDisplay={ this.progressDisplay }
             regressDisplay={ this.regressDisplay }
-            backToCompanyInfo={ this.backToCompanyInfo }
+            selections={ this.state.selections }
             startOver={ this.startOver }
           />
       case 'Topicals':

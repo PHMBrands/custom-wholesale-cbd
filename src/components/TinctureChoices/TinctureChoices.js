@@ -105,10 +105,10 @@ class TinctureChoices extends Component {
                 <img src={ Popsicle } className="tincture-flavor-button-icons" />
                 <p>Orange Creme</p>
               </button>
-              <button name="flavor" value="Mint" onClick={ this.handleChangeNoButton } >
+              {/* <button name="flavor" value="Mint" onClick={ this.handleChangeNoButton } >
                 <img src={ Mint } className="tincture-flavor-button-icons" />
                 <p>Mint</p>
-              </button>
+              </button> */}
               <button name="flavor" value="Natural" onClick={ this.handleChangeNoButton } >
                 <img src={ Hemp } className="tincture-flavor-button-icons" />
                 <p>Natural</p>
@@ -149,7 +149,7 @@ class TinctureChoices extends Component {
                 <p className="potency-per-bottle">300mg per bottle</p>
               </button>
               <button name="potency" value="20 mg" onClick={ this.handleChangeNoButton }>
-                <p><span name="potency" value="20 mg" className="potency-big-number">20</span>mg</p>
+                <p><span name="potency" className="potency-big-number">20</span>mg</p>
                 <p className="potency-per-bottle">600mg per bottle</p>
               </button>
               <button name="potency" value="30 mg" onClick={ this.handleChangeNoButton }>
@@ -196,7 +196,6 @@ class TinctureChoices extends Component {
 
       // return (this.props.currentDisplay === 'logo' ? "tim-forward-button" : "no-tim-button")
     }
-  
 
     return (
       <section className="tincture-choices">
