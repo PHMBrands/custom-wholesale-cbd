@@ -186,6 +186,10 @@ class TinctureChoices extends Component {
     //   backButton = <button onClick={ this.props.backToCompanyInfo } className="back-button">BACK</button>
     // }
 
+    const displayTimButtons = () => {
+      
+    }
+
     return (
       <section className="tincture-choices">
         { this.displayStep(this.props.currentDisplay) }
@@ -200,7 +204,7 @@ class TinctureChoices extends Component {
         </section>            
         <section className="tims-buttons"> 
           <button className="tim-back-button" onClick={ this.props.regressDisplay }>←BACK</button>
-          <button className="tim-forward-button" onClick={ this.props.progressDisplay }>NEXT→</button>
+          <button className={ displayTimButtons() ? "tim-back-button" : "no-tim-button" } onClick={ this.props.progressDisplay }>NEXT→</button>
         </section>
       </section>
     );

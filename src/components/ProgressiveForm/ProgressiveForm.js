@@ -59,12 +59,22 @@ class ProgressiveForm extends Component {
 
   progressDisplay = () => {
     let testNum = this.state.choices.indexOf(this.state.currentDisplay) + 1
-    this.setState({ currentDisplay: this.state.choices[testNum] })
+
+    if (testNum !== this.state.choices.length) {
+      this.setState({ currentDisplay: this.state.choices[testNum] })
+    } else {
+      (console.log('else sucess'))
+    }
   }
 
   regressDisplay = () => {
     let testNum = this.state.choices.indexOf(this.state.currentDisplay) - 1
-    this.setState({ currentDisplay: this.state.choices[testNum] })
+
+    if (testNum > 0) {
+      this.setState({ currentDisplay: this.state.choices[testNum] })
+    } else if (testNum === 0) {
+      this.setState({ productSelected: 'company' })
+    }
   }
 
   updateProductSelection = (product) => {
