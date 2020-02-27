@@ -74,7 +74,7 @@ class TinctureChoices extends Component {
               <button onClick={ this.handleClick }>SUBMIT</button>
             </form> */}
             {/* <form> */}
-              <select id="quantity-dropdown" name="quantity">
+              <select id="quantity-dropdown" name="quantity" onChange={ this.handleChangeNoButton }>
                 <option value="less than 250">less than 250</option>
                 <option value="250 to 500<">250 to 500</option>
                 <option value="500 to 1000">500-1,000</option>
