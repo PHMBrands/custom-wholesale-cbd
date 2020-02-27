@@ -35,13 +35,17 @@ class ProgressiveForm extends Component {
   updateSelectionsObject = (selection) => {
     const { selectionName, selectionValue } = selection;
     let updatedSelection = {...this.state.selections, [selectionName]: selectionValue };
-    let updatedChoicesRemaining = this.state.choicesRemaining.filter(choice => choice !== selectionName);
+    this.setState({ selections: updatedSelection });
+    this.progressDisplay()
 
-    if (updatedChoicesRemaining.length > 0) {
-      this.setState({ selections: updatedSelection, choicesRemaining: updatedChoicesRemaining, currentDisplay: updatedChoicesRemaining[0] })
-    } else {
-      this.setState({ currentDisplay: 6, displayPrintButton: true })
-    }
+    //This logic is for site version (prevents user from continuing without completing all options)
+    // let updatedChoicesRemaining = this.state.choicesRemaining.filter(choice => choice !== selectionName);
+
+    // if (updatedChoicesRemaining.length > 0) {
+    //   this.setState({ selections: updatedSelection, choicesRemaining: updatedChoicesRemaining, currentDisplay: updatedChoicesRemaining[0] })
+    // } else {
+    //   this.setState({ currentDisplay: 6, displayPrintButton: true })
+    // }
   }
 
   displayPrintButton = () => {

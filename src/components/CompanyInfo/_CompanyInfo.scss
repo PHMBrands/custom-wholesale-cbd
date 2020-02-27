@@ -7,24 +7,25 @@
 .company-form {
   display: flex;
   flex-direction: column;
-  text-align: center;
-  width: 300px;
+  align-items: center;
+  // width: 300px;
 
   input {
     margin: 5px 0px;
     height: 30px;
     font-size: 1.3em;
     padding-left: 8px;
-    border: 1px solid #BFBFBF
+    border: 1px solid #BFBFBF;
+    width: 300px;
   }
 
-  button {
-    font-size: 1.3em;
-    margin-top: 5px;
-    border: 1px solid #BFBFBF;
-    height: 34px;
-    cursor: pointer;
-  }
+  // button {
+  //   font-size: 1.3em;
+  //   margin-top: 5px;
+  //   border: 1px solid #BFBFBF;
+  //   height: 34px;
+  //   cursor: pointer;
+  // }
 
   button:disabled {
     cursor: default;
@@ -33,4 +34,8 @@
   .error {
     border: 1px solid red
   }
+}
+
+#telephone-spacer {
+  margin-bottom: 240px;
 }
