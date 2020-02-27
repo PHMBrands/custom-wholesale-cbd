@@ -37,7 +37,7 @@ class SoftgelChoices extends Component {
   displayStep = (status) => {
     switch(status) {
       case 'quantity':
-        return <p className="step-explanation"><span className="step-number">Step 3: </span>Number of tinctures</p>
+        return <p className="step-explanation"><span className="step-number">Step 3: </span>Number of Softgel bottles</p>
       case 'softgelSize':
         return <p className="step-explanation"><span className="step-number">Step 4: </span>Choose your softgel size</p>
       case 'carrier':

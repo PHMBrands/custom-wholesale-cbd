@@ -90,10 +90,10 @@ class ProgressiveForm extends Component {
 
   productSelectedChoicesRemaining = () => {
     const tinctureChoicesRemaining = ['quantity', 'flavor', 'carrier', 'spectrum', 'potency', 'logo'];
-    const softgelChoicesRemaining = ['quantity', 'softgelSize', 'carrier', 'spectrum', 'potency', 'softgelPerBottle', 'logo'];
+    const softgelChoicesRemaining = ['quantity', 'softgelSize', 'potency', 'carrier', 'spectrum', 'softgelPerBottle', 'logo'];
     const topicalsChoicesRemaining = ['quantity', 'spectrum', 'scent', 'potency', 'logo'];
     const tincturesComplete = ['company', 'quantity', 'flavor', 'carrier', 'spectrum', 'potency', 'logo']  
-    const softgelComplete = ['company', 'quantity', 'softgelSize', 'carrier', 'spectrum', 'potency', 'softgelPerBottle', 'logo']
+    const softgelComplete = ['company', 'quantity', 'softgelSize', 'potency', 'carrier', 'spectrum', 'softgelPerBottle', 'logo']
     const topicalsComplete = ['company', 'quantity', 'spectrum', 'scent', 'potency', 'logo']
 
     if (this.state.stashedProduct === 'Tinctures') {
@@ -113,9 +113,9 @@ class ProgressiveForm extends Component {
     this.updateSelectionsObject(logoChoice)
   }
 
-  startOver = () => {
-    this.setState({ selections: {}, currentDisplay: 0, productSelected: 'products', logoChoice: undefined, displayPrintButton: false })
-  }
+  // startOver = () => {
+  //   this.setState({ selections: {}, currentDisplay: 0, productSelected: 'products', logoChoice: undefined, displayPrintButton: false })
+  // }
 
   backToCompanyInfo = () => {
     this.setState({ productSelected: 'company' })
@@ -162,7 +162,7 @@ class ProgressiveForm extends Component {
             progressDisplay={ this.progressDisplay }
             regressDisplay={ this.regressDisplay }
             selections={ this.state.selections }
-            startOver={ this.startOver }
+            // startOver={ this.startOver }
           />
       case 'Softgels':
         return <SoftgelChoices
@@ -172,15 +172,17 @@ class ProgressiveForm extends Component {
             progressDisplay={ this.progressDisplay }
             regressDisplay={ this.regressDisplay }
             selections={ this.state.selections }
-            startOver={ this.startOver }
+            // startOver={ this.startOver }
           />
       case 'Topicals':
         return <TopicalsChoices
             currentDisplay={ this.state.currentDisplay }
             updateSelectionsObject={ this.updateSelectionsObject }
             setLogoChoice={ this.setLogoChoice }
+            progressDisplay={ this.progressDisplay }
             regressDisplay={ this.regressDisplay }
-            backToCompanyInfo={ this.backToCompanyInfo }
+            selections={ this.state.selections }
+            // startOver={ this.startOver }
           />
       default:
         return <p>Something went wrong with the selectProduct switch statement.</p>

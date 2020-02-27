@@ -20,8 +20,7 @@ class TinctureChoices extends Component {
 
     this.state = {
       selectionName: 'quantity',
-      selectionValue: 100,
-      testNum: undefined
+      selectionValue: 100
     }
   }
 
