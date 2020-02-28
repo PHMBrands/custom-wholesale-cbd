@@ -5,9 +5,9 @@ import SoftgelChoices from '../SoftgelChoices/SoftgelChoices';
 import TopicalsChoices from '../TopicalsChoices/TopicalsChoices';
 // import LabelCreator from '../LabelCreator/LabelCreator';
 import CompanyInfo from '../CompanyInfo/CompanyInfo';
-import TinctureChoice from '../../images/form-options/tincture-icon.jpg';
-import SoftgelChoice from '../../images/form-options/softgel-icon.jpg'
-import TopicalChoice from '../../images/form-options/topical-icon.jpg';
+import TinctureChoice from '../../images/form-options/tincture-optimized.jpg';
+import SoftgelChoice from '../../images/form-options/softgels-optimized.jpg'
+import TopicalChoice from '../../images/form-options/lotion-optimized.jpg';
 import PrintButton from '../PrintButton/PrintButton';
 
 

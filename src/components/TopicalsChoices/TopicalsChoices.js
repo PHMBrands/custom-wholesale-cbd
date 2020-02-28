@@ -3,6 +3,9 @@ import LogoSelector from '../LogoSelector/LogoSelector';
 import TopicalChoice from '../../images/form-options/topical-icon.jpg';
 import FullSpectrum from '../../images/choice-button-icons/full-spectrum.svg';
 import BroadSpectrum from '../../images/choice-button-icons/no-thc.svg'
+import Cooling from '../../images/choice-button-icons/fan.svg';
+import TeaTree from '../../images/choice-button-icons/leaf.svg';
+import Lotion from '../../images/choice-button-icons/lotion.svg';
 
 
 class TopicalsChoices extends Component {
@@ -76,15 +79,15 @@ class TopicalsChoices extends Component {
         return <article>
             <form className="tincture-spectrum">
               <button name="spectrum" value="Full Spectrum" onClick={ this.handleChangeNoButton }>
-                <img src={ FullSpectrum } className="spectrum-button-logos" />
+                <img src={ Cooling } className="spectrum-button-logos" />
                 <p>Cooling</p>
               </button>
               <button name="spectrum" value="Broad Spectrum" onClick={ this.handleChangeNoButton }>
-                <img src={ BroadSpectrum } className="spectrum-button-logos" />
+                <img src={ TeaTree } className="spectrum-button-logos" />
                 <p>Tea Tree</p>
               </button>
               <button name="spectrum" value="Broad Spectrum" onClick={ this.handleChangeNoButton }>
-                <img src={ BroadSpectrum } className="spectrum-button-logos" />
+                <img src={ Lotion } className="spectrum-button-logos" />
                 <p>Unscented</p>
               </button>
             </form>
