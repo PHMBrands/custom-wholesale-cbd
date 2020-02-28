@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import LogoSelector from '../LogoSelector/LogoSelector';
-import TopicalChoice from '../../images/form-options/topical-icon.jpg';
+import TopicalChoice from '../../images/form-options/lotion-optimized.jpg';
 import FullSpectrum from '../../images/choice-button-icons/full-spectrum.svg';
 import BroadSpectrum from '../../images/choice-button-icons/no-thc.svg'
 import Cooling from '../../images/choice-button-icons/fan.svg';

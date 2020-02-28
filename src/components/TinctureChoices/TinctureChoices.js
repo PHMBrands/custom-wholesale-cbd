@@ -3,15 +3,15 @@ import LogoSelector from '../LogoSelector/LogoSelector';
 import FullSpectrum from '../../images/choice-button-icons/full-spectrum.svg';
 import BroadSpectrum from '../../images/choice-button-icons/no-thc.svg'
 import Guava from '../../images/choice-button-icons/guava.svg';
-import Mint from '../../images/choice-button-icons/mint.svg';
-import Mojito from '../../images/choice-button-icons/mojito.svg';
+// import Mint from '../../images/choice-button-icons/mint.svg';
+// import Mojito from '../../images/choice-button-icons/mojito.svg';
 import Peppermint from '../../images/choice-button-icons/peppermint.svg';
 import Popsicle from '../../images/choice-button-icons/popsicle.svg';
-import Mocha from '../../images/choice-button-icons/coffee-bean.svg';
+// import Mocha from '../../images/choice-button-icons/coffee-bean.svg';
 import Hemp from '../../images/choice-button-icons/hemp.svg';
 import Wheat from '../../images/choice-button-icons/wheat.svg';
 import Coconut from '../../images/choice-button-icons/coconut.svg';
-import TinctureChoice from '../../images/form-options/tincture-icon.jpg';
+import TinctureChoice from '../../images/form-options/tincture-optimized.jpg';
 
 
 class TinctureChoices extends Component {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import LogoSelector from '../LogoSelector/LogoSelector';
 import Wheat from '../../images/choice-button-icons/wheat.svg';
 import Coconut from '../../images/choice-button-icons/coconut.svg';
-import SoftgelChoice from '../../images/form-options/softgel-icon.jpg';
+import SoftgelChoice from '../../images/form-options/softgels-optimized.jpg';
 import FullSpectrum from '../../images/choice-button-icons/full-spectrum.svg';
 import BroadSpectrum from '../../images/choice-button-icons/no-thc.svg'
 

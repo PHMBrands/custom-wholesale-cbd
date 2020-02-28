@@ -148,11 +148,11 @@ class ProgressiveForm extends Component {
             <p className="intro-graph">Are you looking for CBD products with your label on it? No problem! You can choose which of our preformulated products you want and order it right here. If you want to talk to a sales representative you can.... or you can simply use our CBD stock products builder and pay online today. NO BULL! Do it all online! Transpartent pricing and easy to use.</p>
             <p className="step-explanation"><span className="step-number">STEP 1: </span>Choose your product</p>
             {/* <p>To get started click below:</p> */}
-            <form>
+            {/* <form> */}
               <button onClick={ () => this.updateProductSelection('Softgels') } className="product-button" ><img src={ SoftgelChoice } alt="generic softgel" className="product-choice-image" />Softgels</button>
               <button onClick={ () => this.updateProductSelection('Topicals') } className="product-button" ><img src={ TopicalChoice } alt="generic topical" className="product-choice-image" />Lotion</button>
               <button onClick={ () => this.updateProductSelection('Tinctures') } className="product-button" ><img src={ TinctureChoice } alt="generic tincture" className="product-choice-image" />Tinctures</button>
-            </form>
+            {/* </form> */}
           </section>
       case 'Tinctures':
         return <TinctureChoices 
